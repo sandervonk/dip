@@ -9,6 +9,9 @@ const TextHeader = null,
   EarthText = null,
   ImageToContact = null;
 
+//* Import images for pages
+import PaddiesImage from "@/../public/img/paddies.png";
+
 //* Page flow; ** around text is green, * is full opacity white, default is grey
 export const pages = [
   {
@@ -16,7 +19,7 @@ export const pages = [
     data: {
       primary: "World x Change",
       secondary: "An Information-Age Solution to the Tragedy of the Commons",
-      image: "../path/to/paddies",
+      image: PaddiesImage,
     },
   },
   {

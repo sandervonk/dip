@@ -28,14 +28,14 @@ export default function Nav() {
       animate={scrolled ? "scrolled" : "animate"}
       variants={{
         initial: {
-          background: "#ffffff00",
+          background: "#33333300",
         },
         animate: {
-          background: "#ffffff00",
+          background: "#33333300",
         },
         scrolled: {
-          background: "#ffffff15",
-          backdropFilter: "blur(5px)",
+          background: "#33333355",
+          backdropFilter: "blur(3px)",
         },
       }}
     >
@@ -44,7 +44,15 @@ export default function Nav() {
         <nav className={styles.nav}>
           <ul>
             {Object.entries(pages).map(([path, name]) => (
-              <motion.li key={path} animate={path == pathname && { opacity: 1, borderBottomColor: "var(--foreground)" }}>
+              <motion.li
+                key={path}
+                animate={
+                  path == pathname && {
+                    opacity: 1,
+                    borderBottomColor: "var(--foreground)",
+                  }
+                }
+              >
                 <Link href={path}>{name}</Link>
               </motion.li>
             ))}

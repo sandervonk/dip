@@ -1,6 +1,5 @@
+@import "@/app/variables.scss";
 .container {
-  $header-height: 50px;
-  $header-width: 800px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -70,8 +69,8 @@
       border: none;
       height: 1px;
       position: absolute;
-      background: var(--foreground);
-      opacity: 0.2;
+      background: #aaa;
+      opacity: 0.4;
     }
   }
 }
