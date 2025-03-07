@@ -3,9 +3,12 @@ import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import styles from "./nav.module.scss";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 export default function Nav() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
   useMotionValueEvent(scrollY, "change", (y) => {
     if (y > 0 && !scrolled) {
       setScrolled(true);
@@ -37,9 +40,9 @@ export default function Nav() {
         <nav className={styles.nav}>
           <ul>
             {Object.entries(pages).map(([path, name]) => (
-              <li key={path}>
+              <motion.li key={path} animate={path == pathname && { opacity: 1, borderBottomColor: "var(--foreground)" }}>
                 <Link href={path}>{name}</Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </nav>

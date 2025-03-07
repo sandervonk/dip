@@ -13,9 +13,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Inter, Helvetica, sans-serif;
+  color: var(--foreground) !important;
+  background: var(--background) !important;
+  font-family: var(--font), Helvetica, sans-serif;
   letter-spacing: -0.0075em;
   font-size: 25px;
   -webkit-font-smoothing: antialiased;
@@ -33,4 +33,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* error page */
+h1.next-error-h1 {
+  border-right-color: #ffffff80 !important;
 }
