@@ -8,6 +8,7 @@ export const dynamic = "error";
 const inter = Inter({
   weight: "variable",
   style: "normal",
+  subsets: ["latin"],
   variable: "--font",
 });
 
