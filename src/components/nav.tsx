@@ -27,8 +27,12 @@ export default function Nav() {
       className={styles.container}
       animate={scrolled ? "scrolled" : "animate"}
       variants={{
-        initial: {},
-        animate: {},
+        initial: {
+          background: "#ffffff00",
+        },
+        animate: {
+          background: "#ffffff00",
+        },
         scrolled: {
           background: "#ffffff15",
           backdropFilter: "blur(5px)",

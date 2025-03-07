@@ -1,11 +1,10 @@
 //* Import components for pages
-// import TitleSplash from "../components/TitleSplash";
+import TitleSplash from "../components/TitleSplash";
 // import TextHeader from "../components/TextHeader";
 // import CenterImage from "../components/CenterImage";
 // import EarthText from "../components/EarthText";
 // import ImageToContact from "../components/ImageToContact";
-const TitleSplash = null,
-  TextHeader = null,
+const TextHeader = null,
   CenterImage = null,
   EarthText = null,
   ImageToContact = null;
