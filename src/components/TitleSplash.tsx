@@ -1,6 +1,6 @@
 import styles from "./TitleSplash.module.scss";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll } from "motion/react";
 import { useRef } from "react";
 export default function TitleSplash(
   props: Readonly<{
@@ -15,10 +15,10 @@ export default function TitleSplash(
   const container = useRef(null);
   const primary = useRef(null);
   const secondary = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: primary,
-    offset: ["center center", "start 40px"],
-  });
+  //   const { scrollYProgress } = useScroll({
+  //     target: primary,
+  //     offset: ["center center", "start 40px"],
+  //   });
   return (
     <div className={styles.container} ref={container}>
       <Image
