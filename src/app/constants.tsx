@@ -46,7 +46,9 @@ export const pages = [
         {
           src: "../path/to/imaging-one",
           alt: "alt caption",
-          blurbs: ["Remote sensing provides the *necessary monitoring and reporting* of the mitigation efforts, resulting in high-quality results that can be trusted by markets"],
+          blurbs: [
+            "Remote sensing provides the *necessary monitoring and reporting* of the mitigation efforts, resulting in high-quality results that can be trusted by markets",
+          ],
         },
         {
           src: "../path/to/imaging-one",
@@ -67,7 +69,9 @@ export const pages = [
         {
           src: "../path/to/group",
           alt: "group picture caption",
-          blurbs: ["*Local leadership and institutions* need to be fully embraced and integrated into the project"],
+          blurbs: [
+            "*Local leadership and institutions* need to be fully embraced and integrated into the project",
+          ],
         },
       ],
     },
