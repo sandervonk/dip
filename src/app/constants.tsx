@@ -1,11 +1,10 @@
 //* Import components for pages
-import TitleSplash from "../components/TitleSplash";
-// import TextHeader from "../components/TextHeader";
-// import CenterImage from "../components/CenterImage";
-// import EarthText from "../components/EarthText";
-// import ImageToContact from "../components/ImageToContact";
-const TextHeader = null,
-  CenterImage = null,
+import TitleSplash from "@/components/TitleSplash";
+import TextHeader from "@/components/TextHeader";
+// import CenterImage from "@/components/CenterImage";
+// import EarthText from "@/components/EarthText";
+// import ImageToContact from "@/components/ImageToContact";
+const CenterImage = null,
   EarthText = null,
   ImageToContact = null;
 
@@ -115,3 +114,27 @@ export const pages = [
     },
   },
 ];
+
+import React from "react";
+import styles from "./TextStyles.module.scss";
+import reactStringReplace from "react-string-replace";
+/** Format text to nested spans with the following markdown-like properties:
+ * | parent -> <span className={styles.grey}>(</span>
+ * | **text** -> <span className={styles.green}>text</span>
+ * | *text* -> <span className={styles.white}>text</span>
+ */
+export function ColorText(text: string, greyBase: boolean = true) {
+  const green = /\*\*([^*]+)\*\*/g;
+  const white = /\*([^*]+)\*/g;
+  let content = reactStringReplace(text, green, (match, i) => (
+    <span key={i} className={styles.green}>
+      {match}
+    </span>
+  ));
+  content = reactStringReplace(content, white, (match, i) => (
+    <span key={i} className={styles.white}>
+      {match}
+    </span>
+  ));
+  return <span className={greyBase ? styles.grey : undefined}>{content}</span>;
+}

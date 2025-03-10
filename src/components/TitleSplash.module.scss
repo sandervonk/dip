@@ -1,5 +1,4 @@
 @import "@/app/variables.scss";
-$header-spacing: -$header-height;
 
 .container {
   height: calc(100vh - $header-height - $header-spacing);
@@ -7,7 +6,6 @@ $header-spacing: -$header-height;
   margin-top: $header-spacing;
   padding-top: -$header-spacing;
   top: calc(-100vh + 2 * $header-height + $header-spacing);
-  z-index: -1;
   // center children
   display: flex;
   flex-flow: column nowrap;
@@ -22,7 +20,7 @@ $header-spacing: -$header-height;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2;
+    z-index: -1;
   }
   .primary {
     font-size: 75px;

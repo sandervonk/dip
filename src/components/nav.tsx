@@ -35,7 +35,7 @@ export default function Nav() {
         },
         scrolled: {
           background: "#33333355",
-          backdropFilter: "blur(3px)",
+          backdropFilter: "blur(5px)",
         },
       }}
     >
@@ -62,12 +62,18 @@ export default function Nav() {
           className={styles.separator}
           animate={scrolled ? "scrolled" : "animate"}
           variants={{
-            initial: { width: 0 },
+            initial: {
+              width: 0,
+              background: "#fff",
+            },
             animate: {
-              width: "min(100vw, 800px)",
+              width: "min(calc(100vw - 2 * 20px), 800px)",
+              background: "#fff",
             },
             scrolled: {
               width: "100vw",
+              opacity: 0.5,
+              background: "#aaa",
             },
           }}
         ></motion.hr>

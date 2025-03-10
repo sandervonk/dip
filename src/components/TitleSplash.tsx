@@ -1,6 +1,6 @@
 import styles from "./TitleSplash.module.scss";
 import Image, { StaticImageData } from "next/image";
-import { motion, useScroll } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 export default function TitleSplash(
   props: Readonly<{
@@ -17,13 +17,14 @@ export default function TitleSplash(
   const secondary = useRef(null);
   const { scrollYProgress } = useScroll({
     target: primary,
-    offset: ["center center", "start 40px"],
+    offset: ["center 100px", "start 50px"],
   });
-  void scrollYProgress;
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
   return (
     <div className={styles.container} ref={container}>
       <Image
         className={styles.image}
+        style={{ opacity }}
         src={data.image}
         alt="Title Card Image"
         priority
