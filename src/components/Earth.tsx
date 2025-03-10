@@ -26,36 +26,126 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 const window = globalThis;
 
 // React component for the Three.js WebGPU Earth
-const ThreeJSEarth = () => {
+const ThreeJSEarth = ({
+  initialRotation = { x: 0, y: 0, z: 0 },
+  initialPosition = { x: 4.5, y: 2, z: 3 },
+  initialPanning = { x: 0, y: 0 },
+  sunPosition = { x: 0, y: 0, z: 3 },
+  autoRotate = true,
+  autoRotateSpeed = 0.025,
+  dampingFactor = 0.1,
+  returnDelay = 2000,
+  returnDuration = 1000,
+}) => {
   const containerRef = useRef(null);
+  const sceneRef = useRef(null);
+  const cameraRef = useRef(null);
+  const controlsRef = useRef(null);
+  const globeRef = useRef(null);
+  const rendererRef = useRef(null);
+  const clockRef = useRef(null);
+  const returnTimeoutRef = useRef(null);
+  const isInteractingRef = useRef(false);
+  const isReturningRef = useRef(false);
+  const targetRotationRef = useRef(
+    new THREE.Euler(initialRotation.x, initialRotation.y, initialRotation.z)
+  );
+  const targetPositionRef = useRef(
+    new THREE.Vector3(initialPosition.x, initialPosition.y, initialPosition.z)
+  );
+  const targetSunRef = useRef(
+    new THREE.Vector3(sunPosition.x, sunPosition.y, sunPosition.z)
+  );
+  const targetPanningRef = useRef(
+    new THREE.Vector2(initialPanning.x, initialPanning.y)
+  );
+
   // State for window resizing
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: typeof window !== "undefined" ? window.innerWidth : 800,
+    height: typeof window !== "undefined" ? window.innerHeight : 600,
   });
 
   useEffect(() => {
-    // Equivalent to the init() function in the original code
-    let camera, scene, renderer, controls, globe, clock;
+    // Update target values when props change
+    targetRotationRef.current = new THREE.Euler(
+      initialRotation.x,
+      initialRotation.y,
+      initialRotation.z
+    );
+    targetPositionRef.current = new THREE.Vector3(
+      initialPosition.x,
+      initialPosition.y,
+      initialPosition.z
+    );
+
+    targetSunRef.current = new THREE.Vector3(
+      sunPosition.x,
+      sunPosition.y,
+      sunPosition.z
+    );
+    targetPanningRef.current = new THREE.Vector2(
+      initialPanning.x,
+      initialPanning.y
+    );
+
+    // If we have a camera and controls already set up, update them
+    if (cameraRef.current && controlsRef.current && !isInteractingRef.current) {
+      // Set the camera position directly
+      cameraRef.current.position.copy(targetPositionRef.current);
+
+      // Update the controls target for panning
+      const panOffset = new THREE.Vector3(
+        targetPanningRef.current.x,
+        targetPanningRef.current.y,
+        0
+      );
+      controlsRef.current.target.copy(panOffset);
+
+      // Apply the rotation to the globe
+      if (globeRef.current) {
+        globeRef.current.rotation.set(
+          targetRotationRef.current.x,
+          targetRotationRef.current.y,
+          targetRotationRef.current.z
+        );
+      }
+
+      controlsRef.current.update();
+    }
+  }, [initialRotation, initialPosition, initialPanning]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
     // Initialize clock for animation
-    clock = new THREE.Clock();
+    clockRef.current = new THREE.Clock();
 
-    // Camera setup - identical to original
-    camera = new THREE.PerspectiveCamera(
+    // Camera setup
+    const camera = new THREE.PerspectiveCamera(
       25,
       windowSize.width / windowSize.height,
       0.1,
       100
     );
-    camera.position.set(4.5, 2, 3);
+    camera.position.set(
+      initialPosition.x,
+      initialPosition.y,
+      initialPosition.z
+    );
+    cameraRef.current = camera;
 
     // Scene setup
-    scene = new THREE.Scene();
+    const scene = new THREE.Scene();
+    sceneRef.current = scene;
 
     // Sun - identical directional light setup
-    const sun = new THREE.DirectionalLight("#ffffff", 2);
-    sun.position.set(0, 0, 3);
+    const sun = new THREE.DirectionalLight("#ffeeee", 2);
+    sun.position.set(
+      targetSunRef.current.x,
+      targetSunRef.current.y,
+      targetSunRef.current.z
+    );
     scene.add(sun);
 
     // Uniforms - identical to original
@@ -139,8 +229,11 @@ const ThreeJSEarth = () => {
 
     // Create the globe with same geometry as original
     const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
-    globe = new THREE.Mesh(sphereGeometry, globeMaterial);
+    const globe = new THREE.Mesh(sphereGeometry, globeMaterial);
+    // Apply initial rotation
+    globe.rotation.set(initialRotation.x, initialRotation.y, initialRotation.z);
     scene.add(globe);
+    globeRef.current = globe;
 
     // Atmosphere - Using MeshBasicNodeMaterial from TSL
     const atmosphereMaterial = new THREE.MeshBasicNodeMaterial({
@@ -156,27 +249,146 @@ const ThreeJSEarth = () => {
     scene.add(atmosphere);
 
     // Renderer - using WebGPURenderer explicitly imported
-    renderer = new WebGPURenderer();
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(windowSize.width, windowSize.height);
+    let renderer;
+    try {
+      renderer = new WebGPURenderer();
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(windowSize.width, windowSize.height);
+      rendererRef.current = renderer;
 
-    // Append to the container div instead of directly to body
-    containerRef.current.appendChild(renderer.domElement);
+      // Append to the container div instead of directly to body
+      if (containerRef.current) {
+        containerRef.current.appendChild(renderer.domElement);
+      }
+    } catch (error) {
+      console.error("Failed to initialize WebGPU renderer:", error);
+      return;
+    }
 
-    // Controls - identical to original
-    controls = new OrbitControls(camera, renderer.domElement);
+    // Set up initial panning target
+    const panOffset = new THREE.Vector3(initialPanning.x, initialPanning.y, 0);
+
+    // Controls - modified to include custom behavior
+    const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
+    controls.dampingFactor = dampingFactor; // Increased damping for smoother movement
     controls.minDistance = 3;
     controls.maxDistance = 30;
+    controls.target.copy(panOffset); // Set initial target for panning
+    controlsRef.current = controls;
 
-    // Animation function - identical to original
+    // Add event listeners for interaction
+    controls.addEventListener("start", () => {
+      isInteractingRef.current = true;
+      isReturningRef.current = false;
+
+      // Clear any existing return timeout
+      if (returnTimeoutRef.current) {
+        clearTimeout(returnTimeoutRef.current);
+      }
+    });
+
+    controls.addEventListener("end", () => {
+      isInteractingRef.current = false;
+
+      // Set a timeout to return to the target position
+      returnTimeoutRef.current = setTimeout(() => {
+        returnToTargetPosition();
+      }, returnDelay);
+    });
+
+    // Function to smoothly return to target position
+    const returnToTargetPosition = () => {
+      if (isInteractingRef.current || isReturningRef.current) return;
+
+      isReturningRef.current = true;
+
+      const startTime = Date.now();
+      const startPosition = camera.position.clone();
+      const startTarget = controls.target.clone();
+
+      // Store initial rotation for interpolation
+      const startRotation = {
+        x: globe.rotation.x,
+        y: globe.rotation.y,
+        z: globe.rotation.z,
+      };
+
+      // Animation function for smooth transition
+      const animateReturn = () => {
+        if (!isReturningRef.current) return;
+
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / returnDuration, 1);
+
+        // Ease out cubic function for smooth deceleration
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+
+        // Interpolate camera position
+        camera.position.lerpVectors(
+          startPosition,
+          targetPositionRef.current,
+          easeOut
+        );
+
+        // Interpolate target (for panning)
+        const targetVector = new THREE.Vector3(
+          targetPanningRef.current.x,
+          targetPanningRef.current.y,
+          0
+        );
+        controls.target.lerpVectors(startTarget, targetVector, easeOut);
+
+        // Interpolate globe rotation
+        globe.rotation.x = THREE.MathUtils.lerp(
+          startRotation.x,
+          targetRotationRef.current.x,
+          easeOut
+        );
+        globe.rotation.y = THREE.MathUtils.lerp(
+          startRotation.y,
+          targetRotationRef.current.y,
+          easeOut
+        );
+        globe.rotation.z = THREE.MathUtils.lerp(
+          startRotation.z,
+          targetRotationRef.current.z,
+          easeOut
+        );
+
+        controls.update();
+
+        if (progress < 1) {
+          requestAnimationFrame(animateReturn);
+        } else {
+          isReturningRef.current = false;
+        }
+      };
+
+      animateReturn();
+    };
+
+    // Animation function
     function animate() {
-      const delta = clock.getDelta();
-      globe.rotation.y += delta * 0.025;
+      if (!rendererRef.current || !sceneRef.current || !cameraRef.current) {
+        return;
+      }
 
-      controls.update();
+      const delta = clockRef.current.getDelta();
 
-      renderer.render(scene, camera);
+      // Auto-rotate if enabled and not currently interacting or returning
+      if (autoRotate && !isInteractingRef.current && !isReturningRef.current) {
+        globe.rotation.y += delta * autoRotateSpeed;
+
+        // Update the target rotation to match (only y axis for auto-rotation)
+        targetRotationRef.current.y = globe.rotation.y;
+      }
+
+      if (controlsRef.current) {
+        controlsRef.current.update();
+      }
+
+      rendererRef.current.render(sceneRef.current, cameraRef.current);
 
       // Use requestAnimationFrame instead of renderer.setAnimationLoop for React
       requestAnimationFrame(animate);
@@ -187,42 +399,116 @@ const ThreeJSEarth = () => {
 
     // Window resize handler
     const handleResize = () => {
+      if (typeof window === "undefined") return;
+
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
-
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-
-      renderer.setSize(window.innerWidth, window.innerHeight);
     };
 
     window.addEventListener("resize", handleResize);
 
     // Cleanup function for React component unmounting
     return () => {
+      if (typeof window === "undefined") return;
+
       window.removeEventListener("resize", handleResize);
 
-      // Dispose of ThreeJS resources
-      if (renderer) {
-        renderer.dispose();
-        renderer.domElement.remove();
+      // Clear any pending timeouts
+      if (returnTimeoutRef.current) {
+        clearTimeout(returnTimeoutRef.current);
       }
 
-      scene.traverse((object) => {
-        if (object instanceof THREE.Mesh) {
-          object.geometry.dispose();
-          if (object.material.dispose) {
-            object.material.dispose();
-          }
+      // Remove event listeners
+      if (controlsRef.current) {
+        controlsRef.current.removeEventListener("start", () => {});
+        controlsRef.current.removeEventListener("end", () => {});
+        controlsRef.current.dispose();
+      }
+
+      // Dispose of ThreeJS resources
+      if (rendererRef.current) {
+        rendererRef.current.dispose();
+        if (
+          rendererRef.current.domElement &&
+          rendererRef.current.domElement.parentNode
+        ) {
+          rendererRef.current.domElement.remove();
         }
-      });
+      }
+
+      if (sceneRef.current) {
+        sceneRef.current.traverse((object) => {
+          if (object instanceof THREE.Mesh) {
+            if (object.geometry) object.geometry.dispose();
+            if (object.material && object.material.dispose) {
+              if (Array.isArray(object.material)) {
+                object.material.forEach((material) => material.dispose());
+              } else {
+                object.material.dispose();
+              }
+            }
+          }
+        });
+      }
     };
-  }, [windowSize]); // Re-initialize when window size changes
+  }, []); // Initialize only once
+
+  // Handle window resize effects separately
+  useEffect(() => {
+    if (!cameraRef.current || !rendererRef.current) return;
+
+    // Update camera aspect ratio
+    cameraRef.current.aspect = windowSize.width / windowSize.height;
+    cameraRef.current.updateProjectionMatrix();
+
+    // Update renderer size
+    rendererRef.current.setSize(windowSize.width, windowSize.height);
+  }, [windowSize]);
 
   return (
-    <div ref={containerRef} style={{ width: "100%", height: "100vh" }}></div>
+    <div>
+      {/* Info section from the original HTML */}
+      <div
+        id="info"
+        style={{
+          position: "absolute",
+          top: "10px",
+          width: "100%",
+          textAlign: "center",
+          zIndex: 100,
+        }}
+      >
+        <a href="https://threejs.org" target="_blank" rel="noopener">
+          three.js webgpu
+        </a>{" "}
+        - earth
+        <br />
+        Based on{" "}
+        <a
+          href="https://threejs-journey.com/lessons/earth-shaders"
+          target="_blank"
+          rel="noopener"
+        >
+          Three.js Journey
+        </a>{" "}
+        lesson
+        <br />
+        Earth textures from{" "}
+        <a
+          href="https://www.solarsystemscope.com/textures/"
+          target="_blank"
+          rel="noopener"
+        >
+          Solar System Scope
+        </a>{" "}
+        (resized and merged)
+      </div>
+
+      {/* Container for the Three.js canvas */}
+      <div ref={containerRef} style={{ width: "100%", height: "100vh" }}></div>
+    </div>
   );
 };
 
