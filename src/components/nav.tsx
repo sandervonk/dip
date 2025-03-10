@@ -35,7 +35,7 @@ export default function Nav() {
         },
         scrolled: {
           background: "#33333355",
-          backdropFilter: "blur(5px)",
+          backdropFilter: "blur(10px)",
         },
       }}
     >

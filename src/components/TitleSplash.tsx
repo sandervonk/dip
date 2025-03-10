@@ -17,14 +17,17 @@ export default function TitleSplash(
   const secondary = useRef(null);
   const { scrollYProgress } = useScroll({
     target: primary,
-    offset: ["center 100px", "start 50px"],
+    offset: ["center center", "start 50px"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
   return (
-    <div className={styles.container} ref={container}>
+    <motion.div
+      className={styles.container}
+      ref={container}
+      style={{ opacity }}
+    >
       <Image
         className={styles.image}
-        style={{ opacity }}
         src={data.image}
         alt="Title Card Image"
         priority
@@ -48,6 +51,6 @@ export default function TitleSplash(
       >
         {data.secondary}
       </motion.h2>
-    </div>
+    </motion.div>
   );
 }

@@ -7,6 +7,8 @@ export default function Home() {
     <React.Fragment>
       {pages.map((page, i) => {
         const Component = page.component;
+
+        // @ts-expect-error data content varies by page
         return Component && <Component key={i} data={page.data} />;
       })}
       <div style={{ height: 10000 }}>scroll me</div>
