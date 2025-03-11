@@ -34,17 +34,17 @@ const ThreeJSEarth = ({
   autoRotate = true,
   autoRotateSpeed = 0.025,
   dampingFactor = 0.1,
-  returnDelay = 2000,
-  returnDuration = 1000,
+  returnDelay = 250,
+  returnDuration = 1500,
 }) => {
-  const containerRef = useRef(null);
-  const sceneRef = useRef(null);
-  const cameraRef = useRef(null);
-  const controlsRef = useRef(null);
-  const globeRef = useRef(null);
-  const rendererRef = useRef(null);
-  const clockRef = useRef(null);
-  const returnTimeoutRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const controlsRef = useRef<OrbitControls | null>(null);
+  const globeRef = useRef<THREE.Mesh | null>(null);
+  const rendererRef = useRef<WebGPURenderer | null>(null);
+  const clockRef = useRef<THREE.Clock | null>(null);
+  const returnTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isInteractingRef = useRef(false);
   const isReturningRef = useRef(false);
   const targetRotationRef = useRef(
@@ -240,8 +240,10 @@ const ThreeJSEarth = ({
       side: THREE.BackSide,
       transparent: true,
     });
-    let alpha = fresnel.remap(0.73, 1, 1, 0).pow(3);
-    alpha = alpha.mul(sunOrientation.smoothstep(-0.5, 1));
+    let alpha = fresnel
+      .remap(0.73, 1, 1, 0)
+      .pow(3)
+      .mul(sunOrientation.smoothstep(-0.5, 1));
     atmosphereMaterial.outputNode = vec4(atmosphereColor, alpha);
 
     const atmosphere = new THREE.Mesh(sphereGeometry, atmosphereMaterial);
@@ -272,8 +274,8 @@ const ThreeJSEarth = ({
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = dampingFactor; // Increased damping for smoother movement
-    controls.minDistance = 3;
-    controls.maxDistance = 30;
+    controls.minDistance = 2;
+    controls.maxDistance = 20;
     controls.target.copy(panOffset); // Set initial target for panning
     controlsRef.current = controls;
 
@@ -374,7 +376,7 @@ const ThreeJSEarth = ({
         return;
       }
 
-      const delta = clockRef.current.getDelta();
+      const delta = clockRef.current ? clockRef.current.getDelta() : 0;
 
       // Auto-rotate if enabled and not currently interacting or returning
       if (autoRotate && !isInteractingRef.current && !isReturningRef.current) {
@@ -468,47 +470,10 @@ const ThreeJSEarth = ({
   }, [windowSize]);
 
   return (
-    <div>
-      {/* Info section from the original HTML */}
-      <div
-        id="info"
-        style={{
-          position: "absolute",
-          top: "10px",
-          width: "100%",
-          textAlign: "center",
-          zIndex: 100,
-        }}
-      >
-        <a href="https://threejs.org" target="_blank" rel="noopener">
-          three.js webgpu
-        </a>{" "}
-        - earth
-        <br />
-        Based on{" "}
-        <a
-          href="https://threejs-journey.com/lessons/earth-shaders"
-          target="_blank"
-          rel="noopener"
-        >
-          Three.js Journey
-        </a>{" "}
-        lesson
-        <br />
-        Earth textures from{" "}
-        <a
-          href="https://www.solarsystemscope.com/textures/"
-          target="_blank"
-          rel="noopener"
-        >
-          Solar System Scope
-        </a>{" "}
-        (resized and merged)
-      </div>
-
-      {/* Container for the Three.js canvas */}
-      <div ref={containerRef} style={{ width: "100%", height: "100vh" }}></div>
-    </div>
+    <div
+      ref={containerRef}
+      style={{ width: "100%", height: "100vh", position: "sticky", bottom: 0 }}
+    ></div>
   );
 };
 
