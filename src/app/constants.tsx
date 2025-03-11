@@ -2,10 +2,9 @@
 import TitleSplash from "@/components/TitleSplash";
 import TextHeader from "@/components/TextHeader";
 // import CenterImage from "@/components/CenterImage";
-// import EarthText from "@/components/EarthText";
+import EarthText from "@/components/EarthText";
 // import ImageToContact from "@/components/ImageToContact";
 const CenterImage = null,
-  EarthText = null,
   ImageToContact = null;
 
 //* Import images for pages

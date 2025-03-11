@@ -1,8 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three/webgpu";
-// Import regular Three.js materials
 import { WebGPURenderer } from "three/webgpu";
-// Import TSL components separately
 import {
   step,
   normalWorld,
@@ -36,6 +34,7 @@ const ThreeJSEarth = ({
   dampingFactor = 0.1,
   returnDelay = 250,
   returnDuration = 1500,
+  className = "",
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -472,7 +471,8 @@ const ThreeJSEarth = ({
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: "100vh", position: "sticky", bottom: 0 }}
+      className={className}
+      style={{ width: "100%", height: "100vh" }}
     ></div>
   );
 };
