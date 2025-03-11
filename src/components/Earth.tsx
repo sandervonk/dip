@@ -241,8 +241,8 @@ const ThreeJSEarth = ({
     // Uniforms - identical to original
     const atmosphereDayColor = uniform(color("#4db2ff"));
     const atmosphereTwilightColor = uniform(color("#bd5c28"));
-    const roughnessLow = uniform(0.25);
-    const roughnessHigh = uniform(0.45);
+    const roughnessLow = uniform(0.3);
+    const roughnessHigh = uniform(0.55);
 
     // Texture loader
     const textureLoader = new THREE.TextureLoader();

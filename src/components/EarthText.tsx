@@ -1,6 +1,6 @@
 import styles from "./EarthText.module.scss";
 
-import TextHeader from "./TextHeader";
+import { TextHeader } from "./TextHeader";
 import Earth from "./Earth";
 
 export type position2D = { x: MotionValue<number>; y: MotionValue<number> };
@@ -24,8 +24,8 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
-export default function TitleSplash(
+import { useRef, useState } from "react";
+export default function EarthText(
   props: Readonly<{
     data: {
       // array of positions (pan, pos, rot, sun, transform coeff) for the earth
@@ -37,7 +37,7 @@ export default function TitleSplash(
   }>
 ) {
   const { data } = props;
-
+  const [showEarth, setShowEarth] = useState(false);
   const textRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: textRef,
@@ -81,7 +81,65 @@ export default function TitleSplash(
 
   return (
     <div className={styles.container}>
-      <motion.div style={{ zIndex: 1, position: "relative" }} ref={textRef}>
+      <motion.div
+        style={{
+          zIndex: 1,
+          position: "relative",
+          margin: "0 auto",
+          width: "fit-content",
+          marginLeft: "auto",
+          display: "flex",
+          flexFlow: "row nowrap",
+          paddingBottom: 120,
+        }}
+        ref={textRef}
+        onViewportEnter={() => setShowEarth(true)}
+        onViewportLeave={(entry) =>
+          setShowEarth((entry?.boundingClientRect?.top || 0) < 0)
+        }
+        viewport={{
+          amount: "all",
+        }}
+      >
+        <div
+          className={styles.markerWrapper}
+          style={{
+            overflow: "visible",
+            height: 200,
+          }}
+        >
+          <motion.svg className={styles.marker} width="150" height="500">
+            <motion.circle
+              animate={showEarth ? "animate" : "initial"}
+              cx="50%"
+              cy="calc(28.75px + 16px + 81px/2)"
+              r="12px"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              strokeDashoffset="46"
+              strokeDasharray="60 10"
+            />
+            <motion.circle
+              animate={showEarth ? "animate" : "initial"}
+              cx="50%"
+              cy="calc(28.75px + 16px + 81px/2)"
+              r="6px"
+              fill="white"
+            />
+            <motion.line
+              style={{
+                scaleY: scrollYProgress,
+              }}
+              x1="50%"
+              y1="calc(28.75px + 16px + 81px/2 + 6px)"
+              x2="50%"
+              y2="100%"
+              stroke="white"
+              strokeWidth="2"
+            />
+          </motion.svg>
+        </div>
         <TextHeader
           data={{
             section: data.section,
@@ -94,7 +152,7 @@ export default function TitleSplash(
         className={styles.earthWrapper}
         style={{ zIndex: 0, position: "fixed", bottom: 0, marginTop: "-50vh" }}
         initial="hidden"
-        animate="visible"
+        animate={showEarth ? "visible" : "hidden"}
         variants={{
           hidden: {
             y: "100%",

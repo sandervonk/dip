@@ -1,6 +1,6 @@
 //* Import components for pages
 import TitleSplash from "@/components/TitleSplash";
-import TextHeader from "@/components/TextHeader";
+import WrappedTextHeader from "@/components/TextHeader";
 // import CenterImage from "@/components/CenterImage";
 import EarthText from "@/components/EarthText";
 // import ImageToContact from "@/components/ImageToContact";
@@ -21,7 +21,7 @@ export const pages = [
     },
   },
   {
-    component: TextHeader,
+    component: WrappedTextHeader,
     data: {
       section: "The Idea",
       header: "Realign individual incentives with global consequences",
@@ -75,7 +75,7 @@ export const pages = [
     },
   },
   {
-    component: TextHeader,
+    component: WrappedTextHeader,
     data: {
       section: "World Improving Numbers",
       header: "WINS",
@@ -87,22 +87,22 @@ export const pages = [
     data: {
       positions: [
         {
-          pan: { x: 0, y: 2 },
-          pos: { x: 0.5, y: 0, z: 1.75 },
-          rot: { x: 0.5, y: 0, z: 0 },
+          pan: { x: 0, y: 4 },
+          pos: { x: 0.5, y: 0, z: 1 },
+          rot: { x: -0.5, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
-          transform: 0.1,
+          transform: 0.3,
         },
         {
           pan: { x: 0, y: 1.25 },
-          pos: { x: 0.5, y: 0, z: 3 },
+          pos: { x: 0.5, y: 0, z: 2.25 },
           rot: { x: 0, y: 0, z: 0 },
-          sun: { x: 1, y: 2, z: 2 },
-          transform: 0.25,
+          sun: { x: 2, y: 1, z: 1 },
+          transform: 0.5,
         },
         {
           pan: { x: 0, y: 1.25 },
-          pos: { x: 0.5, y: 0, z: 3.5 },
+          pos: { x: 0.5, y: 0, z: 2.5 },
           rot: { x: 0, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           transform: 0.7,
@@ -111,7 +111,7 @@ export const pages = [
           pan: { x: 0, y: 0 },
           pos: { x: 0.5, y: 0, z: 10 },
           rot: { x: 0, y: 0, z: 0 },
-          sun: { x: 1, y: 2, z: 2 },
+          sun: { x: 1, y: 1, z: 2 },
           transform: 1,
         },
       ],
