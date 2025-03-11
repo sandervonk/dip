@@ -17,7 +17,13 @@ export type PositionData = {
 };
 type PositionKey = "pan" | "pos" | "rot" | "sun";
 
-import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import {
+  easeOut,
+  motion,
+  MotionValue,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
 export default function TitleSplash(
   props: Readonly<{
@@ -35,22 +41,44 @@ export default function TitleSplash(
   const textRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: textRef,
-    offset: ["center center", "start 50px"],
+    offset: ["start end", "end 50px"],
   });
+
   const positionKeys: PositionKey[] = ["pan", "pos", "rot", "sun"];
-  const inputRange = data.positions.map((positions) => positions.transform);
+
+  // Create a normalized input range from the transform values
+  const inputRange = data.positions.map((position) => position.transform);
+
+  // Create MotionValues for each axis of each position type
   const [pan, pos, rot, sun] = positionKeys.map((key) => {
-    const axis = key === "pan" ? ["x", "y"] : ["x", "y", "z"];
-    const values = data.positions.map((positions) => positions[key]);
-    return axis.reduce((acc, axis) => {
-      //@ts-expect-error axis is a string that can be used as a key for the data
-      const range = values.map((value) => value[axis]);
+    // Determine which axes to use based on the position type
+    const axes = key === "pan" ? ["x", "y"] : ["x", "y", "z"];
+
+    // Extract values for this position key from the data
+    const values = data.positions.map((position) => position[key]);
+
+    // Create a MotionValue for each axis
+    return axes.reduce((acc, axis) => {
+      // Extract output range for this axis
+      // @ts-expect-error axis is a string that can be used as a key for the data
+      const outputRange = values.map((value) => value[axis]);
+
+      // Create motionvalue
       return {
         ...acc,
-        [axis as string]: useTransform(scrollYProgress, inputRange, range),
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        [axis as string]: useTransform(
+          scrollYProgress,
+          inputRange,
+          outputRange,
+          {
+            ease: easeOut,
+          }
+        ),
       };
     }, {}) as position3D | position2D;
   });
+
   return (
     <div className={styles.container}>
       <motion.div style={{ zIndex: 1, position: "relative" }} ref={textRef}>
@@ -66,6 +94,7 @@ export default function TitleSplash(
         className={styles.earthWrapper}
         style={{ zIndex: 0, position: "fixed", bottom: 0, marginTop: "-50vh" }}
         initial="hidden"
+        animate="visible"
         variants={{
           hidden: {
             y: "100%",
@@ -84,9 +113,9 @@ export default function TitleSplash(
         <Earth
           className={styles.earthContainer}
           initialPanning={pan}
-          initialPosition={pos}
-          initialRotation={rot}
-          sunPosition={sun}
+          initialPosition={pos as position3D}
+          initialRotation={rot as position3D}
+          sunPosition={sun as position3D}
           autoRotate={false}
         />
       </motion.div>

@@ -19,7 +19,8 @@ import {
   max,
 } from "three/tsl";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { PositionData, position2D, position3D } from "./EarthText";
+import { position2D, position3D } from "./EarthText";
+import { useMotionValueEvent } from "motion/react";
 
 // get window from global scope
 const window = globalThis;
@@ -82,6 +83,7 @@ const ThreeJSEarth = ({
   const targetPanningRef = useRef(
     new THREE.Vector2(initialPanning.x.get(), initialPanning.y.get())
   );
+  const sunLightRef = useRef<THREE.DirectionalLight | null>(null);
 
   // State for window resizing
   const [windowSize, setWindowSize] = useState({
@@ -89,43 +91,88 @@ const ThreeJSEarth = ({
     height: typeof window !== "undefined" ? window.innerHeight : 600,
   });
 
-  useEffect(() => {
-    // Update target values when props change
-    targetRotationRef.current = new THREE.Euler(
-      initialRotation.x.get(),
-      initialRotation.y.get(),
-      initialRotation.z.get()
-    );
-    targetPositionRef.current = new THREE.Vector3(
-      initialPosition.x.get(),
-      initialPosition.y.get(),
-      initialPosition.z.get()
-    );
+  // Subscribe to MotionValue changes using useMotionValueEvent
+  useMotionValueEvent(initialRotation.x, "change", (value) => {
+    if (targetRotationRef.current) {
+      targetRotationRef.current.x = value;
+      updateSceneFromMotionValues();
+    }
+  });
 
-    targetSunRef.current = new THREE.Vector3(
-      sunPosition.x.get(),
-      sunPosition.y.get(),
-      sunPosition.z.get()
-    );
-    targetPanningRef.current = new THREE.Vector2(
-      initialPanning.x.get(),
-      initialPanning.y.get()
-    );
+  useMotionValueEvent(initialRotation.y, "change", (value) => {
+    if (targetRotationRef.current) {
+      targetRotationRef.current.y = value;
+      updateSceneFromMotionValues();
+    }
+  });
 
-    // If we have a camera and controls already set up, update them
-    if (cameraRef.current && controlsRef.current && !isInteractingRef.current) {
-      // Set the camera position directly
-      cameraRef.current.position.copy(targetPositionRef.current);
+  useMotionValueEvent(initialRotation.z, "change", (value) => {
+    if (targetRotationRef.current) {
+      targetRotationRef.current.z = value;
+      updateSceneFromMotionValues();
+    }
+  });
 
-      // Update the controls target for panning
-      const panOffset = new THREE.Vector3(
-        targetPanningRef.current.x,
-        targetPanningRef.current.y,
-        0
-      );
-      controlsRef.current.target.copy(panOffset);
+  useMotionValueEvent(initialPosition.x, "change", (value) => {
+    if (targetPositionRef.current) {
+      targetPositionRef.current.x = value;
+      updateSceneFromMotionValues();
+    }
+  });
 
-      // Apply the rotation to the globe
+  useMotionValueEvent(initialPosition.y, "change", (value) => {
+    if (targetPositionRef.current) {
+      targetPositionRef.current.y = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  useMotionValueEvent(initialPosition.z, "change", (value) => {
+    if (targetPositionRef.current) {
+      targetPositionRef.current.z = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  useMotionValueEvent(initialPanning.x, "change", (value) => {
+    if (targetPanningRef.current) {
+      targetPanningRef.current.x = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  useMotionValueEvent(initialPanning.y, "change", (value) => {
+    if (targetPanningRef.current) {
+      targetPanningRef.current.y = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  useMotionValueEvent(sunPosition.x, "change", (value) => {
+    if (targetSunRef.current) {
+      targetSunRef.current.x = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  useMotionValueEvent(sunPosition.y, "change", (value) => {
+    if (targetSunRef.current) {
+      targetSunRef.current.y = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  useMotionValueEvent(sunPosition.z, "change", (value) => {
+    if (targetSunRef.current) {
+      targetSunRef.current.z = value;
+      updateSceneFromMotionValues();
+    }
+  });
+
+  // Function to update the scene based on MotionValue changes
+  const updateSceneFromMotionValues = () => {
+    if (!isInteractingRef.current && !isReturningRef.current) {
+      // Update globe rotation
       if (globeRef.current) {
         globeRef.current.rotation.set(
           targetRotationRef.current.x,
@@ -134,9 +181,28 @@ const ThreeJSEarth = ({
         );
       }
 
-      controlsRef.current.update();
+      // Update camera position
+      if (cameraRef.current) {
+        cameraRef.current.position.copy(targetPositionRef.current);
+      }
+
+      // Update controls target for panning
+      if (controlsRef.current) {
+        const panOffset = new THREE.Vector3(
+          targetPanningRef.current.x,
+          targetPanningRef.current.y,
+          0
+        );
+        controlsRef.current.target.copy(panOffset);
+        controlsRef.current.update();
+      }
+
+      // Update sun position
+      if (sunLightRef.current) {
+        sunLightRef.current.position.copy(targetSunRef.current);
+      }
     }
-  }, [initialRotation, initialPosition, initialPanning, sunPosition]);
+  };
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -170,6 +236,7 @@ const ThreeJSEarth = ({
       targetSunRef.current.z
     );
     scene.add(sun);
+    sunLightRef.current = sun;
 
     // Uniforms - identical to original
     const atmosphereDayColor = uniform(color("#4db2ff"));
@@ -295,7 +362,11 @@ const ThreeJSEarth = ({
     }
 
     // Set up initial panning target
-    const panOffset = new THREE.Vector3(initialPanning.x, initialPanning.y, 0);
+    const panOffset = new THREE.Vector3(
+      initialPanning.x.get(),
+      initialPanning.y.get(),
+      0
+    );
 
     // Controls - modified to include custom behavior
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -483,7 +554,7 @@ const ThreeJSEarth = ({
         });
       }
     };
-  }, []); // Initialize only once
+  }, []);
 
   // Handle window resize effects separately
   useEffect(() => {
