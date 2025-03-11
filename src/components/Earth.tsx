@@ -19,22 +19,34 @@ import {
   max,
 } from "three/tsl";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { PositionData, position2D, position3D } from "./EarthText";
 
 // get window from global scope
 const window = globalThis;
 
 // React component for the Three.js WebGPU Earth
 const ThreeJSEarth = ({
-  initialRotation = { x: 0, y: 0, z: 0 },
-  initialPosition = { x: 4.5, y: 2, z: 3 },
-  initialPanning = { x: 0, y: 0 },
-  sunPosition = { x: 0, y: 0, z: 3 },
+  initialRotation,
+  initialPosition,
+  initialPanning,
+  sunPosition,
   autoRotate = true,
   autoRotateSpeed = 0.025,
   dampingFactor = 0.1,
   returnDelay = 250,
   returnDuration = 1500,
   className = "",
+}: {
+  initialRotation: position3D;
+  initialPosition: position3D;
+  initialPanning: position2D;
+  sunPosition: position3D;
+  autoRotate?: boolean;
+  autoRotateSpeed?: number;
+  dampingFactor?: number;
+  returnDelay?: number;
+  returnDuration?: number;
+  className?: string;
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -47,16 +59,28 @@ const ThreeJSEarth = ({
   const isInteractingRef = useRef(false);
   const isReturningRef = useRef(false);
   const targetRotationRef = useRef(
-    new THREE.Euler(initialRotation.x, initialRotation.y, initialRotation.z)
+    new THREE.Euler(
+      initialRotation.x.get(),
+      initialRotation.y.get(),
+      initialRotation.z.get()
+    )
   );
   const targetPositionRef = useRef(
-    new THREE.Vector3(initialPosition.x, initialPosition.y, initialPosition.z)
+    new THREE.Vector3(
+      initialPosition.x.get(),
+      initialPosition.y.get(),
+      initialPosition.z.get()
+    )
   );
   const targetSunRef = useRef(
-    new THREE.Vector3(sunPosition.x, sunPosition.y, sunPosition.z)
+    new THREE.Vector3(
+      sunPosition.x.get(),
+      sunPosition.y.get(),
+      sunPosition.z.get()
+    )
   );
   const targetPanningRef = useRef(
-    new THREE.Vector2(initialPanning.x, initialPanning.y)
+    new THREE.Vector2(initialPanning.x.get(), initialPanning.y.get())
   );
 
   // State for window resizing
@@ -68,24 +92,24 @@ const ThreeJSEarth = ({
   useEffect(() => {
     // Update target values when props change
     targetRotationRef.current = new THREE.Euler(
-      initialRotation.x,
-      initialRotation.y,
-      initialRotation.z
+      initialRotation.x.get(),
+      initialRotation.y.get(),
+      initialRotation.z.get()
     );
     targetPositionRef.current = new THREE.Vector3(
-      initialPosition.x,
-      initialPosition.y,
-      initialPosition.z
+      initialPosition.x.get(),
+      initialPosition.y.get(),
+      initialPosition.z.get()
     );
 
     targetSunRef.current = new THREE.Vector3(
-      sunPosition.x,
-      sunPosition.y,
-      sunPosition.z
+      sunPosition.x.get(),
+      sunPosition.y.get(),
+      sunPosition.z.get()
     );
     targetPanningRef.current = new THREE.Vector2(
-      initialPanning.x,
-      initialPanning.y
+      initialPanning.x.get(),
+      initialPanning.y.get()
     );
 
     // If we have a camera and controls already set up, update them
@@ -112,7 +136,7 @@ const ThreeJSEarth = ({
 
       controlsRef.current.update();
     }
-  }, [initialRotation, initialPosition, initialPanning]);
+  }, [initialRotation, initialPosition, initialPanning, sunPosition]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -128,9 +152,9 @@ const ThreeJSEarth = ({
       100
     );
     camera.position.set(
-      initialPosition.x,
-      initialPosition.y,
-      initialPosition.z
+      initialPosition.x.get(),
+      initialPosition.y.get(),
+      initialPosition.z.get()
     );
     cameraRef.current = camera;
 
@@ -230,7 +254,11 @@ const ThreeJSEarth = ({
     const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
     const globe = new THREE.Mesh(sphereGeometry, globeMaterial);
     // Apply initial rotation
-    globe.rotation.set(initialRotation.x, initialRotation.y, initialRotation.z);
+    globe.rotation.set(
+      initialRotation.x.get(),
+      initialRotation.y.get(),
+      initialRotation.z.get()
+    );
     scene.add(globe);
     globeRef.current = globe;
 
@@ -239,7 +267,7 @@ const ThreeJSEarth = ({
       side: THREE.BackSide,
       transparent: true,
     });
-    let alpha = fresnel
+    const alpha = fresnel
       .remap(0.73, 1, 1, 0)
       .pow(3)
       .mul(sunOrientation.smoothstep(-0.5, 1));
@@ -271,6 +299,7 @@ const ThreeJSEarth = ({
 
     // Controls - modified to include custom behavior
     const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
     controls.enableDamping = true;
     controls.dampingFactor = dampingFactor; // Increased damping for smoother movement
     controls.minDistance = 2;

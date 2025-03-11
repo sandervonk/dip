@@ -85,7 +85,22 @@ export const pages = [
   {
     component: EarthText,
     data: {
-      position3D: {},
+      positions: [
+        {
+          pan: { x: 0, y: 1.25 },
+          pos: { x: 0.5, y: 0, z: 2 },
+          rot: { x: 0, y: 0, z: 0 },
+          sun: { x: 1, y: 2, z: 2 },
+          transform: 0,
+        },
+        {
+          pan: { x: 0, y: 2 },
+          pos: { x: 3, y: 0, z: 2 },
+          rot: { x: 0, y: 0, z: 0 },
+          sun: { x: 1, y: 2, z: 2 },
+          transform: 1,
+        },
+      ],
       section: "A Pilot Project",
       header: "Bali, Indonesia",
       text: "Rice has been sustainably farmed on Bali for over a thousand years. However, the flooded paddies produce a dangerous greenhouse gas. Rice is water tolerant, not water loving, so by altering how they grow rice the indigenous farmers can mitigate their greenhouse gas emissions.",
