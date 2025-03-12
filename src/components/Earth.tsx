@@ -26,21 +26,25 @@ import { useMotionValueEvent } from "motion/react";
 const window = globalThis;
 
 // Helper function to convert from Cartesian to Spherical coordinates
-const cartesianToSpherical = (position) => {
+const cartesianToSpherical = (position: THREE.Vector3) => {
   const spherical = new THREE.Spherical();
   spherical.setFromVector3(position);
   return spherical;
 };
 
 // Helper function to convert from Spherical to Cartesian coordinates
-const sphericalToCartesian = (spherical) => {
+const sphericalToCartesian = (spherical: THREE.Spherical) => {
   const vector = new THREE.Vector3();
   vector.setFromSpherical(spherical);
   return vector;
 };
 
 // Spherical linear interpolation (SLERP) function
-const slerpSpherical = (start, end, t) => {
+const slerpSpherical = (
+  start: THREE.Spherical,
+  end: THREE.Spherical,
+  t: number
+) => {
   const result = new THREE.Spherical();
 
   // Interpolate radius, phi, and theta
