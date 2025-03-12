@@ -39,10 +39,14 @@ export default function EarthText(
   const { data } = props;
   const [showEarth, setShowEarth] = useState(false);
   const textRef = useRef(null);
-  const { scrollYProgress } = useScroll({
+  const textCoverProgress = useScroll({
     target: textRef,
     offset: ["start end", "end 50px"],
-  });
+  }).scrollYProgress;
+  const textAltProgress = useScroll({
+    target: textRef,
+    offset: ["start end", "center -50px"],
+  }).scrollYProgress;
 
   const positionKeys: PositionKey[] = ["pan", "pos", "rot", "sun"];
 
@@ -68,7 +72,7 @@ export default function EarthText(
         ...acc,
         // eslint-disable-next-line react-hooks/rules-of-hooks
         [axis as string]: useTransform(
-          scrollYProgress,
+          textCoverProgress,
           inputRange,
           outputRange,
           {
@@ -80,17 +84,17 @@ export default function EarthText(
   });
 
   const scale = useTransform(
-    scrollYProgress,
+    textAltProgress,
     [0.3, 0.4, 0.67, 0.7],
     [0, 1, 1, 0]
   );
   const scaleY = useTransform(
-    scrollYProgress,
+    textAltProgress,
     [0.35, 0.5, 0.6, 0.67],
     [0, 1.2, 1.5, 0]
   );
   const strokeDashoffset = useTransform(
-    scrollYProgress,
+    textAltProgress,
     [0.25, 0.35, 0.7, 0.75],
     [0, 46, 46, 0],
     {
@@ -118,7 +122,7 @@ export default function EarthText(
             height: 200,
           }}
         >
-          <motion.svg className={styles.marker} width="100" height="550">
+          <motion.svg className={styles.marker} width="100" height="60vh">
             <motion.circle
               style={{
                 strokeDasharray: "60 10",
