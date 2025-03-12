@@ -18,7 +18,7 @@ export type PositionData = {
 type PositionKey = "pan" | "pos" | "rot" | "sun";
 
 import {
-  easeOut,
+  cubicBezier,
   motion,
   MotionValue,
   useScroll,
@@ -72,12 +72,31 @@ export default function EarthText(
           inputRange,
           outputRange,
           {
-            ease: easeOut,
+            ease: cubicBezier(0.42, 0, 0.58, 1),
           }
         ),
       };
     }, {}) as position3D | position2D;
   });
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0.3, 0.4, 0.67, 0.7],
+    [0, 1, 1, 0]
+  );
+  const scaleY = useTransform(
+    scrollYProgress,
+    [0.35, 0.5, 0.6, 0.67],
+    [0, 1.2, 1.5, 0]
+  );
+  const strokeDashoffset = useTransform(
+    scrollYProgress,
+    [0.25, 0.35, 0.7, 0.75],
+    [0, 46, 46, 0],
+    {
+      clamp: false,
+    }
+  );
 
   return (
     <div className={styles.container}>
@@ -91,6 +110,7 @@ export default function EarthText(
           display: "flex",
           flexFlow: "row nowrap",
           paddingBottom: 120,
+          overflow: "visible",
         }}
         ref={textRef}
         onViewportEnter={() => setShowEarth(true)}
@@ -108,20 +128,21 @@ export default function EarthText(
             height: 200,
           }}
         >
-          <motion.svg className={styles.marker} width="150" height="500">
+          <motion.svg className={styles.marker} width="150" height="600">
             <motion.circle
-              animate={showEarth ? "animate" : "initial"}
+              style={{
+                strokeDasharray: "60 10",
+                strokeDashoffset,
+              }}
               cx="50%"
               cy="calc(28.75px + 16px + 81px/2)"
               r="12px"
               fill="none"
               stroke="white"
               strokeWidth="2"
-              strokeDashoffset="46"
-              strokeDasharray="60 10"
             />
             <motion.circle
-              animate={showEarth ? "animate" : "initial"}
+              style={{ scale }}
               cx="50%"
               cy="calc(28.75px + 16px + 81px/2)"
               r="6px"
@@ -129,10 +150,11 @@ export default function EarthText(
             />
             <motion.line
               style={{
-                scaleY: scrollYProgress,
+                scaleY,
+                originY: 0,
               }}
               x1="50%"
-              y1="calc(28.75px + 16px + 81px/2 + 6px)"
+              y1="calc(28.75px + 16px + 81px/2)"
               x2="50%"
               y2="100%"
               stroke="white"

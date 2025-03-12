@@ -110,8 +110,8 @@ export const pages = [
         {
           pan: { x: 0, y: 0 },
           pos: { x: 0.5, y: 0, z: 10 },
-          rot: { x: 0, y: 0, z: 0 },
-          sun: { x: 1, y: 1, z: 2 },
+          rot: { x: 0, y: 1, z: 0 },
+          sun: { x: 0, y: 3, z: 2 },
           transform: 1,
         },
       ],
@@ -127,13 +127,13 @@ export const pages = [
       alt: "Plaque caption",
       people: [
         {
-          position3D: {},
+          position: [],
           name: "First Last",
           text: "Personal Text",
           contact: "Contact Info",
         },
         {
-          position3D: {},
+          position: [],
           name: "First Last",
           text: "Personal Text",
           contact: "Contact Info",
