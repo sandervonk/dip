@@ -23,6 +23,12 @@ body {
   /* ensure position: sticky will work on contents */
   overflow: initial !important;
 }
+body > main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
 
 * {
   box-sizing: border-box;

@@ -2,8 +2,10 @@
 
 .container {
   height: calc(100vh - $header-height - $header-spacing);
+  width: 100%;
   position: sticky;
   margin-top: $header-spacing;
+  margin-bottom: 90px;
   padding-top: -$header-spacing;
   top: calc(-100vh + 2 * $header-height + $header-spacing);
   // center children
@@ -30,6 +32,11 @@
     top: calc($header-height/2 - 0.5em);
     left: 20px;
     z-index: 200;
+    .titleWord {
+      display: inline-block;
+      overflow: hidden;
+      height: 1.1em;
+    }
   }
   .secondary {
     margin-top: 10px;

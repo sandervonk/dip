@@ -370,7 +370,10 @@ const ThreeJSEarth = ({
 
     // Controls - modified to include custom behavior
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableZoom = false;
+    // disable zoom if on desktop, disable orbit on mobile (actions interfere with scroll)
+    const touch = "ontouchstart" in window;
+    controls.enableZoom = touch;
+    controls.enableRotate = !touch;
     controls.enableDamping = true;
     controls.dampingFactor = dampingFactor; // Increased damping for smoother movement
     controls.minDistance = 2;

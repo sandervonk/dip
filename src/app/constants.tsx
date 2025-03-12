@@ -15,7 +15,7 @@ export const pages = [
   {
     component: TitleSplash,
     data: {
-      primary: "World x Change",
+      primary: ["World", "x", "Change"],
       secondary: "An Information-Age Solution to the Tragedy of the Commons",
       image: PaddiesImage,
     },

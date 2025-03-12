@@ -101,17 +101,7 @@ export default function EarthText(
   return (
     <div className={styles.container}>
       <motion.div
-        style={{
-          zIndex: 1,
-          position: "relative",
-          margin: "0 auto",
-          width: "fit-content",
-          marginLeft: "auto",
-          display: "flex",
-          flexFlow: "row nowrap",
-          paddingBottom: 120,
-          overflow: "visible",
-        }}
+        className={styles.textSection}
         ref={textRef}
         onViewportEnter={() => setShowEarth(true)}
         onViewportLeave={(entry) =>
@@ -128,7 +118,7 @@ export default function EarthText(
             height: 200,
           }}
         >
-          <motion.svg className={styles.marker} width="150" height="600">
+          <motion.svg className={styles.marker} width="100" height="550">
             <motion.circle
               style={{
                 strokeDasharray: "60 10",
@@ -142,7 +132,7 @@ export default function EarthText(
               strokeWidth="2"
             />
             <motion.circle
-              style={{ scale }}
+              style={{ scale, originX: 0.5, originY: 0.5 }}
               cx="50%"
               cy="calc(28.75px + 16px + 81px/2)"
               r="6px"
@@ -172,7 +162,6 @@ export default function EarthText(
       </motion.div>
       <motion.div
         className={styles.earthWrapper}
-        style={{ zIndex: 0, position: "fixed", bottom: 0, marginTop: "-50vh" }}
         initial="hidden"
         animate={showEarth ? "visible" : "hidden"}
         variants={{

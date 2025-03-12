@@ -1,6 +1,6 @@
 @import "@/app/variables.scss";
 .container {
-  max-width: 980px;
+  width: 100%;
   margin: 0 50px;
   font-weight: 590;
   .section {
@@ -18,4 +18,11 @@
     font-size: 24px;
     line-height: 112%;
   }
+}
+.wrapper {
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 90px;
+  width: 100%;
+  max-width: 980px;
 }

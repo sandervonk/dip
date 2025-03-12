@@ -31,14 +31,7 @@ export default function WrappedTextHeader(
   }>
 ) {
   return (
-    <div
-      style={{
-        margin: "auto",
-        marginTop: 120,
-        marginBottom: 120,
-        width: "fit-content",
-      }}
-    >
+    <div className={styles.wrapper}>
       <TextHeader data={props.data} />
     </div>
   );
