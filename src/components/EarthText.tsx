@@ -105,7 +105,7 @@ export default function EarthText(
         ref={textRef}
         onViewportEnter={() => setShowEarth(true)}
         onViewportLeave={(entry) =>
-          setShowEarth((entry?.boundingClientRect?.top || 0) < 0)
+          setShowEarth((entry?.boundingClientRect?.top || 0) < 50)
         }
         viewport={{
           amount: "all",
