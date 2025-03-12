@@ -113,6 +113,7 @@ export default function EarthText(
         }
         viewport={{
           amount: "all",
+          margin: "50px 0px 120px 0px",
         }}
       >
         <div
@@ -177,10 +178,7 @@ export default function EarthText(
           },
         }}
         transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 20,
-          duration: 1,
+          duration: 0.1,
         }}
       >
         <Earth

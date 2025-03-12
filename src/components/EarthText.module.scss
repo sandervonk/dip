@@ -10,7 +10,13 @@
     margin-top: none;
     display: flex;
     flex-flow: row nowrap;
-    padding-bottom: 120;
+    padding-bottom: 120px;
+    @media (max-width: 1000px) {
+      padding-bottom: 80px;
+    }
+    @media (max-width: 750px) {
+      padding-bottom: 30px;
+    }
     overflow: visible;
   }
   .earthWrapper {

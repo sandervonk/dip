@@ -1,6 +1,12 @@
 import styles from "./TitleSplash.module.scss";
 import Image, { StaticImageData } from "next/image";
-import { motion, MotionConfig, useScroll, useTransform } from "motion/react";
+import {
+  easeIn,
+  motion,
+  MotionConfig,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
 export default function TitleSplash(
   props: Readonly<{
@@ -41,15 +47,14 @@ export default function TitleSplash(
         className={styles.primary}
       >
         <motion.div
-          initial={{ scale: 1.75 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 1.5, duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+          animate={{ scale: [1.75, 1] }}
+          transition={{ delay: 1.5, duration: 0.4, ease: easeIn }}
         >
           <MotionConfig
             transition={{
               delay: 1.5,
               duration: 0.4,
-              ease: [0.42, 0, 0.58, 1],
+              ease: easeIn,
             }}
           >
             <motion.span
@@ -83,8 +88,8 @@ export default function TitleSplash(
       </motion.h1>
       <motion.h2
         ref={secondary}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.5, delay: 2.5 }}
         className={styles.secondary}
       >
