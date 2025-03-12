@@ -25,6 +25,42 @@ import { useMotionValueEvent } from "motion/react";
 // get window from global scope
 const window = globalThis;
 
+// Helper function to convert from Cartesian to Spherical coordinates
+const cartesianToSpherical = (position) => {
+  const spherical = new THREE.Spherical();
+  spherical.setFromVector3(position);
+  return spherical;
+};
+
+// Helper function to convert from Spherical to Cartesian coordinates
+const sphericalToCartesian = (spherical) => {
+  const vector = new THREE.Vector3();
+  vector.setFromSpherical(spherical);
+  return vector;
+};
+
+// Spherical linear interpolation (SLERP) function
+const slerpSpherical = (start, end, t) => {
+  const result = new THREE.Spherical();
+
+  // Interpolate radius, phi, and theta
+  result.radius = THREE.MathUtils.lerp(start.radius, end.radius, t);
+
+  // For theta (horizontal angle), handle wrapping around
+  let deltaTheta = end.theta - start.theta;
+
+  // Ensure we're taking the shortest path
+  if (deltaTheta > Math.PI) deltaTheta -= Math.PI * 2;
+  if (deltaTheta < -Math.PI) deltaTheta += Math.PI * 2;
+
+  result.theta = start.theta + deltaTheta * t;
+
+  // For phi (vertical angle), standard interpolation is fine
+  result.phi = THREE.MathUtils.lerp(start.phi, end.phi, t);
+
+  return result;
+};
+
 // React component for the Three.js WebGPU Earth
 const ThreeJSEarth = ({
   initialRotation,
@@ -73,6 +109,16 @@ const ThreeJSEarth = ({
       initialPosition.z.get()
     )
   );
+  // Store the target position in spherical coordinates
+  const targetPositionSphericalRef = useRef(
+    cartesianToSpherical(
+      new THREE.Vector3(
+        initialPosition.x.get(),
+        initialPosition.y.get(),
+        initialPosition.z.get()
+      )
+    )
+  );
   const targetSunRef = useRef(
     new THREE.Vector3(
       sunPosition.x.get(),
@@ -116,6 +162,10 @@ const ThreeJSEarth = ({
   useMotionValueEvent(initialPosition.x, "change", (value) => {
     if (targetPositionRef.current) {
       targetPositionRef.current.x = value;
+      // Update spherical coordinates when Cartesian coordinates change
+      targetPositionSphericalRef.current = cartesianToSpherical(
+        targetPositionRef.current
+      );
       updateSceneFromMotionValues();
     }
   });
@@ -123,6 +173,10 @@ const ThreeJSEarth = ({
   useMotionValueEvent(initialPosition.y, "change", (value) => {
     if (targetPositionRef.current) {
       targetPositionRef.current.y = value;
+      // Update spherical coordinates when Cartesian coordinates change
+      targetPositionSphericalRef.current = cartesianToSpherical(
+        targetPositionRef.current
+      );
       updateSceneFromMotionValues();
     }
   });
@@ -130,6 +184,10 @@ const ThreeJSEarth = ({
   useMotionValueEvent(initialPosition.z, "change", (value) => {
     if (targetPositionRef.current) {
       targetPositionRef.current.z = value;
+      // Update spherical coordinates when Cartesian coordinates change
+      targetPositionSphericalRef.current = cartesianToSpherical(
+        targetPositionRef.current
+      );
       updateSceneFromMotionValues();
     }
   });
@@ -401,15 +459,24 @@ const ThreeJSEarth = ({
       }, returnDelay);
     });
 
-    // Function to smoothly return to target position
+    // Function to smoothly return to target position using spherical coordinates
     const returnToTargetPosition = () => {
       if (isInteractingRef.current || isReturningRef.current) return;
 
       isReturningRef.current = true;
 
       const startTime = Date.now();
-      const startPosition = camera.position.clone();
+
+      // Convert current camera position to spherical coordinates
+      const startPositionSpherical = cartesianToSpherical(camera.position);
+
+      // Get target panning as Vector3
       const startTarget = controls.target.clone();
+      const targetVector = new THREE.Vector3(
+        targetPanningRef.current.x,
+        targetPanningRef.current.y,
+        0
+      );
 
       // Store initial rotation for interpolation
       const startRotation = {
@@ -428,19 +495,20 @@ const ThreeJSEarth = ({
         // Ease out cubic function for smooth deceleration
         const easeOut = 1 - Math.pow(1 - progress, 3);
 
-        // Interpolate camera position
-        camera.position.lerpVectors(
-          startPosition,
-          targetPositionRef.current,
+        // Interpolate camera position using SLERP in spherical coordinates
+        const interpolatedSpherical = slerpSpherical(
+          startPositionSpherical,
+          targetPositionSphericalRef.current,
           easeOut
         );
 
-        // Interpolate target (for panning)
-        const targetVector = new THREE.Vector3(
-          targetPanningRef.current.x,
-          targetPanningRef.current.y,
-          0
+        // Convert back to Cartesian coordinates and apply to camera
+        const interpolatedPosition = sphericalToCartesian(
+          interpolatedSpherical
         );
+        camera.position.copy(interpolatedPosition);
+
+        // Interpolate target (for panning)
         controls.target.lerpVectors(startTarget, targetVector, easeOut);
 
         // Interpolate globe rotation

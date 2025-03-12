@@ -11,7 +11,7 @@ export default function Home() {
         // @ts-expect-error data content varies by page
         return Component && <Component key={i} data={page.data} />;
       })}
-      <div style={{ height: 10000 }}>scroll me</div>
+      <div style={{ height: 10000 }}>{/* scroll placeholder */}</div>
     </React.Fragment>
   );
 }

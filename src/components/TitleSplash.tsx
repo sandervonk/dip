@@ -19,7 +19,7 @@ export default function TitleSplash(
     target: primary,
     offset: ["center center", "start 50px"],
   });
-  const opacity = useTransform(scrollYProgress, [0.25, 1], [1, 0.75]);
+  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.75]);
   return (
     <motion.div
       className={styles.container}
@@ -40,31 +40,52 @@ export default function TitleSplash(
         transition={{ duration: 0.5, delay: 0.5 }}
         className={styles.primary}
       >
-        <MotionConfig
-          transition={{ delay: 1.5, duration: 0.4, ease: "easeInOut" }}
+        <motion.div
+          initial={{ scale: 1.75 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 1.5, duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
         >
-          <motion.span
-            className={styles.titleWord}
-            initial={{ width: "1em" }}
-            animate={{ width: "auto" }}
+          <MotionConfig
+            transition={{
+              delay: 1.5,
+              duration: 0.4,
+              ease: [0.42, 0, 0.58, 1],
+            }}
           >
-            {data.primary[0]}
-          </motion.span>{" "}
-          <span className={styles.titleWord}>{data.primary[1]}</span>{" "}
-          <motion.span
-            className={styles.titleWord}
-            initial={{ width: "0.75em" }}
-            animate={{ width: "auto" }}
-          >
-            {data.primary[2]}
-          </motion.span>
-        </MotionConfig>
+            <motion.span
+              className={styles.titleWord}
+              style={{ textAlign: "right" }}
+              initial={{ width: "1em", marginLeft: 0 }}
+              animate={{
+                width: "2.9em",
+                marginLeft: "calc(3.7em - 2.9em)",
+              }}
+            >
+              {data.primary[0]}
+            </motion.span>
+            <motion.span
+              initial={{ margin: "0 0.1em" }}
+              animate={{ margin: " 0 0.25em" }}
+              className={styles.titleWord}
+            >
+              {data.primary[1]}
+            </motion.span>
+            <motion.span
+              className={styles.titleWord}
+              style={{ textAlign: "left" }}
+              initial={{ width: "0.75em", marginRight: "calc(1em - 0.75em)" }}
+              animate={{ width: "3.7em", marginRight: 0 }}
+            >
+              {data.primary[2]}
+            </motion.span>
+          </MotionConfig>
+        </motion.div>
       </motion.h1>
       <motion.h2
         ref={secondary}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
+        transition={{ duration: 1.5, delay: 2.5 }}
         className={styles.secondary}
       >
         {data.secondary}
