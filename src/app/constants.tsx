@@ -87,9 +87,9 @@ export const pages = [
     data: {
       positions: [
         {
-          pan: { x: 0, y: 4 },
+          pan: { x: 0, y: 3 },
           pos: { x: 0.5, y: 0, z: 1 },
-          rot: { x: -0.5, y: 0, z: 0 },
+          rot: { x: -0.75, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           transform: 0.3,
         },
