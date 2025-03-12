@@ -87,21 +87,28 @@ export const pages = [
     data: {
       positions: [
         {
-          pan: { x: 0, y: 2.5 },
-          pos: { x: 0.5, y: 0, z: 1.5 },
+          pan: { x: 0, y: 8 },
+          pos: { x: 0.5, y: 0, z: 20 },
+          rot: { x: -1.75, y: 0, z: 0 },
+          sun: { x: 1, y: 2, z: 2 },
+          transform: 0.1,
+        },
+        {
+          pan: { x: 0, y: 2 },
+          pos: { x: 0.5, y: 0, z: 8 },
           rot: { x: -0.75, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           transform: 0.2,
         },
         {
-          pan: { x: 0, y: 1.3 },
-          pos: { x: 0.5, y: 0, z: 2.25 },
+          pan: { x: 0, y: 1.2 },
+          pos: { x: 0.5, y: 0, z: 3 },
           rot: { x: 0, y: 0, z: 0 },
           sun: { x: 2, y: 1, z: 1 },
-          transform: 0.5,
+          transform: 0.3,
         },
         {
-          pan: { x: 0, y: 1.25 },
+          pan: { x: 0, y: 1.2 },
           pos: { x: 0.5, y: 0, z: 2.5 },
           rot: { x: 0, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },

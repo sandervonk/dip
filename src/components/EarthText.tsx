@@ -21,6 +21,7 @@ import {
   cubicBezier,
   motion,
   MotionValue,
+  useMotionTemplate,
   useScroll,
   useTransform,
 } from "motion/react";
@@ -41,7 +42,7 @@ export default function EarthText(
   const textRef = useRef(null);
   const textCoverProgress = useScroll({
     target: textRef,
-    offset: ["start end", "end 50px"],
+    offset: ["-400px end", "end 50px"],
   }).scrollYProgress;
   const textAltProgress = useScroll({
     target: textRef,
@@ -102,6 +103,8 @@ export default function EarthText(
     }
   );
 
+  const textShadow = useMotionTemplate`0px 0px 10px rgba(0, 0, 0, ${textAltProgress})`;
+
   return (
     <div className={styles.container}>
       <motion.div
@@ -109,20 +112,15 @@ export default function EarthText(
         ref={textRef}
         onViewportEnter={() => setShowEarth(true)}
         onViewportLeave={(entry) =>
-          setShowEarth((entry?.boundingClientRect?.top || 0) < 50)
+          setShowEarth((entry?.boundingClientRect?.top || 0) < 120)
         }
+        style={{ textShadow }}
         viewport={{
-          amount: "all",
+          amount: "some",
           margin: "50px 0px 120px 0px",
         }}
       >
-        <div
-          className={styles.markerWrapper}
-          style={{
-            overflow: "visible",
-            height: 200,
-          }}
-        >
+        <div className={styles.markerWrapper}>
           <motion.svg className={styles.marker}>
             <motion.circle
               style={{
@@ -146,12 +144,12 @@ export default function EarthText(
             <motion.line
               style={{
                 scaleY,
-                originY: 0,
+                originY: "calc(28.75px + 16px + 81px/2)",
               }}
               x1="50%"
               y1="calc(28.75px + 16px + 81px/2)"
               x2="50%"
-              y2="calc(60vh - 15vw)"
+              y2="min(max(calc(60vh - 15vw), 35vw - 20vh), calc(70vh - 5vw))"
               stroke="white"
               strokeWidth="2"
             />

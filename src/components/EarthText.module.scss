@@ -26,10 +26,14 @@
     bottom: 0;
     margin-top: -50vh;
   }
-  .marker {
+  .markerWrapper {
     overflow: visible;
-    width: 100px;
     height: 200px;
-    margin-right: -50px;
+    .marker {
+      overflow: visible;
+      width: 100px;
+      height: 200px;
+      margin-right: -50px;
+    }
   }
 }
