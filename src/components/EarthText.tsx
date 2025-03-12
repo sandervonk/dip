@@ -123,7 +123,7 @@ export default function EarthText(
             height: 200,
           }}
         >
-          <motion.svg className={styles.marker} width="100" height="60vh">
+          <motion.svg className={styles.marker}>
             <motion.circle
               style={{
                 strokeDasharray: "60 10",
@@ -151,7 +151,7 @@ export default function EarthText(
               x1="50%"
               y1="calc(28.75px + 16px + 81px/2)"
               x2="50%"
-              y2="100%"
+              y2="calc(60vh - 15vw)"
               stroke="white"
               strokeWidth="2"
             />
