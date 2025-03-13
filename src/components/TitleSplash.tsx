@@ -49,6 +49,7 @@ export default function TitleSplash(
         <motion.div
           animate={{ scale: [1.75, 1] }}
           transition={{ delay: 1.5, duration: 0.4, ease: easeIn }}
+          className={styles.words}
         >
           <MotionConfig
             transition={{

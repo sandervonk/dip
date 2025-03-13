@@ -116,7 +116,7 @@ export const pages = [
         },
         {
           pan: { x: 0, y: 0 },
-          pos: { x: 0.5, y: 0, z: 10 },
+          pos: { x: 0.5, y: 0, z: 12 },
           rot: { x: 0, y: 1, z: 0 },
           sun: { x: 0, y: 3, z: 2 },
           transform: 1,
