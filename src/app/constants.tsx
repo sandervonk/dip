@@ -1,11 +1,10 @@
 //* Import components for pages
 import TitleSplash from "@/components/TitleSplash";
 import WrappedTextHeader from "@/components/TextHeader";
-// import CenterImage from "@/components/CenterImage";
+import CenterImage from "@/components/CenterImage";
 import EarthText from "@/components/EarthText";
 // import ImageToContact from "@/components/ImageToContact";
-const CenterImage = null,
-  ImageToContact = null;
+const ImageToContact = null;
 
 //* Import images for pages
 import PaddiesImage from "@/../public/img/paddies.png";
@@ -150,7 +149,7 @@ export const pages = [
   },
 ];
 
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import styles from "./TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
 /** Format text to nested spans with the following markdown-like properties:
@@ -162,14 +161,32 @@ export function ColorText(text: string, greyBase: boolean = true) {
   const green = /\*\*([^*]+)\*\*/g;
   const white = /\*([^*]+)\*/g;
   let content = reactStringReplace(text, green, (match, i) => (
-    <span key={i} className={styles.green}>
+    <span key={"green" + i} className={styles.green}>
       {match}
     </span>
   ));
   content = reactStringReplace(content, white, (match, i) => (
-    <span key={i} className={styles.white}>
+    <span key={"white" + i} className={styles.white}>
       {match}
     </span>
   ));
   return <span className={greyBase ? styles.grey : undefined}>{content}</span>;
+}
+
+export function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useLayoutEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => {
+      setMatches(media.matches);
+    };
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, [matches, query]);
+
+  return matches;
 }

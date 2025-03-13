@@ -1,6 +1,7 @@
 @import "@/app/variables.scss";
 .container {
   width: calc(100% - 2 * 50px);
+  max-width: var(--part-width);
   margin: 0 50px;
   .section {
     margin-bottom: 16px;
@@ -42,7 +43,7 @@
   margin-top: 120px;
   margin-bottom: 90px;
   width: 100%;
-  max-width: calc(980px + 50px * 2);
+  max-width: calc(var(--part-width) + 50px * 2);
   @media (max-width: 1000px), (max-height: 600px) {
     margin-top: 80px;
     margin-bottom: 60px;

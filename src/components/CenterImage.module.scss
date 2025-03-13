@@ -1,0 +1,48 @@
+@import "@/app/variables.scss";
+.container {
+  max-width: var(--part-width);
+  margin: 0 auto;
+  .imageContainer {
+    .image {
+    }
+  }
+  .blurbContainer {
+    @media (max-width: 750px) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .blurbGroup {
+      display: flex;
+      flex-flow: column nowrap;
+      .blurb {
+        font-size: 24px;
+        font-weight: 600;
+        max-width: max(33%, 350px);
+        margin-top: 150px;
+        @media (max-width: 750px) {
+          font-size: 15px;
+          line-height: 1.5;
+          max-width: 440px;
+          margin: 0 auto;
+        }
+      }
+      &.startLeft .blurb {
+        &:nth-child(odd) {
+          align-self: flex-start;
+        }
+        &:nth-child(even) {
+          align-self: flex-end;
+        }
+      }
+
+      &.startRight .blurb {
+        &:nth-child(even) {
+          align-self: flex-start;
+        }
+        &:nth-child(odd) {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}
