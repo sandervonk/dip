@@ -1,12 +1,12 @@
 @import "@/app/variables.scss";
 
 .container {
-  height: calc(100vh - $header-height - $header-spacing);
+  height: calc(100dvh - $header-height - $header-spacing);
   width: 100%;
   position: sticky;
   margin-top: $header-spacing;
   padding-top: -$header-spacing;
-  top: calc(-100vh + 2 * $header-height + $header-spacing);
+  top: calc(-100dvh + 2 * $header-height + $header-spacing);
   // center children
   display: flex;
   flex-flow: column nowrap;

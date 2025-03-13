@@ -647,7 +647,7 @@ const ThreeJSEarth = ({
     <div
       ref={containerRef}
       className={className}
-      style={{ width: "100%", height: "100vh" }}
+      style={{ width: "100%", height: "100dvh" }}
     ></div>
   );
 };
