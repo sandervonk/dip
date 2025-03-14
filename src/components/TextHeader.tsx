@@ -16,7 +16,7 @@ export function TextHeader(
     <motion.div className={styles.container}>
       <h1 className={styles.section}>{data.section}</h1>
       <h2 className={styles.header}>{data.header}</h2>
-      <p className={styles.text}>{ColorText(data.text, false)}</p>
+      <p className={styles.text}>{ColorText(data.text)}</p>
     </motion.div>
   );
 }
