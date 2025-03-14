@@ -260,7 +260,6 @@ export const pages = [
 import React, { useLayoutEffect, useState } from "react";
 import styles from "./TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
-import { title } from "process";
 /** Format text to nested spans with the following markdown-like properties:
  * | parent -> <span className={styles.grey}>(</span>
  * | **text** -> <span className={styles.green}>text</span>
