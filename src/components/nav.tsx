@@ -4,6 +4,7 @@ import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import styles from "./nav.module.scss";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { nav } from "@/app/constants";
 export default function Nav() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
@@ -19,6 +20,8 @@ export default function Nav() {
 
   const pages = {
     "/": "About",
+    "/resources": "Resources",
+    "/team": "Team",
     "/contact": "Connect",
   };
 
@@ -40,7 +43,7 @@ export default function Nav() {
       }}
     >
       <div className={styles.header}>
-        <h1 className={styles.title}>World x Change</h1>
+        <h1 className={styles.title}>{nav.title}</h1>
         <nav className={styles.nav}>
           <ul>
             {Object.entries(pages).map(([path, name]) => (
