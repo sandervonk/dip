@@ -605,7 +605,7 @@ const ThreeJSEarth = ({
 
       // Dispose of ThreeJS resources
       if (rendererRef.current) {
-        rendererRef.current.dispose();
+        rendererRef.current?.dispose();
         if (
           rendererRef.current.domElement &&
           rendererRef.current.domElement.parentNode

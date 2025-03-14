@@ -3,13 +3,33 @@
   max-width: var(--part-width);
   margin: 0 auto;
   .imageContainer {
-    .image {
+    position: sticky;
+    top: $header-height;
+    z-index: -1;
+    height: calc(100dvh - $header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .imageWrapper {
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: inset 0 0 50px 40px var(--background);
+      outline: 1px solid var(--background);
+      outline-offset: -1px;
+      border: inset 1px solid var(--background);
+      //   temp
+      background-color: green;
+      height: 400;
+      width: 400;
+      .image {
+      }
     }
   }
   .blurbContainer {
     @media (max-width: 750px) {
       margin-left: 20px;
       margin-right: 20px;
+      position: relative;
     }
     .blurbGroup {
       display: flex;
@@ -24,6 +44,8 @@
           line-height: 1.5;
           max-width: 440px;
           margin: 0 auto;
+          position: fixed;
+          bottom: 20px;
         }
       }
       &.startLeft .blurb {
