@@ -41,14 +41,16 @@
       display: flex;
       flex-flow: column nowrap;
       .blurb {
-        font-size: 24px;
+        font-size: 21px;
         font-weight: 600;
-        max-width: max(33%, 350px);
+        max-width: max(25%, 300px);
         margin-top: 150px;
         @media (max-width: 750px) {
           font-size: 15px;
           line-height: 1.5;
           max-width: 440px;
+          padding: 0 20px;
+          left: max(calc((100% - 440px) / 2), 0px);
           margin: 0 auto;
           position: fixed;
           bottom: 20px;

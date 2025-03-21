@@ -7,92 +7,152 @@ import {
   useTransform,
 } from "motion/react";
 import { ColorText, useMediaQuery } from "@/app/constants";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import Image from "next/image";
-//* Disable react-hooks/rules-of-hooks for this file (until restructure)
-/* eslint-disable react-hooks/rules-of-hooks */
+
 export default function CenterImage(
   props: Readonly<{
     data: {
       images: Array<{
         src: string;
         alt: string;
-        blurbs:
-          | string[]
-          | {
-              text: string;
-              index: number;
-              ref: null | React.Ref<HTMLDivElement>;
-              motion: {
-                basis: MotionValue<number>; // mostly for reference
-                transform: MotionValue<number>; // for mobile only
-                opacity: MotionValue<number>;
-                userSelect: MotionValue<string>;
-              };
-            }[];
+        blurbs: string[];
         startLeft?: boolean;
       }>;
     };
   }>
 ) {
+  // Get initial data
   const images = props.data.images;
-
   const isMobile = useMediaQuery("(max-width: 750px)");
-  const blurbs = useRef(null);
-  const blurbScrollProgress = useScroll({
-    target: blurbs,
-    offset: ["-200px end", "end 50px"],
-  }).scrollYProgress;
-  // Add properties to each blurb
-  let isLeft = true,
-    blurbIndex = 0;
-  const numBlurbs = images.reduce((acc, image) => acc + image.blurbs.length, 0);
-  const blurbScrollHeight = useMotionTemplate`${numBlurbs * 50}vh`;
-  images.forEach((image) => {
-    image.startLeft = isLeft;
-    isLeft = image.blurbs.length % 2 === 0 ? isLeft : !isLeft;
-    image.blurbs.forEach((blurb, i) => {
-      if (typeof blurb === "string") {
-        const blurbRef = useRef(null);
-        const mobileBasis = useTransform(
-          blurbScrollProgress,
-          [blurbIndex / numBlurbs, (blurbIndex + 1) / numBlurbs],
-          [0, 1]
-        );
-        const desktopBasis = useScroll({
-          target: blurbRef,
-          offset: ["start 70%", "end 30%"],
-        }).scrollYProgress;
-        const basis = isMobile ? mobileBasis : desktopBasis;
 
-        image.blurbs[i] = {
-          index: blurbIndex,
-          text: blurb as string,
-          ref: blurbRef,
+  // Calculate total number of blurbs for scroll heights
+  const totalBlurbCount = images.reduce(
+    (sum, image) => sum + image.blurbs.length,
+    0
+  );
+
+  // Create refs for scroll containers
+  const blurbsContainerRef = useRef(null);
+
+  // Create main scroll progress for mobile view
+  const { scrollYProgress: mainScrollProgress } = useScroll({
+    target: blurbsContainerRef,
+    offset: ["-200px end", "end 50px"],
+  });
+
+  // Create scroll height template for mobile
+  const blurbScrollHeight = useMotionTemplate`${totalBlurbCount * 50}dvh`;
+
+  // Pre-create ALL required refs and motion values
+  // This ensures consistent hook ordering
+  const blurbRefs = Array(totalBlurbCount)
+    .fill(null)
+    .map(() => useRef(null));
+
+  // Create ALL scroll progress values for desktop view
+  const desktopScrollProgressValues = blurbRefs.map(
+    (ref) =>
+      useScroll({
+        target: ref,
+        offset: ["start 70%", "end 30%"],
+      }).scrollYProgress
+  );
+
+  // Create ALL mobile basis motion values
+  const mobileBasisValues = Array(totalBlurbCount)
+    .fill(null)
+    .map((_, i) =>
+      useTransform(
+        mainScrollProgress,
+        [i / totalBlurbCount, (i + 1) / totalBlurbCount],
+        [0, 1]
+      )
+    );
+
+  // Create transform, opacity, and userSelect motion values for BOTH mobile and desktop
+  const mobileTransformValues = mobileBasisValues.map((basis) =>
+    useTransform(basis, [0, 0.25, 0.75, 1], [50, 10, -10, -50])
+  );
+
+  const mobileOpacityValues = mobileBasisValues.map((basis) =>
+    useTransform(basis, [0, 0.25, 0.75, 1], [0, 1, 1, 0])
+  );
+
+  const mobileUserSelectValues = mobileBasisValues.map((basis) =>
+    useTransform(basis, [0, 0.25, 0.75, 1], ["none", "unset", "unset", "none"])
+  );
+
+  const desktopTransformValues = desktopScrollProgressValues.map((basis) =>
+    useTransform(basis, [0, 0.25, 0.75, 1], [0, 0, 0, 0])
+  );
+
+  const desktopOpacityValues = desktopScrollProgressValues.map((basis) =>
+    useTransform(basis, [0.2, 0.3, 0.7, 0.8], [0, 1, 1, 0])
+  );
+
+  const desktopUserSelectValues = desktopScrollProgressValues.map((basis) =>
+    useTransform(basis, [0, 0.25, 0.75, 1], ["none", "unset", "unset", "none"])
+  );
+
+  // Process the images data structure
+  const processedImages = useMemo(() => {
+    let isLeft = true;
+    let globalBlurbIndex = 0;
+
+    return images.map((image) => {
+      const startLeft = isLeft;
+      // Toggle left/right based on number of blurbs
+      isLeft = image.blurbs.length % 2 === 0 ? isLeft : !isLeft;
+
+      const processedBlurbs = image.blurbs.map((blurbText, localBlurbIndex) => {
+        const index = globalBlurbIndex;
+        globalBlurbIndex++; // Increment for the next blurb
+
+        return {
+          text: blurbText,
+          index,
+          ref: blurbRefs[index],
           motion: {
-            basis: basis,
-            transform: useTransform(
-              basis,
-              [0, 0.25, 0.75, 1],
-              [50, 10, -10, 1]
-            ),
-            opacity: useTransform(basis, [0, 0.25, 0.75, 1], [0, 1, 1, 0]),
-            userSelect: useTransform(
-              basis,
-              [0, 0.25, 0.75, 1],
-              ["none", "unset", "unset", "none"]
-            ),
+            basis: isMobile
+              ? mobileBasisValues[index]
+              : desktopScrollProgressValues[index],
+            transform: isMobile
+              ? mobileTransformValues[index]
+              : desktopTransformValues[index],
+            opacity: isMobile
+              ? mobileOpacityValues[index]
+              : desktopOpacityValues[index],
+            userSelect: isMobile
+              ? mobileUserSelectValues[index]
+              : desktopUserSelectValues[index],
           },
         };
-        blurbIndex += 1;
-      }
+      });
+
+      return {
+        ...image,
+        startLeft,
+        blurbs: processedBlurbs,
+      };
     });
-  });
+  }, [
+    images,
+    isMobile,
+    mobileBasisValues,
+    mobileTransformValues,
+    mobileOpacityValues,
+    mobileUserSelectValues,
+    desktopScrollProgressValues,
+    desktopTransformValues,
+    desktopOpacityValues,
+    desktopUserSelectValues,
+  ]);
 
   return (
     <motion.div className={styles.container}>
       <div className={styles.imageContainer}>
-        {images.map((image, i) => (
+        {processedImages.map((image, i) => (
           <motion.div key={i} className={styles.imageWrapper}>
             <Image
               src={image.src}
@@ -106,34 +166,32 @@ export default function CenterImage(
       </div>
       <motion.div
         className={styles.blurbContainer}
-        ref={blurbs}
-        style={isMobile ? { height: blurbScrollHeight } : {}}
+        ref={blurbsContainerRef}
+        style={
+          isMobile ? { height: blurbScrollHeight, marginBottom: "100dvh" } : {}
+        }
       >
-        {images.map((image, j) => (
+        {processedImages.map((image, j) => (
           <div
             key={j}
             className={`${styles.blurbGroup} ${
               image.startLeft ? styles.startLeft : styles.startRight
             }`}
           >
-            {image.blurbs.map((blurb, k) =>
-              typeof blurb == "string" ? (
-                <div key={k} className={styles.blurb}></div>
-              ) : (
-                <motion.div
-                  key={k}
-                  ref={blurb.ref}
-                  className={styles.blurb}
-                  style={{
-                    opacity: 1, //blurb.motion.opacity,
-                    y: blurb.motion.transform,
-                    userSelect: blurb.motion.userSelect,
-                  }}
-                >
-                  {ColorText(typeof blurb == "string" ? blurb : blurb.text)}
-                </motion.div>
-              )
-            )}
+            {image.blurbs.map((blurb, k) => (
+              <motion.div
+                key={k}
+                ref={blurb.ref}
+                className={styles.blurb}
+                style={{
+                  opacity: blurb.motion.opacity,
+                  y: blurb.motion.transform,
+                  userSelect: blurb.motion.userSelect,
+                }}
+              >
+                {ColorText(blurb.text)}
+              </motion.div>
+            ))}
           </div>
         ))}
       </motion.div>
