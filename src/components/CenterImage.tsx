@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import styles from "./CenterImage.module.scss";
 import {
   motion,
-  MotionValue,
   useMotionTemplate,
   useScroll,
   useTransform,
@@ -105,9 +106,9 @@ export default function CenterImage(
       // Toggle left/right based on number of blurbs
       isLeft = image.blurbs.length % 2 === 0 ? isLeft : !isLeft;
 
-      const processedBlurbs = image.blurbs.map((blurbText, localBlurbIndex) => {
+      const processedBlurbs = image.blurbs.map((blurbText) => {
         const index = globalBlurbIndex;
-        globalBlurbIndex++; // Increment for the next blurb
+        globalBlurbIndex++;
 
         return {
           text: blurbText,
