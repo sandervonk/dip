@@ -73,11 +73,11 @@ export default function CenterImage(
 
   // Create transform, opacity, and userSelect motion values for BOTH mobile and desktop
   const mobileTransformValues = mobileBasisValues.map((basis) =>
-    useTransform(basis, [0, 0.25, 0.75, 1], [50, 10, -10, -50])
+    useTransform(basis, [0, 0.25, 0.75, 1], [10, 5, -5, -30])
   );
 
   const mobileOpacityValues = mobileBasisValues.map((basis) =>
-    useTransform(basis, [0, 0.25, 0.75, 1], [0, 1, 1, 0])
+    useTransform(basis, [0, 0.25, 0.75, 0.85, 1], [0, 1, 1, 0.2, 0])
   );
 
   const mobileUserSelectValues = mobileBasisValues.map((basis) =>
