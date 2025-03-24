@@ -46,11 +46,7 @@ export default function TitleSplash(
         transition={{ duration: 0.5, delay: 0.5 }}
         className={styles.primary}
       >
-        <motion.div
-          animate={{ scale: [1.75, 1] }}
-          transition={{ delay: 1.5, duration: 0.4, ease: easeIn }}
-          className={styles.words}
-        >
+        <div className={styles.words}>
           <MotionConfig
             transition={{
               delay: 1.5,
@@ -85,7 +81,7 @@ export default function TitleSplash(
               {data.primary[2]}
             </motion.span>
           </MotionConfig>
-        </motion.div>
+        </div>
       </motion.h1>
       <motion.h2
         ref={secondary}
