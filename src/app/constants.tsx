@@ -165,7 +165,7 @@ export const pages = [
           src: "../path/to/field-measurements",
           alt: "Field Measurements Alt Text",
           blurbs: [
-            "Gas analyzers allow us to *compare field emissions* from adjacent fields that use different irrigation practices.",
+            "In-field gas analyzers *compare emissions* from adjacent fields that use different irrigation practices.",
             "*Such measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
           ],
         },
@@ -174,17 +174,17 @@ export const pages = [
           alt: "Subak Bena Alt Text",
           blurbs: [
             "The project requires a *deep understanding* of the local people, culture, and institutions.",
-            "These insights allow us to **strengthen local traditions and institutions.**",
+            "Using such insights the project can **strengthen local traditions and institutions.**",
           ],
         },
         {
           src: "../path/to/somya-pertiwi",
           alt: "Somya Pertiwi Alt Text",
           blurbs: [
-            "**Local leadership and institutions are embraced and integrated into the project.**",
-            "The Balinese NGO, *Somya Pertiwi (Kindness of the Earth Goddess),* leads the project.",
-            "Somya Pertiwi is working with the **centuries old system of subaks** that communally coordinate each farmer's activities.",
-            "Agricultural extension agents will *monitor and consult* on the new irrigation practices.",
+            "Local leadership and institutions **are embraced and integrated** into the project.",
+            "The Balinese NGO, *Somya Pertiwi* (**Kindness of the Earth Goddess**), leads the project.",
+            "Somya Pertiwi is working within the **centuries old system of subaks** that communally coordinate each farmer's activities.",
+            "Agricultural extension agents *monitor and consult* on the new irrigation practices.",
           ],
         },
       ],
