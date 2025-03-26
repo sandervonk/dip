@@ -28,8 +28,8 @@ export const pages = [
     component: WrappedTextHeader,
     data: {
       section: "The Idea",
-      header: "Realign individual incentives with their global consequences",
-      text: "An automated system uses remote sensing to facilitate payments from international markets to **support the indigenous stewards** who improve the global commons.",
+      header: "Realign individual incentives to reflect global impacts",
+      text: "An automated system leverages remote sensing to enable international **payments to indigenous stewards** who enhance the global commons.",
     },
   },
   {
@@ -40,19 +40,18 @@ export const pages = [
           src: "../path/to/flowchart",
           alt: "Flowchart Alt Text",
           blurbs: [
-            "Frontier science creates *a bottom-up solution*  to the Tragedy of the Commons.",
-            "Using *ideas* from agriculture, anthropology, chemistry, computer science, earth science, ecology, engineering, economics, and finance.",
-            "Driven by an *Information-Age* infrastructure that is easy to **scale with wide applicability.**",
-            "*A continuous gas analyzer* allows us to compare emissions from alternative agricultural practices on Balinese rice paddies.",
-            "Realigns individual incentives to **enhance the global commons** rather than destroy it.",
+            "*Frontier science* creates **a bottom-up solution**  to the Tragedy of the Commons.",
+            "*Integrating ideas* from agriculture, anthropology, chemistry, computer science, earth science, ecology, engineering, economics, and finance.",
+            "Driven by an *Information-Age infrastructure* that is **easy to scale with wide applicability.**",
+            "Alters incentives to **enhance the global commons** rather than destroy it.",
           ],
         },
         {
           src: "../path/to/cylinder",
           alt: "Scientists collect measurment data from a methane probe",
           blurbs: [
-            "*World class measurements* of individual activities and their results.",
-            "Producing a *new standard* for monitoring, verifying, and reporting impacts.",
+            "*World class measurements* of the actions, and impacts, of stewards.",
+            "Creating a new standard for documenting **world-enhancing** *activities.*",
           ],
         },
         {
@@ -66,26 +65,7 @@ export const pages = [
           src: "../path/to/remote-sensing-after",
           alt: "Sensing After Alt Text",
           blurbs: [
-            "Resulting in high-quality results that **can be trusted** by the patrons and markets.",
-          ],
-        },
-        {
-          src: "../path/to/subak",
-          alt: "subak caption",
-          blurbs: [
-            "Implementing these projects require a deep understanding of, and interaction with, the *local people, cultures, and institutions*",
-            "The project must fully appreciate and address the *needs of the indigenous land stewards*",
-            "Designed to **strengthen local traditions and institutions**",
-          ],
-        },
-        {
-          src: "../path/to/group",
-          alt: "group picture caption",
-          blurbs: [
-            "*Local leadership and institutions* need to be fully embraced and integrated into the project",
-            "The Balinese NGO, **Somya Pertiwi** *(Kindness of the Earth Goddess)*, leads the project",
-            "Somya Pertiwi will work within the *centuries old system of subaks*, each of which brings together farmers within a given watershed to communally allocate the available water",
-            "Agricultural extension agents mill monitor and consult on the new irrigation practices",
+            "Providing high-quality results that **can be trusted** by the patrons and markets.",
           ],
         },
       ],
@@ -96,7 +76,7 @@ export const pages = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes: tonnes of CO2e avoided, amount of forest preserved in a natural state, etc",
+      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state.  Patrons and markets recongize teh value of WINS, generating payments for the stewards.",
     },
   },
   {
@@ -148,7 +128,7 @@ export const pages = [
       ],
       section: "A Pilot Project",
       header: "Bali, Indonesia",
-      text: "Rice has been sustainably farmed on Bali for over a thousand years. However, the *flooded paddies produce methane, a dangerous greenhouse gas.*  Rice is water tolerant, not water loving, so **by altering how they irrigate their crops, the indigenous farmers can mitigate their greenhouse gas emissions.**",
+      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant, not water loving, so **by altering how they irrigate** their crops, the indigenous farmers can **mitigate methane emissions.**",
     },
   },
   {
@@ -158,7 +138,7 @@ export const pages = [
       stats: [
         [
           ">10%",
-          "Rice farming produces over 10% of world-wide, anthropogenic methane emissions.",
+          "Rice farming *produces over 10%* of world-wide, anthropogenic methane emissions.",
         ],
         [
           "28x",
@@ -166,7 +146,7 @@ export const pages = [
         ],
         [
           ">75%",
-          "Methane emissions can be reduced by over 75% by not keeping the paddies continuously flooded.  This also reduces the runoff of fertilizer that damages the coral reefs.  Incentives are needed to help the indigenous farmers alter their thousand-year old system of agriculture.",
+          "Methane emissions can be **reduced by over 75%** by not keeping the paddies continuously flooded.  This also reduces the runoff of fertilizer that damages Bali's coral reefs.  Incentives are needed to help the indigenous farmers alter their thousand-year old system of agriculture.",
         ],
       ],
       media: {
@@ -184,26 +164,26 @@ export const pages = [
           src: "../path/to/field-measurements",
           alt: "Field Measurements Alt Text",
           blurbs: [
-            "A continuous gas analyzer allows us to compare field emissions, at parts per billion accuracy, from neighboring fields that use different irrigation practices.",
-            "Such measurements provide critical insights not available using the current standards of syringe sampling or national averages.",
+            "Gas analyzers allow us to *compare field emissions* from adjacent fields that use different irrigation practices.",
+            "*Such measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
           ],
         },
         {
           src: "../path/to/subak-bena",
           alt: "Subak Bena Alt Text",
           blurbs: [
-            "The project requires a deep understand of, and interaction with, the local people, culture, and institutions.",
-            "Designed to strengthen local traditions and institutions.",
+            "The project requires a *deep understanding* of the local people, culture, and institutions.",
+            "These insights allow us to **strengthen local traditions and institutions.**",
           ],
         },
         {
           src: "../path/to/somya-pertiwi",
           alt: "Somya Pertiwi Alt Text",
           blurbs: [
-            "Local leadership and institutions are embraced and integrated into the project.",
-            "The Balinese NGO, Somya Pertiwi (Kindness of the Earth Goddess), leads the project.",
-            "Somya Pertiwi will work within the centuries old system of subaks, each of which brings together farmers within a given watershed to communally allocate the available water.",
-            "Agricultural extension agents will monitor and consult on the new irrigation practices.",
+            "**Local leadership and institutions are embraced and integrated into the project.**",
+            "The Balinese NGO, *Somya Pertiwi (Kindness of the Earth Goddess),* leads the project.",
+            "Somya Pertiwi is working with the **centuries old system of subaks** that communally coordinate each farmer's activities.",
+            "Agricultural extension agents will *monitor and consult* on the new irrigation practices.",
           ],
         },
       ],
@@ -216,15 +196,15 @@ export const pages = [
       stats: [
         [
           "2012",
-          "In 2012, the UNESCO World Heritage Convention recognized the long-term sustainability of the Balinese subak system based on a proposal from Somya Pertiwi.",
+          "In 2012, the *UNESCO World Heritage Convention* recognized the **long-term sustainability of the Balinese subak system** based on a proposal developed by Somya Pertiwi.",
         ],
         [
-          "21",
-          "The 21 subaks in the UNESCO site will participate in the pilot project.",
+          "19",
+          "The **19 subaks** in the UNESCO World Heritage site will *participate in the pilot project.*",
         ],
         [
           "3",
-          'Try Hita Karana, which translates to the "three causes for well-being," is the Balinese philosophy that encourages harmony among people, nature, and the gods.',
+          '*Try Hita Karana*, which translates to the "three causes for well-being," is the Balinese philosophy that encourages **harmony among people, nature, and the gods.**',
         ],
       ],
       media: {
