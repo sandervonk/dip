@@ -129,7 +129,7 @@ export const pages = [
       ],
       section: "A Pilot Project",
       header: "Bali, Indonesia",
-      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving, so **by altering how they irrigate** their crops, the indigenous farmers can **mitigate methane emissions.**",
+      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving, so **by altering how they irrigate farmers can mitigate methane emissions.**",
     },
   },
   {
