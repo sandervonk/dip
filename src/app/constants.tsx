@@ -182,8 +182,8 @@ export const pages = [
           blurbs: [
             "The project *embraces and integrates* **local leadership.**",
             "The Balinese NGO, *Somya Pertiwi* (**Kindness of the Earth Goddess**), leads the project.",
-            "Somya Pertiwi is working within the **centuries old system of subaks** that communally coordinate each farmer's activities.",
-            "Agricultural extension agents *monitor and consult* on the new irrigation practices.",
+            "Somya Pertiwi is working within the **centuries old system of communally-governed subaks** that coordinate the irrigation of the rice paddies.",
+            "Agricultural extension agents *monitor and consult* on the new farming practices.",
           ],
         },
       ],
