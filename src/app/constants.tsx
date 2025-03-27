@@ -76,7 +76,7 @@ export const pages = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. Patrons and markets recongize **the value of WINS, generating payments for the stewards.**",
+      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** as patrons and markets recongize their value.",
     },
   },
   {
