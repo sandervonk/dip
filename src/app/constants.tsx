@@ -38,7 +38,7 @@ export const pages = [
       images: [
         {
           src: "../path/to/flowchart",
-          alt: "Flowchart Alt Text",
+          alt: "Flowchart",
           blurbs: [
             "*Frontier science* creates **a bottom-up solution**  to the Tragedy of the Commons.",
             "*Integrating ideas* from agriculture, anthropology, chemistry, complex systems, computer science, earth science, ecology, engineering, economics, and finance.",
@@ -48,7 +48,7 @@ export const pages = [
         },
         {
           src: "../path/to/cylinder",
-          alt: "Scientists collect measurment data from a methane probe",
+          alt: "Methane Measurement",
           blurbs: [
             "*World class measurements* of the impacts and actions of environmental stewards.",
             "Creating a new standard for documenting **world-enhancing activities.**",
@@ -56,14 +56,14 @@ export const pages = [
         },
         {
           src: "../path/to/remote-sensing-before",
-          alt: "Sensing Before Alt Text",
+          alt: "Sensing Before",
           blurbs: [
             "Remote sensing provides the *necessary monitoring, verification, and reporting* of successful environmental stewardship.",
           ],
         },
         {
           src: "../path/to/remote-sensing-after",
-          alt: "Sensing After Alt Text",
+          alt: "Sensing After",
           blurbs: [
             "Providing high-quality results that **can be trusted** by patrons and markets.",
           ],
@@ -76,7 +76,7 @@ export const pages = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** as patrons and markets recongize their value.",
+      text: "Our remote sensing generates WINs that translate the actions of the stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** as patrons and markets recongize their value.",
     },
   },
   {
@@ -162,7 +162,7 @@ export const pages = [
       images: [
         {
           src: "../path/to/field-measurements",
-          alt: "Field Measurements Alt Text",
+          alt: "Piccarro",
           blurbs: [
             "In-field gas analyzers *track emissions* from adjacent fields that use different irrigation practices.",
             "Such world-class *measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
@@ -170,15 +170,15 @@ export const pages = [
         },
         {
           src: "../path/to/subak-bena",
-          alt: "Subak Bena Alt Text",
+          alt: "Subak Bena",
           blurbs: [
             "The project requires a *deep understanding* of the local people, culture, and institutions.",
-            "Incorporating such insights **strengthens local traditions and institutions.**",
+            "Incorporating such insights **strengthens local traditions and organizations.**",
           ],
         },
         {
           src: "../path/to/somya-pertiwi",
-          alt: "Somya Pertiwi Alt Text",
+          alt: "Somya Pertiwi",
           blurbs: [
             "The project *embraces and integrates* **local leadership.**",
             "The Balinese NGO, *Somya Pertiwi* (**Kindness of the Earth Goddess**), leads the project.",
