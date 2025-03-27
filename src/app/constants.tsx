@@ -41,7 +41,7 @@ export const pages = [
           alt: "Flowchart Alt Text",
           blurbs: [
             "*Frontier science* creates **a bottom-up solution**  to the Tragedy of the Commons.",
-            "*Integrating ideas* from agriculture, anthropology, chemistry, computer science, earth science, ecology, engineering, economics, and finance.",
+            "*Integrating ideas* from agriculture, anthropology, chemistry, complex systems, computer science, earth science, ecology, engineering, economics, and finance.",
             "Driven by an *Information-Age infrastructure* that is **easy to scale with wide applicability.**",
             "Alters incentives to **enhance the global commons** rather than destroy it.",
           ],
@@ -128,7 +128,7 @@ export const pages = [
       ],
       section: "A Pilot Project",
       header: "Bali, Indonesia",
-      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving, so **by altering how they irrigate the indigenous farmers can mitigate methane emissions.**",
+      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving.  By changing their irrigation practices, **indigenous farmers can mitigate methane emissions.** Incentives are needed to help the farmers reduce risks as they alter their thousand-year old system of agriculture.",
     },
   },
   {
@@ -146,7 +146,7 @@ export const pages = [
         ],
         [
           ">75%",
-          "Methane emissions can be **reduced by over 75%** by not keeping the paddies continuously flooded.  This also reduces the runoff of fertilizer that damages Bali's coral reefs.  Incentives are needed to help the indigenous farmers alter their thousand-year old system of agriculture.",
+          "Methane emissions can be **reduced by over 75%** by not keeping the paddies continuously flooded.  This also reduces the runoff of fertilizer that damages Bali's coral reefs.",
         ],
       ],
       media: {
@@ -165,7 +165,7 @@ export const pages = [
           alt: "Field Measurements Alt Text",
           blurbs: [
             "In-field gas analyzers *track emissions* from adjacent fields that use different irrigation practices.",
-            "Such *measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
+            "Such world-class *measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
           ],
         },
         {
@@ -173,14 +173,14 @@ export const pages = [
           alt: "Subak Bena Alt Text",
           blurbs: [
             "The project requires a *deep understanding* of the local people, culture, and institutions.",
-            "Using such insights we will **strengthen local traditions and institutions.**",
+            "Incorporating such insights **strengthens local traditions and institutions.**",
           ],
         },
         {
           src: "../path/to/somya-pertiwi",
           alt: "Somya Pertiwi Alt Text",
           blurbs: [
-            "Local leadership and institutions **are embraced and integrated** into the project.",
+            "The project **embraces and integrates local leadership and institutions.**",
             "The Balinese NGO, *Somya Pertiwi* (**Kindness of the Earth Goddess**), leads the project.",
             "Somya Pertiwi is working within the **centuries old system of subaks** that communally coordinate each farmer's activities.",
             "Agricultural extension agents *monitor and consult* on the new irrigation practices.",
@@ -196,11 +196,11 @@ export const pages = [
       stats: [
         [
           "2012",
-          "In 2012, the *UNESCO World Heritage Convention* recognized the **long-term sustainability of the Balinese subak system** based on a proposal developed by Somya Pertiwi.",
+          "In 2012, the *UNESCO World Heritage Convention recognized the* **long-term sustainability** *of the Balinese subak system* based on a proposal developed by Somya Pertiwi.",
         ],
         [
           "19",
-          "The **19 subaks** in the UNESCO World Heritage site will *participate in the pilot project.*",
+          "The **19 subaks** in the UNESCO World Heritage site *will participate in the pilot project.*",
         ],
         [
           "3",
