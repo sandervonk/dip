@@ -19,7 +19,7 @@ export default function Nav() {
   });
 
   const pages = {
-    "/": "About",
+    "/wins": "WINs",
     "/resources": "Resources",
     "/team": "Team",
     "/contact": "Connect",
