@@ -51,7 +51,7 @@ export const pages = [
           alt: "Scientists collect measurment data from a methane probe",
           blurbs: [
             "*World class measurements* of the impacts and actions of environmental stewards.",
-            "Creating a new standard for documenting **world-enhancing** *activities.*",
+            "Creating a new standard for documenting **world-enhancing activities.**",
           ],
         },
         {
