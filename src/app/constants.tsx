@@ -128,7 +128,7 @@ export const pages = [
       ],
       section: "A Pilot Project",
       header: "Bali, Indonesia",
-      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving.  By changing their irrigation practices, **indigenous farmers can mitigate methane emissions.** Incentives are needed to help the farmers reduce risks as they alter their thousand-year old system of agriculture.",
+      text: "Rice has been **sustainably farmed on Bali for over a millennium.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving.  By changing their irrigation practices, **indigenous farmers can mitigate methane emissions.** Incentives are needed to help the farmers reduce risks as they alter their thousand-year old system of agriculture.",
     },
   },
   {
@@ -180,7 +180,7 @@ export const pages = [
           src: "../path/to/somya-pertiwi",
           alt: "Somya Pertiwi Alt Text",
           blurbs: [
-            "The project **embraces and integrates local leadership and institutions.**",
+            "The project *embraces and integrates* **local leadership.**",
             "The Balinese NGO, *Somya Pertiwi* (**Kindness of the Earth Goddess**), leads the project.",
             "Somya Pertiwi is working within the **centuries old system of subaks** that communally coordinate each farmer's activities.",
             "Agricultural extension agents *monitor and consult* on the new irrigation practices.",
