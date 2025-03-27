@@ -29,7 +29,7 @@ export const pages = [
     data: {
       section: "The Idea",
       header: "Realign individual incentives to reflect global impacts",
-      text: "An automated system leverages remote sensing to enable international **payments to indigenous stewards** who enhance the global commons.",
+      text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
     },
   },
   {
@@ -50,7 +50,7 @@ export const pages = [
           src: "../path/to/cylinder",
           alt: "Scientists collect measurment data from a methane probe",
           blurbs: [
-            "*World class measurements* of the actions, and impacts, of stewards.",
+            "*World class measurements* of the impacts and actions of environmental stewards.",
             "Creating a new standard for documenting **world-enhancing** *activities.*",
           ],
         },
@@ -58,14 +58,14 @@ export const pages = [
           src: "../path/to/remote-sensing-before",
           alt: "Sensing Before Alt Text",
           blurbs: [
-            "Remote sensing provides the *necessary monitoring, verification, and reporting* of the actions of the stewards.",
+            "Remote sensing provides the *necessary monitoring, verification, and reporting* of successful environmental stewardship.",
           ],
         },
         {
           src: "../path/to/remote-sensing-after",
           alt: "Sensing After Alt Text",
           blurbs: [
-            "Providing high-quality results that **can be trusted** by the patrons and markets.",
+            "Providing high-quality results that **can be trusted** by patrons and markets.",
           ],
         },
       ],
@@ -76,8 +76,7 @@ export const pages = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state.  
-        Patrons and markets recongize the value of WINS, generating payments for the stewards.",
+      text: "Our remote sensing generates WINs that translate the actions of the stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. Patrons and markets recongize **the value of WINS, generating payments for the stewards.**",
     },
   },
   {
@@ -129,7 +128,7 @@ export const pages = [
       ],
       section: "A Pilot Project",
       header: "Bali, Indonesia",
-      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving, so **by altering how they irrigate farmers can mitigate methane emissions.**",
+      text: "Rice has been **sustainably farmed on Bali for over a thousand years.**  Unfortunately, the flooded paddies produce methane, a dangerous greenhouse gas.  However, rice is water tolerant not water loving, so **by altering how they irrigate the indigenous farmers can mitigate methane emissions.**",
     },
   },
   {
@@ -165,8 +164,8 @@ export const pages = [
           src: "../path/to/field-measurements",
           alt: "Field Measurements Alt Text",
           blurbs: [
-            "In-field gas analyzers *compare emissions* from adjacent fields that use different irrigation practices.",
-            "*Such measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
+            "In-field gas analyzers *track emissions* from adjacent fields that use different irrigation practices.",
+            "Such *measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
           ],
         },
         {
@@ -174,7 +173,7 @@ export const pages = [
           alt: "Subak Bena Alt Text",
           blurbs: [
             "The project requires a *deep understanding* of the local people, culture, and institutions.",
-            "Using such insights the project can **strengthen local traditions and institutions.**",
+            "Using such insights we will **strengthen local traditions and institutions.**",
           ],
         },
         {
