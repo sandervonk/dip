@@ -37,7 +37,7 @@ export const pages = [
     data: {
       images: [
         {
-          src: "../path/to/flowchart",
+          src: "/img/center/flowchart.png",
           alt: "Flowchart",
           blurbs: [
             "*Frontier science* creates **a bottom-up solution**  to the Tragedy of the Commons.",
@@ -47,7 +47,7 @@ export const pages = [
           ],
         },
         {
-          src: "../path/to/cylinder",
+          src: "/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
             "*World class measurements* of the impacts and actions of environmental stewards.",
@@ -55,14 +55,14 @@ export const pages = [
           ],
         },
         {
-          src: "../path/to/remote-sensing-before",
+          src: "/img/center/remote-sensing-before.png",
           alt: "Sensing Before",
           blurbs: [
             "Remote sensing provides the *necessary monitoring, verification, and reporting* of successful environmental stewardship.",
           ],
         },
         {
-          src: "../path/to/remote-sensing-after",
+          src: "/img/center/remote-sensing-after.png",
           alt: "Sensing After",
           blurbs: [
             "Providing high-quality results that **can be trusted** by patrons and markets.",
@@ -161,7 +161,7 @@ export const pages = [
     data: {
       images: [
         {
-          src: "../path/to/field-measurements",
+          src: "/img/center/field-measurement.png",
           alt: "Piccarro",
           blurbs: [
             "In-field gas analyzers *track emissions* from adjacent fields that use different irrigation practices.",
@@ -169,7 +169,7 @@ export const pages = [
           ],
         },
         {
-          src: "../path/to/subak-bena",
+          src: "/img/center/subak-bena.png",
           alt: "Subak Bena",
           blurbs: [
             "The project requires a *deep understanding* of the local people, culture, and institutions.",
@@ -177,7 +177,7 @@ export const pages = [
           ],
         },
         {
-          src: "../path/to/somya-pertiwi",
+          src: "/img/center/somya-pertiwi.png",
           alt: "Somya Pertiwi",
           blurbs: [
             "The project *embraces and integrates* **local leadership.**",

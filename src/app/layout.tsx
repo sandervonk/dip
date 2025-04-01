@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import Nav from "@/components/nav";
+import { Cursor } from "motion-plus/react";
 export const dynamic = "error";
 
 // use inter with a bit of tsume/negative tracking to get close to SF Display Pro
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
+        <Cursor style={{ backgroundColor: "var(--cursor)" }} />
         <Nav />
         <main>{children}</main>
       </body>
