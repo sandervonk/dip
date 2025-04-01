@@ -36,10 +36,39 @@ export default function CenterImage(
   // Create refs for scroll containers
   const blurbsContainerRef = useRef(null);
 
+  // Create refs for each blurb group for tracking image visibility
+  const blurbGroupRefs = Array(images.length)
+    .fill(null)
+    .map(() => useRef(null));
+
   // Create main scroll progress for mobile view
   const { scrollYProgress: mainScrollProgress } = useScroll({
     target: blurbsContainerRef,
     offset: ["-200px end", "end 50px"],
+  });
+
+  // Create scroll progress for each blurb group to control image visibility
+  const blurbGroupScrollProgress = blurbGroupRefs.map(
+    (ref) =>
+      useScroll({
+        target: ref,
+        offset: ["start 70%", "end 30%"],
+      }).scrollYProgress
+  );
+
+  // Create opacity values for each image based on its blurb group visibility
+  // Special handling for first and last images
+  const imageOpacityValues = blurbGroupScrollProgress.map((progress, index) => {
+    if (index === 0) {
+      // First image starts fully visible and fades out as we scroll past
+      return useTransform(progress, [0.7, 0.9], [1, 0]);
+    } else if (index === images.length - 1) {
+      // Last image fades in but never fades out
+      return useTransform(progress, [0.1, 0.3], [0, 1]);
+    } else {
+      // Middle images fade in and out normally
+      return useTransform(progress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
+    }
   });
 
   // Create scroll height template for mobile
@@ -101,7 +130,7 @@ export default function CenterImage(
     let isLeft = true;
     let globalBlurbIndex = 0;
 
-    return images.map((image) => {
+    return images.map((image, imageIndex) => {
       const startLeft = isLeft;
       // Toggle left/right based on number of blurbs
       isLeft = image.blurbs.length % 2 === 0 ? isLeft : !isLeft;
@@ -135,6 +164,7 @@ export default function CenterImage(
         ...image,
         startLeft,
         blurbs: processedBlurbs,
+        opacity: imageOpacityValues[imageIndex],
       };
     });
   }, [
@@ -148,13 +178,18 @@ export default function CenterImage(
     desktopTransformValues,
     desktopOpacityValues,
     desktopUserSelectValues,
+    imageOpacityValues,
   ]);
 
   return (
     <motion.div className={styles.container}>
       <div className={styles.imageContainer}>
         {processedImages.map((image, i) => (
-          <motion.div key={i} className={styles.imageWrapper}>
+          <motion.div
+            key={i}
+            className={styles.imageWrapper}
+            style={{ opacity: image.opacity }}
+          >
             <Image
               src={image.src}
               alt={image.alt}
@@ -175,6 +210,7 @@ export default function CenterImage(
         {processedImages.map((image, j) => (
           <div
             key={j}
+            ref={blurbGroupRefs[j]}
             className={`${styles.blurbGroup} ${
               image.startLeft ? styles.startLeft : styles.startRight
             }`}
