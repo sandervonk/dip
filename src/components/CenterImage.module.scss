@@ -16,20 +16,21 @@
       position: absolute;
       overflow: hidden;
       width: 50vw;
-      height: 50vh;
+      height: 50dvh;
       min-width: 300px;
       max-height: 500px;
 
       @media (max-width: 750px) {
         width: 80vw;
-        height: 70vh;
-        min-width: 600px;
+        height: 70dvh;
+        max-width: 600px;
         max-height: 800px;
       }
       .image {
         height: 100%;
         width: 100%;
         object-fit: contain;
+        background-color: var(--background);
       }
     }
   }
