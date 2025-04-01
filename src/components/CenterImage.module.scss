@@ -2,6 +2,8 @@
 .container {
   max-width: var(--part-width);
   margin: 0 auto;
+  z-index: 2;
+  mix-blend-mode: lighten;
   .imageContainer {
     position: sticky;
     top: $header-height;
