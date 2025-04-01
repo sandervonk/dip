@@ -605,7 +605,11 @@ const ThreeJSEarth = ({
 
       // Dispose of ThreeJS resources
       if (rendererRef.current) {
-        rendererRef.current?.dispose();
+        try {
+          rendererRef.current?.dispose();
+        } catch (error) {
+          console.warn("Failed to dispose WebGPU renderer:", error);
+        }
         if (
           rendererRef.current.domElement &&
           rendererRef.current.domElement.parentNode

@@ -43,7 +43,9 @@ export default function Nav() {
       }}
     >
       <div className={styles.header}>
-        <h1 className={styles.title}>{nav.title}</h1>
+        <h1 className={styles.title}>
+          <Link href="/">{nav.title}</Link>
+        </h1>
         <nav className={styles.nav}>
           <ul>
             {Object.entries(pages).map(([path, name]) => (
