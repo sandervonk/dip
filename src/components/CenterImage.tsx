@@ -47,7 +47,7 @@ export default function CenterImage(
     offset: ["-200px end", "end 50px"],
   });
 
-  // Create scroll progress for each blurb group to control image visibility
+  // Create scroll progress for each blurb group to control image visibility (desktop)
   const blurbGroupScrollProgress = blurbGroupRefs.map(
     (ref) =>
       useScroll({
@@ -56,20 +56,71 @@ export default function CenterImage(
       }).scrollYProgress
   );
 
-  // Create opacity values for each image based on its blurb group visibility
-  // Special handling for first and last images
-  const imageOpacityValues = blurbGroupScrollProgress.map((progress, index) => {
+  // Calculate the blurb ranges for each image for mobile view
+  const mobileImageRanges = useMemo(() => {
+    const ranges = [];
+    let startIndex = 0;
+
+    for (const image of images) {
+      const blurbCount = image.blurbs.length;
+      const endIndex = startIndex + blurbCount;
+
+      // Calculate the proportion of total blurbs
+      const start = startIndex / totalBlurbCount;
+      const end = endIndex / totalBlurbCount;
+
+      ranges.push({ start, end });
+      startIndex = endIndex;
+    }
+
+    return ranges;
+  }, [images, totalBlurbCount]);
+
+  // Create mobile opacity values for each image based on its blurbs' visibility
+  const mobileImageOpacityValues = mobileImageRanges.map((range, index) => {
+    // Add padding to the range for smoother transitions
+    const paddedStart = Math.max(0, range.start - 0.05);
+    const paddedEnd = Math.min(1, range.end + 0.05);
+
     if (index === 0) {
-      // First image starts fully visible and fades out as we scroll past
-      return useTransform(progress, [0.7, 0.9], [1, 0]);
+      // First image starts fully visible and fades out
+      return useTransform(
+        mainScrollProgress,
+        [paddedStart, range.end * 0.7, range.end],
+        [1, 1, 0]
+      );
     } else if (index === images.length - 1) {
-      // Last image fades in but never fades out
-      return useTransform(progress, [0.1, 0.3], [0, 1]);
+      // Last image fades in and stays visible
+      return useTransform(
+        mainScrollProgress,
+        [range.start, range.start * 1.2],
+        [0, 1]
+      );
     } else {
-      // Middle images fade in and out normally
-      return useTransform(progress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
+      // Middle images fade in and out
+      return useTransform(
+        mainScrollProgress,
+        [paddedStart, range.start * 1.1, range.end * 0.9, paddedEnd],
+        [0, 1, 1, 0]
+      );
     }
   });
+
+  // Create desktop opacity values for each image based on its blurb group visibility
+  const desktopImageOpacityValues = blurbGroupScrollProgress.map(
+    (progress, index) => {
+      if (index === 0) {
+        // First image starts fully visible and fades out as we scroll past
+        return useTransform(progress, [0.7, 0.9], [1, 0]);
+      } else if (index === images.length - 1) {
+        // Last image fades in but never fades out
+        return useTransform(progress, [0.1, 0.3], [0, 1]);
+      } else {
+        // Middle images fade in and out normally
+        return useTransform(progress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
+      }
+    }
+  );
 
   // Create scroll height template for mobile
   const blurbScrollHeight = useMotionTemplate`${totalBlurbCount * 50}dvh`;
@@ -164,7 +215,9 @@ export default function CenterImage(
         ...image,
         startLeft,
         blurbs: processedBlurbs,
-        opacity: imageOpacityValues[imageIndex],
+        opacity: isMobile
+          ? mobileImageOpacityValues[imageIndex]
+          : desktopImageOpacityValues[imageIndex],
       };
     });
   }, [
@@ -178,7 +231,8 @@ export default function CenterImage(
     desktopTransformValues,
     desktopOpacityValues,
     desktopUserSelectValues,
-    imageOpacityValues,
+    mobileImageOpacityValues,
+    desktopImageOpacityValues,
   ]);
 
   return (
