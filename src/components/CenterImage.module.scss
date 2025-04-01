@@ -10,6 +10,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
+    user-select: none;
     .imageWrapper {
       position: absolute;
       overflow: hidden;

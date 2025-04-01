@@ -14,6 +14,8 @@ export type PositionData = {
   pos: position3D;
   rot: position3D;
   sun: position3D;
+  opacity: number;
+  pointerEvents: "auto" | "none";
 };
 type PositionKey = "pan" | "pos" | "rot" | "sun";
 
@@ -83,6 +85,22 @@ export default function EarthText(
       };
     }, {}) as position3D | position2D;
   });
+
+  // Create opacity and pointerEvents MotionValues
+  const opacity = useTransform(
+    textCoverProgress,
+    inputRange,
+    data.positions.map((position) => position.opacity),
+    {
+      ease: cubicBezier(0.42, 0, 0.58, 1),
+    }
+  );
+
+  const pointerEvents = useTransform(
+    textCoverProgress,
+    inputRange,
+    data.positions.map((position) => position.pointerEvents)
+  );
 
   const scale = useTransform(
     textAltProgress,
@@ -167,6 +185,7 @@ export default function EarthText(
         className={styles.earthWrapper}
         initial="hidden"
         animate={showEarth ? "visible" : "hidden"}
+        style={{ opacity, pointerEvents }}
         variants={{
           hidden: {
             y: "100%",

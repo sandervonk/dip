@@ -88,6 +88,8 @@ export const pages = [
           pos: { x: 0.5, y: 0, z: 20 },
           rot: { x: -1.75, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
+          pointerEvents: "none",
+          opacity: 0,
           transform: 0.1,
         },
         {
@@ -95,6 +97,8 @@ export const pages = [
           pos: { x: 0.5, y: 0, z: 8 },
           rot: { x: -0.75, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
+          pointerEvents: "none",
+          opacity: 1,
           transform: 0.2,
         },
         {
@@ -102,6 +106,8 @@ export const pages = [
           pos: { x: 0.5, y: 0, z: 3 },
           rot: { x: 0, y: 0, z: 0 },
           sun: { x: 2, y: 1, z: 1 },
+          pointerEvents: "auto",
+          opacity: 1,
           transform: 0.3,
         },
         {
@@ -109,6 +115,8 @@ export const pages = [
           pos: { x: 0.5, y: 0, z: 2.5 },
           rot: { x: 0, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
+          pointerEvents: "auto",
+          opacity: 1,
           transform: 0.7,
         },
         {
@@ -116,14 +124,9 @@ export const pages = [
           pos: { x: 0.5, y: 0, z: 12 },
           rot: { x: 0, y: 1, z: 0 },
           sun: { x: 0, y: 3, z: 2 },
+          pointerEvents: "none",
+          opacity: 0,
           transform: 0.95,
-        },
-        {
-          pan: { x: 0, y: -7 },
-          pos: { x: 0.5, y: 0, z: 20 },
-          rot: { x: 0, y: 1, z: 0 },
-          sun: { x: 0, y: 3, z: 2 },
-          transform: 1,
         },
       ],
       section: "A Pilot Project",
