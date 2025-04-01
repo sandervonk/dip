@@ -27,7 +27,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 export default function EarthText(
   props: Readonly<{
     data: {
@@ -40,7 +40,6 @@ export default function EarthText(
   }>
 ) {
   const { data } = props;
-  const [showEarth, setShowEarth] = useState(false);
   const textRef = useRef(null);
   const textCoverProgress = useScroll({
     target: textRef,
@@ -128,15 +127,7 @@ export default function EarthText(
       <motion.div
         className={styles.textSection}
         ref={textRef}
-        onViewportEnter={() => setShowEarth(true)}
-        onViewportLeave={(entry) =>
-          setShowEarth((entry?.boundingClientRect?.top || 0) < 225)
-        }
         style={{ textShadow }}
-        viewport={{
-          amount: "some",
-          margin: "50px 0px 220px 0px",
-        }}
       >
         <div className={styles.markerWrapper}>
           <motion.svg className={styles.marker}>
@@ -183,20 +174,7 @@ export default function EarthText(
       </motion.div>
       <motion.div
         className={styles.earthWrapper}
-        initial="hidden"
-        animate={showEarth ? "visible" : "hidden"}
         style={{ opacity, pointerEvents }}
-        variants={{
-          hidden: {
-            y: "100%",
-          },
-          visible: {
-            y: 0,
-          },
-        }}
-        transition={{
-          duration: 0.1,
-        }}
       >
         <Earth
           className={styles.earthContainer}
