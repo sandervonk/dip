@@ -130,12 +130,12 @@ export default function EarthText(
         ref={textRef}
         onViewportEnter={() => setShowEarth(true)}
         onViewportLeave={(entry) =>
-          setShowEarth((entry?.boundingClientRect?.top || 0) < 120)
+          setShowEarth((entry?.boundingClientRect?.top || 0) < 225)
         }
         style={{ textShadow }}
         viewport={{
           amount: "some",
-          margin: "50px 0px 120px 0px",
+          margin: "50px 0px 220px 0px",
         }}
       >
         <div className={styles.markerWrapper}>
