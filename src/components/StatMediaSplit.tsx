@@ -51,7 +51,7 @@ export default function StatMediaSplit(
               src={data.media.src}
               title={data.media.alt}
               controls={true}
-              controlsList="nodownload nofullscreen noremoteplayback"
+              controlsList="nodownload noremoteplayback"
               poster={data.media.placeholder}
             />
           )}
