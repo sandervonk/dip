@@ -41,7 +41,7 @@
           > span {
             &.number {
               color: var(--accent);
-              font-size: 80px;
+              font-size: 70px;
               @media (max-width: 1000px), (max-height: 600px) {
                 font-size: 50px;
               }
@@ -62,11 +62,11 @@
           }
         }
         .statText {
-          font-size: 21px;
+          font-size: 20px;
           line-height: 112%;
           font-weight: 600;
           @media (max-width: 1000px), (max-height: 600px) {
-            font-size: 15px;
+            font-size: 17px;
           }
           @media (max-width: 750px), (max-height: 350px) {
             font-size: 15px;
