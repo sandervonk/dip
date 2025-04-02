@@ -4,6 +4,7 @@ import {
   easeIn,
   motion,
   MotionConfig,
+  useMotionTemplate,
   useScroll,
   useTransform,
 } from "motion/react";
@@ -26,18 +27,31 @@ export default function TitleSplash(
     offset: ["center center", "start 50px"],
   });
   const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.75]);
+  const filter = useMotionTemplate`blur(${useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, 2]
+  )}px)`;
   return (
     <motion.div
       className={styles.container}
       ref={container}
       style={{ opacity }}
     >
-      <Image
-        className={styles.image}
-        src={data.image}
-        alt="Title Card Image"
-        priority
-      />
+      <motion.div
+        className={styles.imageWrapper}
+        style={{ filter }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Image
+          className={styles.image}
+          src={data.image}
+          alt="Title Card Image"
+          priority
+        />
+      </motion.div>
       <motion.h1
         layout
         ref={primary}
