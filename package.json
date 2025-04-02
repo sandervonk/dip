@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lenis": "^1.2.3",
     "motion": "^12.4.9",
     "motion-plus": "^0.1.6",
     "next": "^15.2.3",
