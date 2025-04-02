@@ -19,6 +19,7 @@
   .container {
     display: flex;
     flex-flow: row wrap;
+    align-items: stretch;
     width: 100%;
     background: var(--alternate);
     gap: $border;
@@ -27,14 +28,14 @@
       background: var(--background);
     }
     .stats {
-      flex: 2 0 $stats-base;
+      flex: 2 1 $stats-base;
+      width: $stats-base;
       padding: 70px 50px;
       align-items: center;
       justify-content: center;
       display: flex;
       flex-flow: column nowrap;
       gap: 20px;
-      width: 100%;
       .stat {
         max-width: 340px;
         .statNumber {
@@ -87,25 +88,22 @@
       }
     }
     .media {
-      flex: 3 0 $media-base;
+      flex: 3 1 $media-base;
+      width: $media-base;
       padding: 30px 70px;
       display: flex;
       align-items: center;
       justify-content: center;
-      @media (max-width: 610px) {
-        padding: 20px 30px;
-        img,
-        video {
-          width: 100%;
-          height: auto;
-        }
-      }
       img,
       video {
-        width: auto;
-        flex-grow: 1;
-        height: 100%;
-        max-height: 70vh;
+        flex: 1 1 100px;
+        width: 100px;
+        max-width: 100%;
+        min-width: unset;
+      }
+
+      @media (max-width: 610px) {
+        padding: 20px 30px;
       }
     }
   }

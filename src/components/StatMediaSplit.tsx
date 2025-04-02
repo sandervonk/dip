@@ -8,6 +8,7 @@ export default function StatMediaSplit(
       stats: Array<[string, string]>;
       media: {
         type: "video" | "img";
+        placeholder?: string;
         src: string;
         alt: string;
       };
@@ -46,7 +47,13 @@ export default function StatMediaSplit(
           {data.media.type === "img" ? (
             <img src={data.media.src} alt={data.media.alt} />
           ) : (
-            <video src={data.media.src} title={data.media.alt} />
+            <video
+              src={data.media.src}
+              title={data.media.alt}
+              controls={true}
+              controlsList="nodownload nofullscreen noremoteplayback"
+              poster={data.media.placeholder}
+            />
           )}
         </div>
       </div>

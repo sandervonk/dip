@@ -154,6 +154,7 @@ export const pages = [
       media: {
         type: "video",
         src: "../path/to/video",
+        placeholder: "/media/video-placeholder.png",
         alt: "Video caption",
       },
     },
