@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.scss";
 import { Cursor } from "motion-plus/react";
 import Nav from "@/components/NavBar";
+import { GoogleAnalytics } from "@next/third-parties/google";
 export const dynamic = "error";
 
 // use inter with a bit of tsume/negative tracking to get close to SF Display Pro
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
       </body>
+      <GoogleAnalytics gaId="G-R3W7N6X2MC" />
     </html>
   );
 }

@@ -1,5 +1,6 @@
 import { ColorText } from "@/app/constants";
 import styles from "./StatMediaSplit.module.scss";
+import Image from "next/image";
 export default function StatMediaSplit(
   props: Readonly<{
     data: {
@@ -44,7 +45,12 @@ export default function StatMediaSplit(
         </div>
         <div className={styles.media}>
           {data.media.type === "img" ? (
-            <img src={data.media.src} alt={data.media.alt} />
+            <Image
+              src={data.media.src}
+              alt={data.media.alt}
+              width={898}
+              height={898}
+            />
           ) : (
             <video
               src={data.media.src}
