@@ -1,6 +1,5 @@
 import { ColorText } from "@/app/constants";
 import styles from "./StatMediaSplit.module.scss";
-import { motion } from "motion/react";
 export default function StatMediaSplit(
   props: Readonly<{
     data: {
@@ -18,7 +17,7 @@ export default function StatMediaSplit(
   const { data } = props;
 
   return (
-    <motion.div className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <h2 className={styles.title}>{data.statsTitle}</h2>
       <div className={styles.container}>
         <div className={styles.stats}>
@@ -57,6 +56,6 @@ export default function StatMediaSplit(
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
