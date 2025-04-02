@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import Nav from "@/components/nav";
 import { Cursor } from "motion-plus/react";
+import Nav from "@/components/NavBar";
 export const dynamic = "error";
 
 // use inter with a bit of tsume/negative tracking to get close to SF Display Pro

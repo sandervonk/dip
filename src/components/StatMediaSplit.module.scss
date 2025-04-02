@@ -1,3 +1,5 @@
+@import "@/app/variables.scss";
+
 .wrapper {
   $border: 1px;
   $media-base: 500px;
@@ -21,11 +23,11 @@
     flex-flow: row wrap;
     align-items: stretch;
     width: 100%;
-    background: var(--alternate);
+    background: $alternate;
     gap: $border;
     padding: $border 0;
     > * {
-      background: var(--background);
+      background: $background;
     }
     .stats {
       flex: 2 1 $stats-base;
@@ -41,7 +43,7 @@
         .statNumber {
           > span {
             &.number {
-              color: var(--accent);
+              color: $accent;
               font-size: 70px;
               @media (max-width: 1000px), (max-height: 600px) {
                 font-size: 50px;
@@ -52,7 +54,7 @@
             }
             &.decor {
               font-size: 52px;
-              color: var(--foreground);
+              color: $foreground;
               @media (max-width: 1000px), (max-height: 600px) {
                 font-size: 32px;
               }
@@ -77,10 +79,10 @@
       @media (min-width: 610px) and (max-width: $break-width) {
         padding: 0;
         gap: $border;
-        background-color: var(--alternate);
+        background-color: $alternate;
         flex-flow: row nowrap;
         .stat {
-          background-color: var(--background);
+          background-color: $background;
           flex: 1 0 200px;
           padding: 50px 20px;
           height: 100%;

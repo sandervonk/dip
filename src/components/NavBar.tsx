@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import styles from "./nav.module.scss";
+import styles from "./NavBar.module.scss";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { nav } from "@/app/constants";

@@ -8,7 +8,7 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 export default function TitleSplash(
   props: Readonly<{
     data: {
@@ -22,6 +22,7 @@ export default function TitleSplash(
   const container = useRef(null);
   const primary = useRef(null);
   const secondary = useRef(null);
+  const [loaded, setLoaded] = useState(false);
   const { scrollYProgress } = useScroll({
     target: primary,
     offset: ["center center", "start 50px"],
@@ -40,15 +41,17 @@ export default function TitleSplash(
     >
       <motion.div
         className={styles.imageWrapper}
+        initial="initial"
+        animate={loaded ? "show" : "initial"}
+        variants={{ initial: { opacity: 0 }, show: { opacity: 1 } }}
         style={{ filter }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <Image
           className={styles.image}
           src={data.image}
           alt="Title Card Image"
+          onLoad={() => setLoaded(true)}
           priority
         />
       </motion.div>
