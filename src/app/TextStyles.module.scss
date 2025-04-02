@@ -1,11 +1,11 @@
 .grey {
   color: #ffffff77;
-  // alternate high-contrast shade
-  color: #929292bd;
+  // alternate shade for contrast
+  // color: #929292bd;
 }
 .white {
   color: #ffffff;
 }
 .green {
-  color: #03ff40;
+  color: var(--accent);
 }

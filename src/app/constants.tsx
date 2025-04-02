@@ -3,10 +3,9 @@ import TitleSplash from "@/components/TitleSplash";
 import WrappedTextHeader from "@/components/TextHeader";
 import CenterImage from "@/components/CenterImage";
 import EarthText from "@/components/EarthText";
-// import StatMediaSplit from "@/components/StatMediaSplit";
+import StatMediaSplit from "@/components/StatMediaSplit";
 // import ImageToContact from "@/components/ImageToContact";
-const ImageToContact = null,
-  StatMediaSplit = null;
+const ImageToContact = null;
 
 //* Import images for pages
 import PaddiesImage from "@/../public/img/paddies.png";
@@ -212,7 +211,7 @@ export const pages = [
       ],
       media: {
         type: "img",
-        src: "../path/to/letter-to-future-plaque",
+        src: "/img/plaque.png",
         alt: "Plaque Alt Text",
       },
     },
@@ -251,13 +250,13 @@ import reactStringReplace from "react-string-replace";
 export function ColorText(text: string, greyBase: boolean = true) {
   const green = /\*\*([^*]+)\*\*/g;
   const white = /\*([^*]+)\*/g;
-  let content = reactStringReplace(text, green, (match, i) => (
-    <span key={"green" + i} className={styles.green}>
+  let content = reactStringReplace(text, green, (match, i, o) => (
+    <span key={["green", i, o].join("-")} className={styles.green}>
       {match}
     </span>
   ));
-  content = reactStringReplace(content, white, (match, i) => (
-    <span key={"white" + i} className={styles.white}>
+  content = reactStringReplace(content, white, (match, i, o) => (
+    <span key={["white", i, o].join("-")} className={styles.white}>
       {match}
     </span>
   ));

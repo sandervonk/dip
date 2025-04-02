@@ -1,0 +1,112 @@
+.wrapper {
+  $border: 1px;
+  $media-base: 500px;
+  $stats-base: 400px;
+  $break-width: calc($border + $stats-base + $media-base);
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  width: 100%;
+  .title {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 30px;
+    @media (max-width: 610px) {
+      font-size: 32px;
+    }
+  }
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    background: var(--alternate);
+    gap: $border;
+    padding: $border 0;
+    > * {
+      background: var(--background);
+    }
+    .stats {
+      flex: 2 0 $stats-base;
+      padding: 70px 50px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 20px;
+      width: 100%;
+      .stat {
+        max-width: 340px;
+        .statNumber {
+          > span {
+            &.number {
+              color: var(--accent);
+              font-size: 80px;
+              @media (max-width: 1000px), (max-height: 600px) {
+                font-size: 50px;
+              }
+              @media (max-width: 750px), (max-height: 350px) {
+                font-size: 32px;
+              }
+            }
+            &.decor {
+              font-size: 52px;
+              color: var(--foreground);
+              @media (max-width: 1000px), (max-height: 600px) {
+                font-size: 32px;
+              }
+              @media (max-width: 750px), (max-height: 350px) {
+                font-size: 21px;
+              }
+            }
+          }
+        }
+        .statText {
+          font-size: 21px;
+          line-height: 112%;
+          font-weight: 600;
+          @media (max-width: 1000px), (max-height: 600px) {
+            font-size: 15px;
+          }
+          @media (max-width: 750px), (max-height: 350px) {
+            font-size: 15px;
+          }
+        }
+      }
+      @media (min-width: 610px) and (max-width: $break-width) {
+        padding: 0;
+        gap: $border;
+        background-color: var(--alternate);
+        flex-flow: row nowrap;
+        .stat {
+          background-color: var(--background);
+          flex: 1 0 200px;
+          padding: 50px 20px;
+          height: 100%;
+        }
+      }
+    }
+    .media {
+      flex: 3 0 $media-base;
+      padding: 30px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: 610px) {
+        padding: 20px 30px;
+        img,
+        video {
+          width: 100%;
+          height: auto;
+        }
+      }
+      img,
+      video {
+        width: auto;
+        flex-grow: 1;
+        height: 100%;
+        max-height: 70vh;
+      }
+    }
+  }
+}
