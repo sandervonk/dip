@@ -217,9 +217,10 @@ export const pages = [
         },
         {
           stat: { 
-            befire:"The ",
+            before:"The ",
             number: 19, 
-            after: " **subaks**" },
+            after: " **subaks**", 
+          },
           text: "contained in the UNESCO site are part of *the pilot project.*",
         },
         {
