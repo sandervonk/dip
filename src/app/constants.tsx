@@ -219,13 +219,12 @@ export const pages = [
           stat: { 
             before: "The ",
             number: 19, 
-            after: " subaks", 
           },
-          text: "in the *UNESCO site* are in *the pilot project.*",
+          text: "**subaks** in the *UNESCO site* are in *the pilot project.*",
         },
         {
           stat: { 
-            before: text: "The ",
+            before: "The ",
             number: 3,
           },
           text: "causes for well being in the Balinese philosophy of *Try Hita Karana* encourage **harmony among people, nature, and the gods.**",
