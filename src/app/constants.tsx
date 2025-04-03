@@ -208,6 +208,7 @@ export const pages = [
       statsTitle: "A Letter to the Future...",
       stats: [
         {
+          text: "test",
           stat: {
             before: "In ",
             number: 2012,
