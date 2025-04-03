@@ -209,16 +209,18 @@ export const pages = [
       stats: [
         {
           stat: {
-            text: "yo",
             before: "In ",
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "is when the **long-term sustainability of the subak system** was recognized by the *UNESCO World Heritage Convention* as proposed by Somya Pertiwi.",
+          text: "the **long-term sustainability of the subak system** was designated as a *UNESCO World Heritage site* through the efforts of Somya Pertiwi.",
         },
         {
-          stat: { number: 19 },
-          text: "**subaks** forming the UNESCO World Heritage site *will participate in the pilot project.*",
+          stat: { 
+            befire:"The ",
+            number: 19, 
+            after: " **subaks**" },
+          text: "contained in the UNESCO site are part of *the pilot project.*",
         },
         {
           stat: { number: 3 },
