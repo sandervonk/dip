@@ -130,7 +130,7 @@ export const pages = [
       ],
       section: "Our pilot project",
       header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **indigenous farmers can mitigate these methane emissions.**  Compensating the farmers for the additional risk and effort will allow them to transition to a new regime of global sustainabilty.",
+      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **indigenous farmers can mitigate methane emissions.**  Compensating the farmers for the additional risk and effort allows them to transition to a new regime of globally sustainable agriculture.",
     },
   },
   {
@@ -148,11 +148,11 @@ export const pages = [
         },
         {
           stat: {
-            before: "Methan has ",
+            before: "Methane has ",
             number: 28,
             after: "x",
           },
-          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, it could *push the global system beyond critical tipping points.*",
+          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, it may *push the global system beyond critical tipping points.*",
         },
         {
           stat: {
@@ -186,7 +186,7 @@ export const pages = [
           src: "/img/center/subak-bena.png",
           alt: "Subak Bena",
           blurbs: [
-            "The project requires a *deep understanding* of the local people, culture, and institutions.",
+            "The project requires a *deep understanding* of the **local people, culture, and institutions.**",
             "Incorporating such insights **strengthens local traditions and organizations.**",
           ],
         },
@@ -221,14 +221,14 @@ export const pages = [
             before: "The ",
             number: 19, 
           },
-          text: "**subaks** in the UNESCO site are *in the pilot project.*",
+          text: "**UNESCO subaks** are in the *pilot project.*",
         },
         {
           stat: { 
             before: "The ",
             number: 3,
           },
-          text: "causes for well being in the Balinese philosophy of *Try Hita Karana* encourage **harmony among people, nature, and the gods.**",
+          text: "causes for well being in the *Balinese philosophy of Try Hita Karana* encourage **harmony among people, nature, and the gods.**",
         },
       ],
       media: {
