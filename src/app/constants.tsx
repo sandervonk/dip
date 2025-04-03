@@ -212,7 +212,6 @@ export const pages = [
           stat: {
             before: "In ",
             number: 2012,
-            after: ",",
             format: { useGrouping: false },
           },
           text: "the **long-term sustainability of the subak system** was designated as a *UNESCO World Heritage site* through the efforts of Somya Pertiwi.",
