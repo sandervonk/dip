@@ -213,7 +213,7 @@ export const pages = [
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "UNESCO recognized the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali based on a proposal from Somya Pertiwi.",
+          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali based on a proposal from Somya Pertiwi.",
         },
         {
           stat: { 
@@ -234,6 +234,7 @@ export const pages = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Plaque Alt Text",
+        text: "Hi Mom",
       },
     },
   },
