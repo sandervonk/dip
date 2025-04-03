@@ -7,6 +7,8 @@ function SmoothScrolling({ children }: { children: React.ReactNode }) {
     duration: 0.5,
     syncTouch: false,
     smoothWheel: true,
+    wheelMultiplier: 1.2,
+    touchMultiplier: 0.5,
   };
 
   return (

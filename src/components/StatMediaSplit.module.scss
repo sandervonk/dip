@@ -6,6 +6,8 @@
   $stats-base: 400px;
   $break-width: calc($border + $stats-base + $media-base);
 
+  position: relative;
+  z-index: -1;
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
