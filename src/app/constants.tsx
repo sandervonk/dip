@@ -211,6 +211,7 @@ export const pages = [
           stat: {
             before: "In ",
             number: 2012,
+            after: ",",
             format: { useGrouping: false },
           },
           text: "the **long-term sustainability of the subak system** was designated as a *UNESCO World Heritage site* through the efforts of Somya Pertiwi.",
@@ -221,11 +222,14 @@ export const pages = [
             number: 19, 
             after: " subaks", 
           },
-          text: "contained in the *UNESCO site* are in *the pilot project.*",
+          text: "in the *UNESCO site* are in *the pilot project.*",
         },
         {
-          stat: { number: 3 },
-          text: 'causes for well being are captured in the Balinese philosophy of *Try Hita Karana:* that encourages **harmony among people, nature, and the gods.**',
+          stat: { 
+            before: "There are ",
+            number: 3,
+          },
+          text: 'causes for well being in the Balinese philosophy of *Try Hita Karana* that encourages **harmony among people, nature, and the gods.**',
         },
       ],
       media: {
