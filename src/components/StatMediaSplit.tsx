@@ -1,7 +1,9 @@
 import { ColorText } from "@/app/constants";
 import styles from "./StatMediaSplit.module.scss";
 import Image from "next/image";
+import { motion } from "motion/react";
 import { AnimateNumber } from "motion-plus/react";
+import { useState } from "react";
 export default function StatMediaSplit(
   props: Readonly<{
     data: {
@@ -11,6 +13,12 @@ export default function StatMediaSplit(
           before?: string;
           number: number;
           after?: string;
+          format?: Omit<Intl.NumberFormatOptions, "notation"> & {
+            notation?: Exclude<
+              Intl.NumberFormatOptions["notation"],
+              "scientific" | "engineering"
+            >;
+          };
         };
         text: string;
       }>;
@@ -25,26 +33,65 @@ export default function StatMediaSplit(
 ) {
   const { data } = props;
 
+  const counts = data.stats.map((entry) => {
+    const [viewed, setViewed] = useState(false);
+    return { number: entry.stat.number, viewed, setViewed };
+  });
+
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{data.statsTitle}</h2>
       <div className={styles.container}>
         <div className={styles.stats}>
           {data.stats.map((entry, i) => (
-            <div key={i} className={styles.stat}>
+            <motion.div
+              key={i}
+              className={styles.stat}
+              onViewportEnter={() => {
+                counts[i].setViewed(true);
+              }}
+              viewport={{
+                once: true,
+                // wait for halfway through the viewport
+                amount: "some",
+                margin: "0px 0px -20% 0px",
+              }}
+            >
               <h3 className={styles.statNumber}>
-                {entry.stat.before && (
-                  <span className={styles.decor}>{entry.stat.before}</span>
-                )}
-                <AnimateNumber className={styles.number}>
-                  {entry.stat.number}
+                <AnimateNumber
+                  className={styles.number}
+                  format={entry.stat.format || {}}
+                  prefix={entry.stat.before}
+                  suffix={entry.stat.after}
+                  transition={{
+                    duration: 0.75,
+                  }}
+                >
+                  {counts[i].viewed ? counts[i].number : 0}
                 </AnimateNumber>
-                {entry.stat.after && (
-                  <span className={styles.decor}>{entry.stat.after}</span>
-                )}
               </h3>
-              <p className={styles.statText}>{ColorText(entry.text)}</p>
-            </div>
+              <motion.p
+                className={styles.statText}
+                initial={{
+                  opacity: 0.25,
+                  scale: 0.9,
+                }}
+                animate={counts[i].viewed ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  opacity: {
+                    delay: 0.1 * (i + 1),
+                    duration: 0.5,
+                  },
+                  scale: {
+                    type: "easeOut",
+                    delay: 0.1 * (i + 1),
+                    duration: 0.5,
+                  },
+                }}
+              >
+                {ColorText(entry.text)}
+              </motion.p>
+            </motion.div>
           ))}
         </div>
         <div className={styles.media}>
@@ -66,6 +113,7 @@ export default function StatMediaSplit(
           )}
         </div>
       </div>
+      <style>{`.number-section-pre, .number-section-post {font-size: var(--decor-size); color: var(--foreground); align-items: center;}`}</style>
     </div>
   );
 }

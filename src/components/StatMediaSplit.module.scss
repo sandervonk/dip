@@ -45,21 +45,14 @@
           .number {
             color: $accent;
             font-size: 70px;
+            --decor-size: 52px;
             @media (max-width: 1000px), (max-height: 600px) {
               font-size: 50px;
+              --decor-size: 32px;
             }
             @media (max-width: 750px), (max-height: 350px) {
               font-size: 32px;
-            }
-          }
-          .decor {
-            font-size: 52px;
-            color: $foreground;
-            @media (max-width: 1000px), (max-height: 600px) {
-              font-size: 32px;
-            }
-            @media (max-width: 750px), (max-height: 350px) {
-              font-size: 21px;
+              --decor-size: 21px;
             }
           }
         }

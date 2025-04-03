@@ -208,7 +208,10 @@ export const pages = [
       statsTitle: "Rice and the Global Commons",
       stats: [
         {
-          stat: { number: 2012 },
+          stat: {
+            number: 2012,
+            format: { useGrouping: false },
+          },
           text: "In 2012, the *UNESCO World Heritage Convention recognized the* **long-term sustainability** *of the Balinese subak system* based on a proposal developed by Somya Pertiwi.",
         },
         {
@@ -253,6 +256,7 @@ export const pages = [
 import React, { useLayoutEffect, useState } from "react";
 import styles from "@/app/TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
+import { format } from "path";
 /** Format text to nested spans with the following markdown-like properties:
  * | parent -> <span className={styles.grey}>(</span>
  * | **text** -> <span className={styles.green}>text</span>
