@@ -1,11 +1,16 @@
-.grey {
-  color: #ffffff77;
-  // alternate shade for contrast
-  // color: #929292bd;
-}
-.white {
-  color: #ffffff;
-}
-.green {
-  color: var(--accent);
+@import "@/app/variables.scss";
+
+// text styles
+span {
+  &.grey {
+    color: $grey;
+    // alternate shade for contrast
+    // color: #929292bd;
+  }
+  &.white {
+    color: $white;
+  }
+  &.green {
+    color: $accent;
+  }
 }

@@ -4,10 +4,11 @@ import {
   easeIn,
   motion,
   MotionConfig,
+  useMotionTemplate,
   useScroll,
   useTransform,
 } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 export default function TitleSplash(
   props: Readonly<{
     data: {
@@ -21,23 +22,39 @@ export default function TitleSplash(
   const container = useRef(null);
   const primary = useRef(null);
   const secondary = useRef(null);
+  const [loaded, setLoaded] = useState(false);
   const { scrollYProgress } = useScroll({
     target: primary,
     offset: ["center center", "start 50px"],
   });
   const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.75]);
+  const filter = useMotionTemplate`blur(${useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, 2]
+  )}px)`;
   return (
     <motion.div
       className={styles.container}
       ref={container}
       style={{ opacity }}
     >
-      <Image
-        className={styles.image}
-        src={data.image}
-        alt="Title Card Image"
-        priority
-      />
+      <motion.div
+        className={styles.imageWrapper}
+        initial="initial"
+        animate={loaded ? "show" : "initial"}
+        variants={{ initial: { opacity: 0 }, show: { opacity: 1 } }}
+        style={{ filter }}
+        transition={{ duration: 0.5 }}
+      >
+        <Image
+          className={styles.image}
+          src={data.image}
+          alt="Title Card Image"
+          onLoad={() => setLoaded(true)}
+          priority
+        />
+      </motion.div>
       <motion.h1
         layout
         ref={primary}

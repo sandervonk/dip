@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
-import Nav from "@/components/nav";
 import { Cursor } from "motion-plus/react";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import Nav from "@/components/NavBar";
+import { GoogleAnalytics } from "@next/third-parties/google";
 export const dynamic = "error";
 
 // use inter with a bit of tsume/negative tracking to get close to SF Display Pro
@@ -33,6 +34,7 @@ export default function RootLayout({
           <main>{children}</main>
         </SmoothScrolling>
       </body>
+      <GoogleAnalytics gaId="G-R3W7N6X2MC" />
     </html>
   );
 }

@@ -8,7 +8,7 @@ import {
   useTransform,
 } from "motion/react";
 import { ColorText, useMediaQuery } from "@/app/constants";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import Image from "next/image";
 
 export default function CenterImage(
@@ -40,6 +40,11 @@ export default function CenterImage(
   const blurbGroupRefs = Array(images.length)
     .fill(null)
     .map(() => useRef(null));
+
+  // Create states for each image to track loading
+  const imagesLoaded = Array(images.length)
+    .fill(null)
+    .map(() => useState(false));
 
   // Create main scroll progress for mobile view
   const { scrollYProgress: mainScrollProgress } = useScroll({
@@ -214,6 +219,8 @@ export default function CenterImage(
       return {
         ...image,
         startLeft,
+        onLoad: () => imagesLoaded[imageIndex][1](true),
+        loaded: imagesLoaded[imageIndex][0],
         blurbs: processedBlurbs,
         opacity: isMobile
           ? mobileImageOpacityValues[imageIndex]
@@ -244,13 +251,22 @@ export default function CenterImage(
             className={styles.imageWrapper}
             style={{ opacity: image.opacity }}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              className={styles.image}
-              width="500"
-              height="500"
-            />
+            <motion.div
+              className={styles.imageInner}
+              initial="hide"
+              animate={image.loaded ? "show" : "hide"}
+              variants={{ hide: { opacity: 0 }, show: { opacity: 1 } }}
+              transition={{ duration: 0.25 }}
+            >
+              <Image
+                src={image.src}
+                alt={image.alt}
+                className={styles.image}
+                onLoad={image.onLoad}
+                width="500"
+                height="500"
+              />
+            </motion.div>
           </motion.div>
         ))}
       </div>

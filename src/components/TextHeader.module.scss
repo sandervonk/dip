@@ -3,6 +3,9 @@
   width: calc(100% - 2 * 50px);
   max-width: var(--part-width);
   margin: 0 50px;
+  > * {
+    width: fit-content;
+  }
   .section {
     margin-bottom: 16px;
     font-size: 24px;

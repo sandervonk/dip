@@ -8,7 +8,7 @@ import StatMediaSplit from "@/components/StatMediaSplit";
 const ImageToContact = null;
 
 //* Import images for pages
-import PaddiesImage from "@/../public/img/paddies.png";
+import PaddiesImage from "@/../public/img/paddies.webp";
 
 //* Page flow; ** around text is green, * is full opacity white, default is grey
 export const nav = {
@@ -241,7 +241,7 @@ export const pages = [
 ];
 
 import React, { useLayoutEffect, useState } from "react";
-import styles from "./TextStyles.module.scss";
+import styles from "@/app/TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
 /** Format text to nested spans with the following markdown-like properties:
  * | parent -> <span className={styles.grey}>(</span>

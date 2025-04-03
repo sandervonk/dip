@@ -1,10 +1,10 @@
 @import "@/app/variables.scss";
+
 .container {
   position: sticky;
   top: 0;
   z-index: 100;
   .header {
-    $button-green: #226726;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,7 +49,7 @@
               height: 24px;
               opacity: 1;
               line-height: 12px;
-              background: $button-green;
+              background-color: $button;
               border-radius: 15px;
             }
           }

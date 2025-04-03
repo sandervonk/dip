@@ -32,11 +32,16 @@
         max-width: 600px;
         max-height: 800px;
       }
-      .image {
-        height: 100%;
+      .imageInner {
         width: 100%;
-        object-fit: contain;
-        background-color: var(--background);
+        height: 100%;
+        background-color: $background;
+
+        .image {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
       }
     }
   }
