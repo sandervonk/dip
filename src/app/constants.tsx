@@ -205,22 +205,22 @@ export const pages = [
   {
     component: StatMediaSplit,
     data: {
-      statsTitle: "Rice and the Global Commons",
+      statsTitle: "A Letter to the Future...",
       stats: [
         {
           stat: {
-            number: 2012,
+            number: In 2012,
             format: { useGrouping: false },
           },
-          text: "In 2012, the *UNESCO World Heritage Convention recognized the* **long-term sustainability** *of the Balinese subak system* based on a proposal developed by Somya Pertiwi.",
+          text: "is when the **long-term sustainability of the subak system** was recognized by the *UNESCO World Heritage Convention* as proposed by Somya Pertiwi.",
         },
         {
           stat: { number: 19 },
-          text: "The **19 subaks** in the UNESCO World Heritage site *will participate in the pilot project.*",
+          text: "**subaks** forming the UNESCO World Heritage site *will participate in the pilot project.*",
         },
         {
           stat: { number: 3 },
-          text: '*Try Hita Karana*, which translates to the "three causes for well-being," is the Balinese philosophy that encourages **harmony among people, nature, and the gods.**',
+          text: 'causes for well being are captured in the Balinese philosophy of *Try Hita Karana:* that encourages **harmony among people, nature, and the gods.**',
         },
       ],
       media: {
