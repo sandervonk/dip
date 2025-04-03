@@ -220,7 +220,7 @@ export const pages = [
             before: "The ",
             number: 19, 
           },
-          text: "**subaks** in the *UNESCO site* are in *the pilot project.*",
+          text: "**subaks** in the UNESCO site are *in the pilot project.*",
         },
         {
           stat: { 
