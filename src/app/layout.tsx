@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import { Cursor } from "motion-plus/react";
+import SmoothScrolling from "@/components/SmoothScrolling";
 import Nav from "@/components/NavBar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 export const dynamic = "error";
@@ -27,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
-        <Cursor style={{ backgroundColor: "var(--cursor)" }} />
-        <Nav />
-        <main>{children}</main>
+        <SmoothScrolling>
+          <Cursor style={{ backgroundColor: "var(--cursor)" }} />
+          <Nav />
+          <main>{children}</main>
+        </SmoothScrolling>
       </body>
       <GoogleAnalytics gaId="G-R3W7N6X2MC" />
     </html>
