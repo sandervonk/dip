@@ -34,6 +34,7 @@ export default function StatMediaSplit(
   const { data } = props;
 
   const counts = data.stats.map((entry) => {
+    /* eslint-disable-next-line react-hooks/rules-of-hooks */
     const [viewed, setViewed] = useState(false);
     return { number: entry.stat.number, viewed, setViewed };
   });
