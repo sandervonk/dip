@@ -209,7 +209,9 @@ export const pages = [
       stats: [
         {
           stat: {
-            number: yo 2012,
+            text: "yo",
+            before: "In ",
+            number: 2012,
             format: { useGrouping: false },
           },
           text: "is when the **long-term sustainability of the subak system** was recognized by the *UNESCO World Heritage Convention* as proposed by Somya Pertiwi.",
