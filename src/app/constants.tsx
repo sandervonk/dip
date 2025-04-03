@@ -234,7 +234,6 @@ export const pages = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Plaque Alt Text",
-        text: "Hi Mom",
       },
     },
   },
