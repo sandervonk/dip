@@ -226,10 +226,10 @@ export const pages = [
         },
         {
           stat: { 
-            before: "There are ",
+            before: text: "There are ",
             number: 3,
           },
-          text: 'causes for well being in the Balinese philosophy of *Try Hita Karana* that encourages **harmony among people, nature, and the gods.**',
+          text: "causes for well being in the Balinese philosophy of *Try Hita Karana* that encourages **harmony among people, nature, and the gods.**",
         },
       ],
       media: {
