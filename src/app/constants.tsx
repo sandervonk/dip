@@ -138,18 +138,28 @@ export const pages = [
     data: {
       statsTitle: "Rice and the Global Commons",
       stats: [
-        [
-          ">10%",
-          "Rice farming *produces over 10%* of world-wide, anthropogenic methane emissions.",
-        ],
-        [
-          "28x",
-          "*Methane has 28 times the Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere relative to CO2, the additional warming caused by *methane may push the global system beyond critical tipping points.*",
-        ],
-        [
-          ">75%",
-          "Methane emissions can be **reduced by over 75%** by not keeping the paddies continuously flooded.  This also reduces the runoff of fertilizer that damages Bali's coral reefs.",
-        ],
+        {
+          stat: {
+            before: ">",
+            number: 10,
+            after: "%",
+          },
+          text: "Rice farming *produces over 10%* of world-wide, anthropogenic methane emissions.",
+        },
+        {
+          stat: {
+            number: 28,
+            after: "x",
+          },
+          text: "*Methane has 28 times the Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere relative to CO2, the additional warming caused by *methane may push the global system beyond critical tipping points.*",
+        },
+        {
+          stat: {
+            number: 75,
+            after: "%",
+          },
+          text: "Methane emissions can be **reduced by over 75%** by not keeping the paddies continuously flooded.  This also reduces the runoff of fertilizer that damages Bali's coral reefs.",
+        },
       ],
       media: {
         type: "video",
@@ -197,18 +207,18 @@ export const pages = [
     data: {
       statsTitle: "Rice and the Global Commons",
       stats: [
-        [
-          "2012",
-          "In 2012, the *UNESCO World Heritage Convention recognized the* **long-term sustainability** *of the Balinese subak system* based on a proposal developed by Somya Pertiwi.",
-        ],
-        [
-          "19",
-          "The **19 subaks** in the UNESCO World Heritage site *will participate in the pilot project.*",
-        ],
-        [
-          "3",
-          '*Try Hita Karana*, which translates to the "three causes for well-being," is the Balinese philosophy that encourages **harmony among people, nature, and the gods.**',
-        ],
+        {
+          stat: { number: 2012 },
+          text: "In 2012, the *UNESCO World Heritage Convention recognized the* **long-term sustainability** *of the Balinese subak system* based on a proposal developed by Somya Pertiwi.",
+        },
+        {
+          stat: { number: 19 },
+          text: "The **19 subaks** in the UNESCO World Heritage site *will participate in the pilot project.*",
+        },
+        {
+          stat: { number: 3 },
+          text: '*Try Hita Karana*, which translates to the "three causes for well-being," is the Balinese philosophy that encourages **harmony among people, nature, and the gods.**',
+        },
       ],
       media: {
         type: "img",

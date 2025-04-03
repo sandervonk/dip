@@ -41,26 +41,25 @@
       .stat {
         max-width: 340px;
         .statNumber {
-          > span {
-            &.number {
-              color: $accent;
-              font-size: 70px;
-              @media (max-width: 1000px), (max-height: 600px) {
-                font-size: 50px;
-              }
-              @media (max-width: 750px), (max-height: 350px) {
-                font-size: 32px;
-              }
+          user-select: none;
+          .number {
+            color: $accent;
+            font-size: 70px;
+            @media (max-width: 1000px), (max-height: 600px) {
+              font-size: 50px;
             }
-            &.decor {
-              font-size: 52px;
-              color: $foreground;
-              @media (max-width: 1000px), (max-height: 600px) {
-                font-size: 32px;
-              }
-              @media (max-width: 750px), (max-height: 350px) {
-                font-size: 21px;
-              }
+            @media (max-width: 750px), (max-height: 350px) {
+              font-size: 32px;
+            }
+          }
+          .decor {
+            font-size: 52px;
+            color: $foreground;
+            @media (max-width: 1000px), (max-height: 600px) {
+              font-size: 32px;
+            }
+            @media (max-width: 750px), (max-height: 350px) {
+              font-size: 21px;
             }
           }
         }

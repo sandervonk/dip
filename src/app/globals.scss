@@ -11,7 +11,7 @@
   --cursor: #88888e;
 }
 ::selection {
-  background: var(--highlight);
+  background-color: $highlight;
 }
 
 html,
