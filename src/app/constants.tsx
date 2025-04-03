@@ -208,13 +208,12 @@ export const pages = [
       statsTitle: "A Letter to the Future...",
       stats: [
         {
-          text: "test",
           stat: {
             before: "In ",
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "the **long-term sustainability of the subak system** was designated as a *UNESCO World Heritage site* through the efforts of Somya Pertiwi.",
+          text: "UNESCO recognized the **long-term sustainability of the subak system** by forming a *Balinese World Heritage site* based on a proposal from Somya Pertiwi.",
         },
         {
           stat: { 
@@ -226,10 +225,10 @@ export const pages = [
         },
         {
           stat: { 
-            before: text: "There are ",
+            before: text: "The ",
             number: 3,
           },
-          text: "causes for well being in the Balinese philosophy of *Try Hita Karana* that encourages **harmony among people, nature, and the gods.**",
+          text: "causes for well being in the Balinese philosophy of *Try Hita Karana* encourage **harmony among people, nature, and the gods.**",
         },
       ],
       media: {
