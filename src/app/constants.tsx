@@ -42,29 +42,29 @@ export const pages = [
             "*Frontier science* creates a **bottom-up solution** to the Tragedy of the Commons.",
             "*Integrating ideas* from agriculture, anthropology, chemistry, complex systems, computer science, earth science, ecology, engineering, economics, and finance.",
             "Driven by an *Information-Age infrastructure* that is **easy to scale with wide applicability.**",
-            "Creates incentives to **enhance the global commons** rather than destroy it.",
+            "Creates incentives for individuals to **enhance the global commons** *rather than destroy it.*",
           ],
         },
         {
           src: "/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
-            "*World class measurements* of the impacts of environmental stewards.",
-            "Creating a *new standard* for tracking and documenting **world-improving activities.**",
+            "*World class measurements* of the environmentl impacts of stewards.",
+            "Creates a *new standard* for tracking and documenting **world-improving activities.**",
           ],
         },
         {
           src: "/img/center/remote-sensing-before.png",
           alt: "Sensing Before",
           blurbs: [
-            "Remote sensing provides the *necessary monitoring, verification, and reporting* of successful environmental stewardship.",
+            "Remote sensing provides the *needed monitoring, verification, and reporting* of **successful stewardship.**",
           ],
         },
         {
           src: "/img/center/remote-sensing-after.png",
           alt: "Sensing After",
           blurbs: [
-            "Providing high-quality results that **can be trusted** by environmental patrons and markets.",
+            "Generating high-quality results that **can be trusted** by environmental *patrons and markets.*",
           ],
         },
       ],
@@ -75,7 +75,7 @@ export const pages = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Remote sensing generates trustworthy WINs that translate the actions of the stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** from global patrons and markets.",
+      text: "Remote sensing generates **trustworthy WINs** that translate the actions of the stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** from global patrons and markets.",
     },
   },
   {
