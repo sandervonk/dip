@@ -228,7 +228,7 @@ export const pages = [
             before: "There are ",
             number: 3,
           },
-          text: "causes for well being in the *Balinese philosophy of Try Hita Karana* that encourage **harmony among people, nature, and the gods.**",
+          text: "sources of happiness in the *Balinese philosophy of Try Hita Karana* that emphasize **harmony among people, nature, and the gods.**",
         },
       ],
       media: {
