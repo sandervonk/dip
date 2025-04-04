@@ -41,7 +41,7 @@ export const pages = [
           blurbs: [
             "*Frontier science* creates a **bottom-up solution** to the Tragedy of the Commons.",
             "*Integrating ideas* from agriculture, anthropology, chemistry, complex systems, computer science, earth science, ecology, engineering, economics, and finance.",
-            "Driven by an *Information-Age infrastructure* that is **easy to scale with wide applicability.**",
+            "Driven by an *Information-Age infrastructure* that is **easy to scale up with wide applicability.**",
             "Creates incentives for individuals to **enhance the global commons** *rather than destroy it.*",
           ],
         },
@@ -49,7 +49,7 @@ export const pages = [
           src: "/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
-            "*World class measurements* of the environmentl impacts of stewards.",
+            "*World class measurements* of the **environmentl impacts** of stewards.",
             "Creates a *new standard* for tracking and documenting **world-improving activities.**",
           ],
         },
@@ -75,7 +75,7 @@ export const pages = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Remote sensing generates **trustworthy WINs** that translate the actions of the stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** from global patrons and markets.",
+      text: "Remote sensing creates **trustworthy WINs** that translate the actions of the stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** from global patrons and markets.",
     },
   },
   {
@@ -130,7 +130,7 @@ export const pages = [
       ],
       section: "Our pilot project",
       header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **indigenous farmers can mitigate methane emissions.**  Compensating the farmers for the additional risk and effort allows them to transition to a new regime of globally sustainable agriculture.",
+      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **indigenous farmers can mitigate methane emissions.**  Compensating the farmers for taking on the additional risk and effort allows them to transition to **a new regime of globally sustainable agriculture.**",
     },
   },
   {
@@ -159,7 +159,7 @@ export const pages = [
             number: 75,
             after: "%",
           },
-          text: "of **methane emissions can be eliminated** by not flooding the rice paddies.  This also reduces the runoff of fertilizer that damages Bali's coral reefs.",
+          text: "of **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
         },
       ],
       media: {
@@ -179,14 +179,14 @@ export const pages = [
           alt: "Piccarro",
           blurbs: [
             "In-field gas analyzers *track emissions* from adjacent fields that use different irrigation practices.",
-            "Such world-class *measurements provide critical insights* not available using the current standards of syringe sampling or national averages.",
+            "These **world-class measurements provide critical insights** not available using the current standards of syringe sampling or national averages.",
           ],
         },
         {
           src: "/img/center/subak-bena.png",
           alt: "Subak Bena",
           blurbs: [
-            "The project requires a *deep understanding* of the **local people, culture, and institutions.**",
+            "The project integrates a *deep understanding* of the **local people, culture, and institutions.**",
             "Incorporating such insights **strengthens local traditions and organizations.**",
           ],
         },
@@ -194,10 +194,10 @@ export const pages = [
           src: "/img/center/somya-pertiwi.png",
           alt: "Somya Pertiwi",
           blurbs: [
-            "The project *embraces and integrates* **local leadership.**",
-            "The Balinese NGO, *Somya Pertiwi* (**Kindness of the Earth Goddess**), leads the project.",
+            "The project **embraces local leadership.**",
+            "The Balinese NGO **Somya Pertiwi (Kindness of the Earth Goddess)** leads the project.",
             "Somya Pertiwi is working within the **centuries old system of communally-governed subaks** that coordinate the irrigation of the rice paddies.",
-            "Agricultural extension agents *monitor and consult* on the new farming practices.",
+            "Agricultural extension agents *monitor and consult* on the **new farming practices.**",
           ],
         },
       ],
@@ -225,10 +225,10 @@ export const pages = [
         },
         {
           stat: { 
-            before: "The ",
+            before: "There are ",
             number: 3,
           },
-          text: "causes for well being in the *Balinese philosophy of Try Hita Karana* encourage **harmony among people, nature, and the gods.**",
+          text: "causes for well being in the *Balinese philosophy of Try Hita Karana* that encourage **harmony among people, nature, and the gods.**",
         },
       ],
       media: {
