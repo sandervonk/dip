@@ -57,7 +57,7 @@ export default function CenterImage(
     (ref) =>
       useScroll({
         target: ref,
-        offset: ["start 70%", "end 30%"],
+        offset: ["start 80%", "end 20%"],
       }).scrollYProgress
   );
 
