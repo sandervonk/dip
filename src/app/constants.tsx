@@ -130,7 +130,7 @@ export const pages = [
       ],
       section: "Our pilot project",
       header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **farmers can mitigate methane emissions.**  Compensating the farmers for taking on the additional risk and effort need to alter how they farm will allow the system to **embrace a new regime of globally sustainable agriculture.**",
+      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **farmers can mitigate methane emissions.**  Compensating the farmers for taking on the additional risk and effort needed to alter how they farm will allow the subaks to **embrace a new regime of globally sustainable agriculture.**",
     },
   },
   {
