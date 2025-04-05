@@ -130,7 +130,7 @@ export const pages = [
       ],
       section: "Our pilot project",
       header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **indigenous farmers can mitigate methane emissions.**  Compensating the farmers for taking on the additional risk and effort need to alter how they farm will allow the system to **embrace a new regime of globally sustainable agriculture.**",
+      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **farmers can mitigate methane emissions.**  Compensating the farmers for taking on the additional risk and effort need to alter how they farm will allow the system to **embrace a new regime of globally sustainable agriculture.**",
     },
   },
   {
@@ -194,8 +194,8 @@ export const pages = [
           src: "/img/center/somya-pertiwi.png",
           alt: "Somya Pertiwi",
           blurbs: [
-            "The project **embraces local leadership.**",
             "The Balinese NGO **Somya Pertiwi (Kindness of the Earth Goddess)** leads the project.",
+            "Scientists from the *International Rice Research Institute* are also monitoring the project.",
             "Somya Pertiwi is working within the **centuries old system of communally-governed subaks** that coordinate the irrigation of the rice paddies.",
             "Agricultural extension agents *monitor and consult* on the **new farming practices.**",
           ],
@@ -214,7 +214,7 @@ export const pages = [
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali based on a proposal from Somya Pertiwi.",
+          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali with input from Somya Pertiwi.",
         },
         {
           stat: { 
@@ -228,7 +228,7 @@ export const pages = [
             before: "There are ",
             number: 3,
           },
-          text: "sources of happiness in the *Balinese philosophy of Tri Hita Karana* that emphasize **harmony among people, nature, and the gods.**",
+          text: "sources of happiness in the *Balinese philosophy of Tri Hita Karana* that emphasize **harmony among nature, humans, and the gods.**",
         },
       ],
       media: {
