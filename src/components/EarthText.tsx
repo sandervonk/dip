@@ -4,17 +4,24 @@ import { TextHeader } from "./TextHeader";
 import Earth from "./Earth";
 
 export type position2D = {
-  x: MotionValue<number> | number;
-  y: MotionValue<number> | number;
+  x: MotionValue<number>;
+  y: MotionValue<number>;
 };
 export type position3D = position2D & {
-  z: MotionValue<number> | number;
+  z: MotionValue<number>;
+};
+type position2DNum = {
+  x: number;
+  y: number;
+};
+type position3DNum = position2DNum & {
+  z: number;
 };
 export type PositionData = {
-  pan: position2D;
-  pos: position3D;
-  rot: position3D;
-  sun: position3D;
+  pan: position2DNum;
+  pos: position3DNum;
+  rot: position3DNum;
+  sun: position3DNum;
   opacity: number;
   pointerEvents: "auto" | "none";
 };

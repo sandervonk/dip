@@ -312,7 +312,7 @@ export function useMediaQuery(query: string) {
   return matches;
 }
 // props for a component, should be readonly with a data field that varies
-export type PageParts = Readonly<{}>;
+export type PageParts = Readonly<{ data: object }>;
 
 // Type pagedata, with {component: React.ComponentType, data: the component's exported ComponentNameProps interface}
 export type PageData =
