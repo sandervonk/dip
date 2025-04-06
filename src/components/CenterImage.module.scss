@@ -49,6 +49,7 @@
     padding-bottom: calc(100dvh - $header-height);
     margin-top: -50dvh;
     @media (max-width: 750px) {
+      margin-top: 0;
       margin-left: 20px;
       margin-right: 20px;
       position: relative;
