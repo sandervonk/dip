@@ -128,7 +128,7 @@ export default function CenterImage(
   );
 
   // Create scroll height template for mobile
-  const blurbScrollHeight = useMotionTemplate`${totalBlurbCount * 50}dvh`;
+  const blurbScrollHeight = useMotionTemplate`${totalBlurbCount * 30}dvh`;
 
   // Pre-create ALL required refs and motion values
   // This ensures consistent hook ordering

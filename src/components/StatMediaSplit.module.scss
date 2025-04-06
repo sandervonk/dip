@@ -58,7 +58,13 @@
             }
           }
         }
-        .statText {
+        .statText,
+        .statFirst {
+          &.statFirst {
+            color: $grey;
+            margin-top: 10px;
+            margin-bottom: -3px;
+          }
           font-size: 20px;
           line-height: 112%;
           font-weight: 600;
@@ -80,6 +86,9 @@
           flex: 1 0 200px;
           padding: 50px 20px;
           height: 100%;
+          .statFirst {
+            margin-top: -1em !important;
+          }
         }
       }
     }
@@ -88,12 +97,21 @@
       width: $media-base;
       padding: 30px 70px;
       display: flex;
+      flex-flow: column nowrap;
       align-items: center;
       justify-content: center;
+      gap: 10px;
+      .caption {
+        text-align: center;
+        font-size: 17px;
+        color: $grey;
+        line-height: 112%;
+        font-weight: 400;
+      }
       img,
       video {
         flex: 1 1 100px;
-        width: 100px;
+        width: 100%;
         max-width: 100%;
         min-width: unset;
         max-height: 70vh;
@@ -102,6 +120,9 @@
 
       @media (max-width: 750px) {
         padding: 20px 30px;
+        .caption {
+          font-size: 15px;
+        }
       }
     }
   }

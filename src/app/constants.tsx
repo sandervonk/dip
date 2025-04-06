@@ -11,8 +11,17 @@ const ImageToContact = null;
 import PaddiesImage from "@/../public/img/paddies.webp";
 
 //* Page flow; ** around text is green, * is full opacity white, default is grey
-export const nav = {
+export const nav: {
+  title: string;
+  pages: { name: string; path: string; action?: boolean }[];
+} = {
   title: "World x Change",
+  pages: [
+    { name: "WINs", path: "/wins" },
+    { name: "Resources", path: "/resources" },
+    { name: "Team", path: "/team" },
+    { name: "Connect", path: "/contact", action: false },
+  ],
 };
 export const pages = [
   {
@@ -26,7 +35,7 @@ export const pages = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "The idea",
+      section: "The Idea",
       header: "Realign individual incentives to reflect global impacts",
       text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
     },
@@ -140,7 +149,7 @@ export const pages = [
       stats: [
         {
           stat: {
-            before: "More than ",
+            before: ">",
             number: 10,
             after: "%",
           },
@@ -148,7 +157,7 @@ export const pages = [
         },
         {
           stat: {
-            before: "Methane has ",
+            first: "Methane has ",
             number: 28,
             after: "x",
           },
@@ -206,35 +215,33 @@ export const pages = [
   {
     component: StatMediaSplit,
     data: {
-      statsTitle: "A Letter to the Future...",
+      statsTitle: "A Letter to the Future",
       stats: [
         {
           stat: {
-            before: "In ",
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali with input from Somya Pertiwi.",
+          text: "marked the *UNESCO* recognition of the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali with input from Somya Pertiwi.",
         },
         {
-          stat: { 
-            before: "The ",
-            number: 19, 
+          stat: {
+            number: 19,
           },
           text: "**subaks in the UNESCO site** are in the *pilot project.*",
         },
         {
-          stat: { 
-            before: "There are ",
+          stat: {
             number: 3,
           },
-          text: "sources of happiness in the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
+          text: "sources of happiness make up the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
         },
       ],
       media: {
         type: "img",
         src: "/img/plaque.png",
         alt: "Plaque Alt Text",
+        caption: "Plaque caption text here.",
       },
     },
   },
@@ -242,7 +249,7 @@ export const pages = [
     component: ImageToContact,
     data: {
       src: "../path/to/plaque",
-      alt: "Plaque caption",
+      alt: "Plaque alt descriptor text",
       people: [
         {
           position: [],

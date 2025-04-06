@@ -18,6 +18,7 @@
     .title {
       font-size: 16px;
       font-weight: 520;
+      user-select: none;
     }
 
     .nav {
@@ -38,7 +39,7 @@
             padding: 0 10px;
           }
 
-          &:last-of-type {
+          &.action {
             opacity: 1;
             border-bottom: none;
             a {

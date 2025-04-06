@@ -6,11 +6,6 @@
   > * {
     width: fit-content;
   }
-  .section {
-    margin-bottom: 16px;
-    font-size: 32px;
-    font-weight: 600;
-  }
   .header {
     padding-bottom: 36px;
     font-size: 90px;
@@ -27,12 +22,21 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .section,
   .text {
-    max-width: 820px;
-    margin-bottom: 10px;
+    &.section {
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: $grey;
+    }
+    &.text {
+      max-width: 820px;
+      margin-bottom: 10px;
+      line-height: 112%;
+      font-weight: 600;
+    }
+
     font-size: 32px;
-    line-height: 112%;
-    font-weight: 600;
     @media (max-width: 1000px), (max-height: 600px) {
       font-size: 24px;
     }

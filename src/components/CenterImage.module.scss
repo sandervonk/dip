@@ -21,8 +21,8 @@
     .imageWrapper {
       position: absolute;
       overflow: hidden;
-      width: 50vw;
-      height: 50dvh;
+      width: 70vw;
+      height: 55dvh;
       min-width: 300px;
       max-height: 500px;
 
@@ -47,6 +47,7 @@
   }
   .blurbContainer {
     padding-bottom: calc(100dvh - $header-height);
+    margin-top: -50dvh;
     @media (max-width: 750px) {
       margin-left: 20px;
       margin-right: 20px;

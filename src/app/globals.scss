@@ -41,6 +41,8 @@ body > main {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+  z-index: 0;
+  position: relative;
 }
 
 * {

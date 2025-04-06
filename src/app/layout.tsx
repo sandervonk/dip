@@ -17,7 +17,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "World x Change",
-  description: "[WORLD X CHANGE DESCRIPTION TEXT]",
+  description: "An Information-Age Solution to the Tragedy of the Commons",
 };
 
 export default function RootLayout({
@@ -29,7 +29,21 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable}`}>
         <SmoothScrolling>
-          <Cursor style={{ backgroundColor: "var(--cursor)" }} />
+          <Cursor
+            style={{
+              backgroundColor: "var(--cursor)",
+              backgroundImage: "url(/img/cursor.webp)",
+              backgroundSize: "110%",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+            // add remove background on text varient with overwriting the rest of the style
+            variants={{
+              text: {
+                backgroundImage: "none",
+              },
+            }}
+          />
           <Nav />
           <main>{children}</main>
         </SmoothScrolling>

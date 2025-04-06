@@ -10,6 +10,7 @@ export default function StatMediaSplit(
       statsTitle: string;
       stats: Array<{
         stat: {
+          first?: string;
           before?: string;
           number: number;
           after?: string;
@@ -27,6 +28,7 @@ export default function StatMediaSplit(
         placeholder?: string;
         src: string;
         alt: string;
+        caption?: string;
       };
     };
   }>
@@ -58,6 +60,9 @@ export default function StatMediaSplit(
                 margin: "0px 0px -20% 0px",
               }}
             >
+              {entry.stat.first && (
+                <p className={`${styles.statFirst} gray`}>{entry.stat.first}</p>
+              )}
               <h3 className={styles.statNumber}>
                 <AnimateNumber
                   className={styles.number}
@@ -111,6 +116,9 @@ export default function StatMediaSplit(
               controlsList="nodownload noremoteplayback"
               poster={data.media.placeholder}
             />
+          )}
+          {data.media.caption && (
+            <p className={styles.caption}>{data.media.caption}</p>
           )}
         </div>
       </div>
