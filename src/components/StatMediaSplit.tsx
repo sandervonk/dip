@@ -1,38 +1,39 @@
-import { ColorText } from "@/app/constants";
+import { ColorText, PageParts } from "@/app/constants";
 import styles from "./StatMediaSplit.module.scss";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { AnimateNumber } from "motion-plus/react";
 import { useState } from "react";
-export default function StatMediaSplit(
-  props: Readonly<{
-    data: {
-      statsTitle: string;
-      stats: Array<{
-        stat: {
-          first?: string;
-          before?: string;
-          number: number;
-          after?: string;
-          format?: Omit<Intl.NumberFormatOptions, "notation"> & {
-            notation?: Exclude<
-              Intl.NumberFormatOptions["notation"],
-              "scientific" | "engineering"
-            >;
-          };
+
+export interface StatMediaSplitProps extends PageParts {
+  data: {
+    statsTitle: string;
+    stats: Array<{
+      stat: {
+        first?: string;
+        before?: string;
+        number: number;
+        after?: string;
+        format?: Omit<Intl.NumberFormatOptions, "notation"> & {
+          notation?: Exclude<
+            Intl.NumberFormatOptions["notation"],
+            "scientific" | "engineering"
+          >;
         };
-        text: string;
-      }>;
-      media: {
-        type: "video" | "img";
-        placeholder?: string;
-        src: string;
-        alt: string;
-        caption?: string;
       };
+      text: string;
+    }>;
+    media: {
+      type: "video" | "img";
+      placeholder?: string;
+      src: string;
+      alt: string;
+      caption?: string;
     };
-  }>
-) {
+  };
+}
+
+export default function StatMediaSplit(props: StatMediaSplitProps) {
   const { data } = props;
 
   const counts = data.stats.map((entry) => {

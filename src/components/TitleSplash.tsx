@@ -9,15 +9,17 @@ import {
   useTransform,
 } from "motion/react";
 import { useRef, useState } from "react";
-export default function TitleSplash(
-  props: Readonly<{
-    data: {
-      primary: string[3];
-      secondary: string;
-      image: string | StaticImageData;
-    };
-  }>
-) {
+import { PageParts } from "@/app/constants";
+
+export interface TitleSplashProps extends PageParts {
+  data: {
+    primary: string[]; //string[3]
+    secondary: string;
+    image: string | StaticImageData;
+  };
+}
+
+export default function TitleSplash(props: TitleSplashProps) {
   const { data } = props;
   const container = useRef(null);
   const primary = useRef(null);

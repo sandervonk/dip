@@ -7,22 +7,22 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { ColorText, useMediaQuery } from "@/app/constants";
+import { ColorText, PageParts, useMediaQuery } from "@/app/constants";
 import { useRef, useMemo, useState } from "react";
 import Image from "next/image";
 
-export default function CenterImage(
-  props: Readonly<{
-    data: {
-      images: Array<{
-        src: string;
-        alt: string;
-        blurbs: string[];
-        startLeft?: boolean;
-      }>;
-    };
-  }>
-) {
+export interface CenterImageProps extends PageParts {
+  data: {
+    images: Array<{
+      src: string;
+      alt: string;
+      blurbs: string[];
+      startLeft?: boolean;
+    }>;
+  };
+}
+
+export default function CenterImage(props: CenterImageProps) {
   // Get initial data
   const images = props.data.images;
   const isMobile = useMediaQuery("(max-width: 750px)");

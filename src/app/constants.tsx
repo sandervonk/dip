@@ -1,9 +1,11 @@
 //* Import components for pages
-import TitleSplash from "@/components/TitleSplash";
-import WrappedTextHeader from "@/components/TextHeader";
-import CenterImage from "@/components/CenterImage";
-import EarthText from "@/components/EarthText";
-import StatMediaSplit from "@/components/StatMediaSplit";
+import TitleSplash, { TitleSplashProps } from "@/components/TitleSplash";
+import WrappedTextHeader, { TextHeaderProps } from "@/components/TextHeader";
+import CenterImage, { CenterImageProps } from "@/components/CenterImage";
+import EarthText, { EarthTextProps } from "@/components/EarthText";
+import StatMediaSplit, {
+  StatMediaSplitProps,
+} from "@/components/StatMediaSplit";
 // import ImageToContact from "@/components/ImageToContact";
 const ImageToContact = null;
 
@@ -23,7 +25,7 @@ export const nav: {
     { name: "Connect", path: "/contact", action: false },
   ],
 };
-export const pages = [
+export const pages: PageData[] = [
   {
     component: TitleSplash,
     data: {
@@ -309,3 +311,33 @@ export function useMediaQuery(query: string) {
 
   return matches;
 }
+// props for a component, should be readonly with a data field that varies
+export type PageParts = Readonly<{}>;
+
+// Type pagedata, with {component: React.ComponentType, data: the component's exported ComponentNameProps interface}
+export type PageData =
+  | {
+      component: React.ComponentType<CenterImageProps>;
+      data: CenterImageProps["data"];
+    }
+  | {
+      component: React.ComponentType<TitleSplashProps>;
+      data: TitleSplashProps["data"];
+    }
+  | {
+      component: React.ComponentType<TextHeaderProps>;
+      data: TextHeaderProps["data"];
+    }
+  | {
+      component: React.ComponentType<EarthTextProps>;
+      data: EarthTextProps["data"];
+    }
+  | {
+      component: React.ComponentType<StatMediaSplitProps>;
+      data: StatMediaSplitProps["data"];
+    }
+  | {
+      component: null;
+      /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+      data: any;
+    };

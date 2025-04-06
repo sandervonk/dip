@@ -3,11 +3,12 @@ import styles from "./EarthText.module.scss";
 import { TextHeader } from "./TextHeader";
 import Earth from "./Earth";
 
-export type position2D = { x: MotionValue<number>; y: MotionValue<number> };
-export type position3D = {
-  x: MotionValue<number>;
-  y: MotionValue<number>;
-  z: MotionValue<number>;
+export type position2D = {
+  x: MotionValue<number> | number;
+  y: MotionValue<number> | number;
+};
+export type position3D = position2D & {
+  z: MotionValue<number> | number;
 };
 export type PositionData = {
   pan: position2D;
@@ -28,17 +29,19 @@ import {
   useTransform,
 } from "motion/react";
 import { useRef } from "react";
-export default function EarthText(
-  props: Readonly<{
-    data: {
-      // array of positions (pan, pos, rot, sun, transform coeff) for the earth
-      positions: Array<{ transform: number } & PositionData>;
-      section: string;
-      header: string;
-      text: string;
-    };
-  }>
-) {
+import { PageParts } from "@/app/constants";
+
+export interface EarthTextProps extends PageParts {
+  data: {
+    // array of positions (pan, pos, rot, sun, transform coeff) for the earth
+    positions: ({ transform: number } & PositionData)[];
+    section: string;
+    header: string;
+    text: string;
+  };
+}
+
+export default function EarthText(props: EarthTextProps) {
   const { data } = props;
   const textRef = useRef(null);
   const textCoverProgress = useScroll({

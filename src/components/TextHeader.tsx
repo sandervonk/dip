@@ -1,16 +1,16 @@
 import styles from "./TextHeader.module.scss";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ColorText } from "@/app/constants";
+import { ColorText, PageParts } from "@/app/constants";
 import { useRef } from "react";
-export function TextHeader(
-  props: Readonly<{
-    data: {
-      section: string;
-      header: string;
-      text: string;
-    };
-  }>
-) {
+export interface TextHeaderProps extends PageParts {
+  data: {
+    section: string;
+    header: string;
+    text: string;
+  };
+}
+
+export function TextHeader(props: TextHeaderProps) {
   const { data } = props;
 
   return (
@@ -22,15 +22,7 @@ export function TextHeader(
   );
 }
 
-export default function WrappedTextHeader(
-  props: Readonly<{
-    data: {
-      section: string;
-      header: string;
-      text: string;
-    };
-  }>
-) {
+export default function WrappedTextHeader(props: TextHeaderProps) {
   const content = useRef(null);
   const { scrollYProgress } = useScroll({
     target: content,
