@@ -58,7 +58,7 @@ export const pages = [
           src: "/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
-            "*World class measurements* of the **environmentl impacts** of stewards.",
+            "*World class measurements* of the **environmental impacts** of stewards.",
             "Creates a *new standard* for tracking and documenting **world-improving activities.**",
           ],
         },

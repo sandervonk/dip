@@ -48,7 +48,7 @@
 .wrapper {
   margin: auto;
   margin-top: 120px;
-  margin-bottom: 90px;
+  margin-bottom: calc(90px + 25%);
   width: 100%;
   max-width: calc(var(--part-width) + 50px * 2);
   @media (max-width: 1000px), (max-height: 600px) {
