@@ -151,7 +151,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "Over ",
+            first: "*Over* ",
             number: 10,
             after: "%",
           },
@@ -178,8 +178,8 @@ export const pages: PageData[] = [
         type: "video",
         src: "/media/video.mp4",
         placeholder: "/media/video-placeholder.png",
-        alt: "Video caption",
-        caption: "Our initial experiments on Bali",
+        alt: "Video discussing the results from our earlier experiments on Bali.",
+        caption: "Results from our demonstration plot on Bali",
       },
     },
   },
