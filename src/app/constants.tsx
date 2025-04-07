@@ -219,7 +219,7 @@ export const pages: PageData[] = [
   {
     component: StatMediaSplit,
     data: {
-      statsTitle: "A Letter to the Future",
+      statsTitle: "A Letter to the Future...",
       stats: [
         {
           stat: {
@@ -234,7 +234,7 @@ export const pages: PageData[] = [
             first: "The ",
             number: 19,
           },
-          text: "**subaks in the UNESCO site** are part of the *pilot project.*",
+          text: "**subaks in the UNESCO site** are part of our *pilot project.*",
         },
         {
           stat: {
@@ -248,7 +248,7 @@ export const pages: PageData[] = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Project plaque",
-        caption: "The project plaque, containing our Letter to the Future, will be displayed by each participating subak.",
+        caption: "This project plaque will be displayed by each participating subak.",
       },
     },
   },
