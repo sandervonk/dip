@@ -2,7 +2,7 @@
 
 .container {
   z-index: 10;
-  height: calc(100vh - $header-height - $header-spacing);
+  height: calc(100dvh - $header-height - $header-spacing);
   width: 100%;
   position: sticky;
   margin-top: $header-spacing;
