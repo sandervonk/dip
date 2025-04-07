@@ -37,7 +37,7 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "*The idea*",
+      section: "The idea",
       header: "Realign individual incentives to reflect global impacts",
       text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
     },
@@ -151,7 +151,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            before: ">",
+            first: "Over ",
             number: 10,
             after: "%",
           },
@@ -167,6 +167,7 @@ export const pages: PageData[] = [
         },
         {
           stat: {
+            first: "More than ",
             number: 75,
             after: "%",
           },
@@ -178,6 +179,7 @@ export const pages: PageData[] = [
         src: "/media/video.mp4",
         placeholder: "/media/video-placeholder.png",
         alt: "Video caption",
+        caption: "Our initial experiments on Bali",
       },
     },
   },
