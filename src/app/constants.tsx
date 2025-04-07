@@ -151,7 +151,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "Over ",
+            first: "More than ",
             number: 10,
             after: "%",
           },
@@ -163,15 +163,15 @@ export const pages: PageData[] = [
             number: 28,
             after: "x",
           },
-          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, it may *push the global system beyond critical tipping points.*",
+          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, such emmisions may *push the global system beyond critical tipping points.*",
         },
         {
           stat: {
-            first: "More than ",
-            number: 75,
+            first: "At least",
+            number: 70,
             after: "%",
           },
-          text: "of **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
+          text: "or more of the **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
         },
       ],
       media: {
@@ -223,7 +223,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "In ",
+            first: "Starting in ",
             number: 2012,
             format: { useGrouping: false },
           },
@@ -231,7 +231,7 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "The ",
+            first: "All of the ",
             number: 19,
           },
           text: "**subaks that form the core of the UNESCO site** are part of our *pilot project.*",
