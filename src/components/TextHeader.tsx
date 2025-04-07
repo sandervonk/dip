@@ -28,11 +28,7 @@ export default function WrappedTextHeader(props: TextHeaderProps) {
     target: content,
     offset: ["center 55%", "end 50px"],
   });
-  const y = useTransform(
-    scrollYProgress,
-    [0, 0.75],
-    ["0%", "calc(50dvh - 50px)"]
-  );
+  const y = useTransform(scrollYProgress, [0, 0.75], ["0%", "50dvh"]);
 
   return (
     <motion.div className={styles.wrapper} ref={content} style={{ y }}>
