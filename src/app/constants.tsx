@@ -60,8 +60,8 @@ export const pages: PageData[] = [
           src: "/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
-            "*World class measurements* of the **environmental impacts** of stewards.",
-            "Creates a *new standard* for tracking and documenting **world-improving activities.**",
+            "*World class measurements* of **environmental impacts.**",
+            "A *new standard* for tracking and documenting **world-improving activities.**",
           ],
         },
         {
@@ -75,7 +75,7 @@ export const pages: PageData[] = [
           src: "/img/center/remote-sensing-after.png",
           alt: "Sensing After",
           blurbs: [
-            "Generating high-quality results that **can be trusted** by environmental *patrons and markets.*",
+            "Generating high-quality results that **can be trusted** by *patrons and markets.*",
           ],
         },
       ],
@@ -179,7 +179,7 @@ export const pages: PageData[] = [
         src: "/media/video.mp4",
         placeholder: "/media/video-placeholder.png",
         alt: "Video discussing the results from our demonstration project on Bali.",
-        caption: "Results from our demonstration project on Bali",
+        caption: "Results from our previous demonstration project on Bali",
       },
     },
   },
@@ -191,7 +191,7 @@ export const pages: PageData[] = [
           src: "/img/center/field-measurement.png",
           alt: "Piccarro",
           blurbs: [
-            "In-field gas analyzers *track emissions* from adjacent fields that use different irrigation practices.",
+            "In-field gas analyzers *track emissions* over time from different irrigation practices.",
             "These **world-class measurements provide critical insights** not available using the current standards of syringe sampling or national averages.",
           ],
         },
@@ -199,7 +199,7 @@ export const pages: PageData[] = [
           src: "/img/center/subak-bena.png",
           alt: "Subak Bena",
           blurbs: [
-            "The project integrates a *deep understanding* of the **local people, culture, and institutions.**",
+            "Our approach integrates a *deep understanding* of the **local people, culture, and institutions.**",
             "Incorporating such insights **strengthens local traditions and organizations.**",
           ],
         },
@@ -209,7 +209,7 @@ export const pages: PageData[] = [
           blurbs: [
             "The Balinese NGO **Somya Pertiwi (Kindness of the Earth Goddess)** leads the project.",
             "Scientists from the *International Rice Research Institute* are also monitoring the project.",
-            "Somya Pertiwi is working within the **centuries old system of communally-governed subaks** that coordinate the irrigation of the rice paddies.",
+            "Somya Pertiwi is working within the **centuries-old system of communally-governed subaks** that coordinate the irrigation of the rice paddies.",
             "Agricultural extension agents *monitor and consult* on the **new farming practices.**",
           ],
         },
@@ -248,7 +248,7 @@ export const pages: PageData[] = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Project plaque",
-        caption: "This project plaque will be displayed by each participating subak.",
+        caption: "Each particpating subak will display the above project plaque.",
       },
     },
   },
