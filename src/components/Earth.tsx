@@ -99,6 +99,8 @@ const ThreeJSEarth = ({
   const returnTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isInteractingRef = useRef(false);
   const isReturningRef = useRef(false);
+  const animationFrameIdRef = useRef<number | null>(null);
+  const isVisibleRef = useRef(true);
   const targetRotationRef = useRef(
     new THREE.Euler(
       initialRotation.x.get(),
@@ -134,6 +136,9 @@ const ThreeJSEarth = ({
     new THREE.Vector2(initialPanning.x.get(), initialPanning.y.get())
   );
   const sunLightRef = useRef<THREE.DirectionalLight | null>(null);
+
+  // Mobile detection
+  const [isMobile, setIsMobile] = useState(false);
 
   // State for window resizing
   const [windowSize, setWindowSize] = useState({
@@ -266,6 +271,101 @@ const ThreeJSEarth = ({
     }
   };
 
+  // Handle visibility changes using the Page Visibility API
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+
+    const handleVisibilityChange = () => {
+      isVisibleRef.current = document.visibilityState === "visible";
+
+      if (isVisibleRef.current) {
+        // Resume animation when tab becomes visible
+        if (clockRef.current) {
+          clockRef.current.start();
+        }
+        if (!animationFrameIdRef.current && rendererRef.current) {
+          startAnimation();
+        }
+      } else {
+        // Stop animation when tab is hidden
+        if (clockRef.current) {
+          clockRef.current.stop();
+        }
+        if (animationFrameIdRef.current !== null) {
+          cancelAnimationFrame(animationFrameIdRef.current);
+          animationFrameIdRef.current = null;
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  // Detect mobile devices
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkMobile = () => {
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        ) || window.innerWidth <= 768;
+
+      setIsMobile(isMobileDevice);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  // Define animation function in the component scope
+  const startAnimation = () => {
+    // Animation function
+    const animate = () => {
+      if (
+        !rendererRef.current ||
+        !sceneRef.current ||
+        !cameraRef.current ||
+        !isVisibleRef.current
+      ) {
+        animationFrameIdRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      const delta = clockRef.current ? clockRef.current.getDelta() : 0;
+
+      // Auto-rotate if enabled and not currently interacting or returning
+      if (autoRotate && !isInteractingRef.current && !isReturningRef.current) {
+        if (globeRef.current) {
+          globeRef.current.rotation.y += delta * autoRotateSpeed;
+
+          // Update the target rotation to match (only y axis for auto-rotation)
+          targetRotationRef.current.y = globeRef.current.rotation.y;
+        }
+      }
+
+      if (controlsRef.current) {
+        controlsRef.current.update();
+      }
+
+      rendererRef.current.render(sceneRef.current, cameraRef.current);
+
+      // Use requestAnimationFrame with reference storage
+      animationFrameIdRef.current = requestAnimationFrame(animate);
+    };
+
+    // Start the animation loop
+    animate();
+  };
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -309,19 +409,33 @@ const ThreeJSEarth = ({
     // Texture loader
     const textureLoader = new THREE.TextureLoader();
 
-    // Load textures - same as original
-    const dayTexture = textureLoader.load("/img/texture/day.jpg");
-    dayTexture.colorSpace = THREE.SRGBColorSpace;
-    dayTexture.anisotropy = 8;
+    // Determine texture quality based on device
+    const textureQuality = isMobile ? "low" : "high";
+    const textureAnisotropy = isMobile ? 1 : 8;
 
-    const nightTexture = textureLoader.load("/img/texture/night.jpg");
+    // Load textures with quality consideration
+    const dayTexture = textureLoader.load(
+      textureQuality === "low"
+        ? "/img/texture/day_low.jpg"
+        : "/img/texture/day.jpg"
+    );
+    dayTexture.colorSpace = THREE.SRGBColorSpace;
+    dayTexture.anisotropy = textureAnisotropy;
+
+    const nightTexture = textureLoader.load(
+      textureQuality === "low"
+        ? "/img/texture/night_low.jpg"
+        : "/img/texture/night.jpg"
+    );
     nightTexture.colorSpace = THREE.SRGBColorSpace;
-    nightTexture.anisotropy = 8;
+    nightTexture.anisotropy = textureAnisotropy;
 
     const bumpRoughnessCloudsTexture = textureLoader.load(
-      "/img/texture/clouds.jpg"
+      textureQuality === "low"
+        ? "/img/texture/clouds_low.jpg"
+        : "/img/texture/clouds.jpg"
     );
-    bumpRoughnessCloudsTexture.anisotropy = 8;
+    bumpRoughnessCloudsTexture.anisotropy = textureAnisotropy;
 
     // Fresnel calculation - identical to original
     const viewDirection = positionWorld.sub(cameraPosition).normalize();
@@ -379,8 +493,13 @@ const ThreeJSEarth = ({
     );
     globeMaterial.normalNode = bumpMap(bumpElevation);
 
-    // Create the globe with same geometry as original
-    const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
+    // Create the globe with geometry quality based on device
+    const sphereGeometry = new THREE.SphereGeometry(
+      1,
+      isMobile ? 32 : 64, // Lower segment count for mobile
+      isMobile ? 32 : 64 // Lower segment count for mobile
+    );
+
     const globe = new THREE.Mesh(sphereGeometry, globeMaterial);
     // Apply initial rotation
     globe.rotation.set(
@@ -402,6 +521,7 @@ const ThreeJSEarth = ({
       .mul(sunOrientation.smoothstep(-0.5, 1));
     atmosphereMaterial.outputNode = vec4(atmosphereColor, alpha);
 
+    // Use same geometry for atmosphere
     const atmosphere = new THREE.Mesh(sphereGeometry, atmosphereMaterial);
     atmosphere.scale.setScalar(1.04);
     scene.add(atmosphere);
@@ -409,8 +529,17 @@ const ThreeJSEarth = ({
     // Renderer - using WebGPURenderer explicitly imported
     let renderer;
     try {
-      renderer = new WebGPURenderer();
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer = new WebGPURenderer({
+        powerPreference: "high-performance", // Request high-performance GPU
+        antialias: !isMobile, // Disable antialiasing on mobile
+      });
+
+      // Set pixel ratio based on device type (lower for mobile)
+      const pixelRatio = isMobile
+        ? Math.min(window.devicePixelRatio, 1.5) // Cap at 1.5 for mobile
+        : window.devicePixelRatio;
+
+      renderer.setPixelRatio(pixelRatio);
       renderer.setSize(windowSize.width, windowSize.height);
       rendererRef.current = renderer;
 
@@ -491,7 +620,7 @@ const ThreeJSEarth = ({
 
       // Animation function for smooth transition
       const animateReturn = () => {
-        if (!isReturningRef.current) return;
+        if (!isReturningRef.current || !isVisibleRef.current) return;
 
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / returnDuration, 1);
@@ -544,43 +673,36 @@ const ThreeJSEarth = ({
       animateReturn();
     };
 
-    // Animation function
-    function animate() {
-      if (!rendererRef.current || !sceneRef.current || !cameraRef.current) {
-        return;
-      }
+    // Start the animation loop
+    startAnimation();
 
-      const delta = clockRef.current ? clockRef.current.getDelta() : 0;
-
-      // Auto-rotate if enabled and not currently interacting or returning
-      if (autoRotate && !isInteractingRef.current && !isReturningRef.current) {
-        globe.rotation.y += delta * autoRotateSpeed;
-
-        // Update the target rotation to match (only y axis for auto-rotation)
-        targetRotationRef.current.y = globe.rotation.y;
-      }
-
-      if (controlsRef.current) {
-        controlsRef.current.update();
-      }
-
-      rendererRef.current.render(sceneRef.current, cameraRef.current);
-
-      // Use requestAnimationFrame instead of renderer.setAnimationLoop for React
-      requestAnimationFrame(animate);
-    }
-
-    // Start animation
-    animate();
-
-    // Window resize handler
+    // Window resize handler with debounce for performance
+    let resizeTimeout: ReturnType<typeof setTimeout> | null = null;
     const handleResize = () => {
       if (typeof window === "undefined") return;
 
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+      // Clear previous timeout to implement debounce
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+      }
+
+      // Set new timeout
+      resizeTimeout = setTimeout(() => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+
+        // Re-check for mobile on resize
+        const newIsMobile =
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          ) || window.innerWidth <= 768;
+
+        if (newIsMobile !== isMobile) {
+          setIsMobile(newIsMobile);
+        }
+      }, 250); // 250ms debounce
     };
 
     window.addEventListener("resize", handleResize);
@@ -591,9 +713,19 @@ const ThreeJSEarth = ({
 
       window.removeEventListener("resize", handleResize);
 
+      // Cancel any pending animation frame
+      if (animationFrameIdRef.current !== null) {
+        cancelAnimationFrame(animationFrameIdRef.current);
+        animationFrameIdRef.current = null;
+      }
+
       // Clear any pending timeouts
       if (returnTimeoutRef.current) {
         clearTimeout(returnTimeoutRef.current);
+      }
+
+      if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
       }
 
       // Remove event listeners
@@ -603,37 +735,79 @@ const ThreeJSEarth = ({
         controlsRef.current.dispose();
       }
 
-      // Dispose of ThreeJS resources
-      if (rendererRef.current) {
-        try {
-          rendererRef.current?.dispose();
-        } catch (error) {
-          console.warn("Failed to dispose WebGPU renderer:", error);
-        }
-        if (
-          rendererRef.current.domElement &&
-          rendererRef.current.domElement.parentNode
-        ) {
-          rendererRef.current.domElement.remove();
-        }
-      }
-
+      // Properly dispose materials and geometries first
       if (sceneRef.current) {
         sceneRef.current.traverse((object) => {
           if (object instanceof THREE.Mesh) {
-            if (object.geometry) object.geometry.dispose();
-            if (object.material && object.material.dispose) {
+            // Safe disposal of geometry
+            if (object.geometry) {
+              object.geometry.dispose();
+            }
+
+            // Safe material disposal - Fixed error handling
+            if (object.material) {
+              // Handle arrays of materials
               if (Array.isArray(object.material)) {
-                object.material.forEach((material) => material.dispose());
-              } else {
-                object.material.dispose();
+                object.material.forEach((material) => {
+                  // Only call dispose if it exists and is a function
+                  if (material && typeof material.dispose === "function") {
+                    try {
+                      // Clear any textures from the material first
+                      if (material.map) material.map = null;
+                      if (material.lightMap) material.lightMap = null;
+                      if (material.bumpMap) material.bumpMap = null;
+                      if (material.normalMap) material.normalMap = null;
+                      if (material.specularMap) material.specularMap = null;
+                      if (material.envMap) material.envMap = null;
+
+                      // Now safe to dispose
+                      material.dispose();
+                    } catch (error) {
+                      console.warn("Error disposing material:", error);
+                    }
+                  }
+                });
+              }
+              // Handle single material
+              else if (typeof object.material.dispose === "function") {
+                try {
+                  // Clear any textures from the material first
+                  if (object.material.map) object.material.map = null;
+                  if (object.material.lightMap) object.material.lightMap = null;
+                  if (object.material.bumpMap) object.material.bumpMap = null;
+                  if (object.material.normalMap)
+                    object.material.normalMap = null;
+                  if (object.material.specularMap)
+                    object.material.specularMap = null;
+                  if (object.material.envMap) object.material.envMap = null;
+
+                  // Now safe to dispose
+                  object.material.dispose();
+                } catch (error) {
+                  console.warn("Error disposing material:", error);
+                }
               }
             }
           }
         });
       }
+
+      // Dispose of renderer
+      if (rendererRef.current) {
+        try {
+          if (
+            rendererRef.current.domElement &&
+            rendererRef.current.domElement.parentNode
+          ) {
+            rendererRef.current.domElement.remove();
+          }
+          rendererRef.current.dispose();
+        } catch (error) {
+          console.warn("Failed to dispose WebGPU renderer:", error);
+        }
+      }
     };
-  }, []);
+  }, [isMobile]); // Added isMobile as dependency to re-initialize when device type changes
 
   // Handle window resize effects separately
   useEffect(() => {

@@ -274,7 +274,12 @@ export default function CenterImage(props: CenterImageProps) {
         className={styles.blurbContainer}
         ref={blurbsContainerRef}
         style={
-          isMobile ? { height: blurbScrollHeight, marginBottom: "100dvh" } : {}
+          isMobile
+            ? { height: blurbScrollHeight, marginBottom: "100dvh" }
+            : {
+                height: "auto",
+                marginBottom: "0",
+              }
         }
       >
         {processedImages.map((image, j) => (

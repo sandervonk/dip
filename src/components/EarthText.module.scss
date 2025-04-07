@@ -24,7 +24,16 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    width: 100dvw;
     margin-top: -50vh;
+    .earthContainer {
+      width: 100dvw;
+      height: 100dvh;
+      canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    }
   }
   .markerWrapper {
     overflow: visible;
