@@ -37,7 +37,7 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "The Idea",
+      section: "*The idea*",
       header: "Realign individual incentives to reflect global impacts",
       text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
     },
