@@ -151,7 +151,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "*Over* ",
+            first: "Over ",
             number: 10,
             after: "%",
           },
@@ -178,8 +178,8 @@ export const pages: PageData[] = [
         type: "video",
         src: "/media/video.mp4",
         placeholder: "/media/video-placeholder.png",
-        alt: "Video discussing the results from our earlier experiments on Bali.",
-        caption: "Results from our demonstration plot on Bali",
+        alt: "Video discussing the results from our demonstration project on Bali.",
+        caption: "Results from our demonstration project on Bali",
       },
     },
   },
@@ -223,29 +223,32 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
+            first: "In ",
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "marked the *UNESCO* recognition of the **long-term sustainability of the subak system** by forming a *World Heritage site* on Bali with input from Somya Pertiwi.",
+          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali with input from Somya Pertiwi.",
         },
         {
           stat: {
+            first: "The ",
             number: 19,
           },
-          text: "**subaks in the UNESCO site** are in the *pilot project.*",
+          text: "**subaks in the UNESCO site** are part of the *pilot project.*",
         },
         {
           stat: {
+            first: "There are ",
             number: 3,
           },
-          text: "sources of happiness make up the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
+          text: "sources of happiness embraced by the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
         },
       ],
       media: {
         type: "img",
         src: "/img/plaque.png",
-        alt: "Plaque Alt Text",
-        caption: "Plaque caption text here.",
+        alt: "Project plaque",
+        caption: "The project plaque, containing our Letter to the Future, will be displayed by each participating subak.",
       },
     },
   },
