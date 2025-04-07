@@ -227,14 +227,14 @@ export const pages: PageData[] = [
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali with input from Somya Pertiwi.",
+          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  Somya Pertiwi provided assistance on the Ministry's proposal.",
         },
         {
           stat: {
             first: "The ",
             number: 19,
           },
-          text: "**subaks in the UNESCO site** are part of our *pilot project.*",
+          text: "**subaks that form the core of the UNESCO site** are part of our *pilot project.*",
         },
         {
           stat: {
