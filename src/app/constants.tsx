@@ -96,7 +96,7 @@ export const pages: PageData[] = [
         {
           pan: { x: 0, y: 6 },
           pos: { x: 0.5, y: 0, z: 20 },
-          rot: { x: -1.75, y: 0, z: 0 },
+          rot: { x: -200, y: 160, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           pointerEvents: "none",
           opacity: 1,
@@ -105,7 +105,7 @@ export const pages: PageData[] = [
         {
           pan: { x: 0, y: 2 },
           pos: { x: 0.5, y: 0, z: 8 },
-          rot: { x: -0.75, y: 0, z: 0 },
+          rot: { x: -100, y: 160, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           pointerEvents: "none",
           opacity: 1,
@@ -114,7 +114,7 @@ export const pages: PageData[] = [
         {
           pan: { x: 0, y: 1.2 },
           pos: { x: 0.5, y: 0, z: 3 },
-          rot: { x: 0, y: 0, z: 0 },
+          rot: { x: -40, y: 160, z: 0 },
           sun: { x: 2, y: 1, z: 1 },
           pointerEvents: "auto",
           opacity: 1,
@@ -123,7 +123,7 @@ export const pages: PageData[] = [
         {
           pan: { x: 0, y: 1.2 },
           pos: { x: 0.5, y: 0, z: 2.5 },
-          rot: { x: 0, y: 0, z: 0 },
+          rot: { x: -40, y: 160, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           pointerEvents: "auto",
           opacity: 1,
@@ -132,7 +132,7 @@ export const pages: PageData[] = [
         {
           pan: { x: 0, y: 0 },
           pos: { x: 0.5, y: 0, z: 12 },
-          rot: { x: 0, y: 1, z: 0 },
+          rot: { x: 10, y: 160, z: 0 },
           sun: { x: 0, y: 3, z: 2 },
           pointerEvents: "none",
           opacity: 0,
@@ -248,7 +248,8 @@ export const pages: PageData[] = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Project plaque",
-        caption: "Each particpating subak will display the above project plaque.",
+        caption:
+          "Each particpating subak will display the above project plaque.",
       },
     },
   },

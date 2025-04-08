@@ -76,8 +76,9 @@ export default function EarthText(props: EarthTextProps) {
     // Create a MotionValue for each axis
     return axes.reduce((acc, axis) => {
       // Extract output range for this axis
+      const mult = key === "rot" ? Math.PI / 180 : 1;
       // @ts-expect-error axis is a string that can be used as a key for the data
-      const outputRange = values.map((value) => value[axis]);
+      const outputRange = values.map((value) => value[axis] * mult);
 
       // Create motionvalue
       return {
