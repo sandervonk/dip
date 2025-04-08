@@ -223,7 +223,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "Starting in ",
+            first: "In ",
             number: 2012,
             format: { useGrouping: false },
           },
