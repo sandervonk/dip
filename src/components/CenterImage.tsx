@@ -119,10 +119,10 @@ export default function CenterImage(props: CenterImageProps) {
         return useTransform(progress, [0.7, 0.9], [1, 0]);
       } else if (index === images.length - 1) {
         // Last image fades in but never fades out
-        return useTransform(progress, [0.1, 0.3], [0, 1]);
+        return useTransform(progress, [0.3, 0.5], [0, 1]);
       } else {
         // Middle images fade in and out normally
-        return useTransform(progress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
+        return useTransform(progress, [0.3, 0.5, 0.7, 0.9], [0, 1, 1, 0]);
       }
     }
   );
