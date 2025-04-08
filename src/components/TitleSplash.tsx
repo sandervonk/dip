@@ -13,12 +13,20 @@ import { PageParts } from "@/app/constants";
 
 export interface TitleSplashProps extends PageParts {
   data: {
+    /** An array of 3 strings that make up the header (with the outer two expanding) */
     primary: string[]; //string[3]
+    /** The secondary text that renders below the header */
     secondary: string;
+    /** The image that renders behind the header (faded out until loading is complete) */
     image: string | StaticImageData;
   };
 }
 
+/**
+ * TitleSplash component, renders a title splash page with a background image and some text.
+ * @param props - The props for the TitleSplash component (props.data).
+ * @returns {JSX.Element} - The TitleSplash component.
+ */
 export default function TitleSplash(props: TitleSplashProps) {
   const { data } = props;
   const container = useRef(null);

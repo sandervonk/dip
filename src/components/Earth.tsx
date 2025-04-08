@@ -65,7 +65,10 @@ const slerpSpherical = (
   return result;
 };
 
-// React component for the Three.js WebGPU Earth
+/**
+ * 3D Earth component using Three.js its WebGPU renderer, optimized for mobile and desktop.
+ * To be used internally in the EarthText component.
+ */
 const ThreeJSEarth = ({
   initialRotation,
   initialPosition,

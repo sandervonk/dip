@@ -5,6 +5,13 @@ import styles from "./NavBar.module.scss";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { nav } from "@/app/constants";
+
+/**
+ * NavBar component, renders a header with a title and navigation links.
+ * Pulls in much of its data from the constants file.
+ *
+ * @returns {JSX.Element} - The NavBar component.
+ */
 export default function Nav() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);

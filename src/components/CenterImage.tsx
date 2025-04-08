@@ -13,15 +13,28 @@ import Image from "next/image";
 
 export interface CenterImageProps extends PageParts {
   data: {
+    /** Array of images with their respective blurbs. */
     images: Array<{
+      /** Path to the centered image for this group of blurbs */
       src: string;
+      /** Alt text to be shown if the image could not load */
       alt: string;
+      /** Array of blurb text to be shown on either side */
       blurbs: string[];
-      startLeft?: boolean;
+      // Added by script: startLeft?: boolean;
     }>;
   };
 }
 
+/**
+ * CenterImage component that displays images with blurbs on either side.
+ * The images and blurbs are displayed in a scrollable container, with the
+ * images fading in and out based on scroll position. Images will only show
+ * once they are fully loaded.
+ *
+ * @param {CenterImageProps} props - The dynamic components (props.data).
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function CenterImage(props: CenterImageProps) {
   // Get initial data
   const images = props.data.images;

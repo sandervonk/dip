@@ -7,13 +7,21 @@ import { useState } from "react";
 
 export interface StatMediaSplitProps extends PageParts {
   data: {
+    /** The title of the stats section */
     statsTitle: string;
+    /** The stats to be displayed */
     stats: Array<{
+      /** The stat number and its formatting */
       stat: {
+        /** The small text that renders above the number line (use VERY sparingly) */
         first?: string;
+        /** Symbols that prefix the number on the AnimateNumber line */
         before?: string;
+        /** The number that renders and animates up from 0 on the AnimateNumber line */
         number: number;
+        /** Symbols that suffix the number on the AnimateNumber line */
         after?: string;
+        /** The formatting options for the number */
         format?: Omit<Intl.NumberFormatOptions, "notation"> & {
           notation?: Exclude<
             Intl.NumberFormatOptions["notation"],
@@ -21,18 +29,39 @@ export interface StatMediaSplitProps extends PageParts {
           >;
         };
       };
+      /** The main body text for the stat that renders below the number line */
       text: string;
     }>;
+    /** The media to be displayed alongside the stats */
     media: {
-      type: "video" | "img";
-      placeholder?: string;
+      /** Path to the source media */
       src: string;
+      /** Alt text for if the media cannot load */
       alt: string;
+      /** Caption to be shown below the media (optional) */
       caption?: string;
-    };
+    } & (
+      | {
+          /** The type of media (video or image) */
+          type: "video";
+          /** Path to a placeholder/cover image for the video before play */
+          placeholder: string;
+        }
+      | {
+          /** The type of media (video or image) */
+          type: "img";
+        }
+    );
   };
 }
 
+/**
+ * StatMediaSplit component, renders a title, a set of stats with various
+ * text formatting options, and a media element (image or video) with a caption.
+ *
+ * @param {StatMediaSplitProps} props - The props for the StatMediaSplit component (props.data).
+ * @returns {JSX.Element} - The StatMediaSplit component.
+ */
 export default function StatMediaSplit(props: StatMediaSplitProps) {
   const { data } = props;
 

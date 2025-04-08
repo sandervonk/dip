@@ -1,6 +1,6 @@
 import styles from "./EarthText.module.scss";
 
-import { TextHeader } from "./TextHeader";
+import { TextHeader, TextHeaderProps } from "./TextHeader";
 import Earth from "./Earth";
 
 export type position2D = {
@@ -40,14 +40,17 @@ import { PageParts } from "@/app/constants";
 
 export interface EarthTextProps extends PageParts {
   data: {
-    // array of positions (pan, pos, rot, sun, transform coeff) for the earth
+    /** Array of positions (pan, pos, rot, sun, transform coeff) for the earth */
     positions: ({ transform: number } & PositionData)[];
-    section: string;
-    header: string;
-    text: string;
-  };
+  } & TextHeaderProps["data"];
 }
 
+/**
+ * EarthText component, wraps a TextHeader alongside a scroll-animated
+ * Earth component with an added downwards-extending marker.
+ *
+ * @param {EarthTextProps} props - The props for the EarthText component (props.data).
+ */
 export default function EarthText(props: EarthTextProps) {
   const { data } = props;
   const textRef = useRef(null);

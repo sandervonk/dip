@@ -4,12 +4,21 @@ import { ColorText, PageParts } from "@/app/constants";
 import { useRef } from "react";
 export interface TextHeaderProps extends PageParts {
   data: {
+    /** The section (short 1-3 word summary of the title / text) */
     section: string;
+    /** The header (the title of the text) */
     header: string;
+    /** The text (the main body copy of the text) */
     text: string;
   };
 }
 
+/**
+ * TextHeader component, renders a section header with a title and body text.
+ *
+ * @param {TextHeaderProps} props - The dynamic data (props.data).
+ * @returns {JSX.Element} - The TextHeader component.
+ */
 export function TextHeader(props: TextHeaderProps) {
   const { data } = props;
 
