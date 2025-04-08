@@ -151,11 +151,11 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "More than ",
+            first: "Over ",
             number: 10,
             after: "%",
           },
-          text: "of *global anthropogenic methane emissions* come from rice farming.",
+          text: "of *global anthropogenic methane emissions* come from *rice farming.*",
         },
         {
           stat: {
@@ -167,11 +167,11 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "At least",
+            first: "More than",
             number: 70,
             after: "%",
           },
-          text: "or more of the **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
+          text: "of the **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
         },
       ],
       media: {
