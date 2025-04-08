@@ -248,8 +248,7 @@ export const pages: PageData[] = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Project plaque",
-        caption:
-          "Each particpating subak will display the above project plaque.",
+        caption: "Each particpating subak will display the project plaque.",
       },
     },
   },
