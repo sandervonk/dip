@@ -49,7 +49,7 @@ export default function CenterImage(props: CenterImageProps) {
   // Create main scroll progress for mobile view
   const { scrollYProgress: mainScrollProgress } = useScroll({
     target: blurbsContainerRef,
-    offset: ["-200px end", "end 50px"],
+    offset: ["-50px end", "end 50px"],
   });
 
   // Create scroll progress for each blurb group to control image visibility (desktop)
