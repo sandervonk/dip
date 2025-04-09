@@ -91,7 +91,9 @@ export default function StatMediaSplit(props: StatMediaSplitProps) {
               }}
             >
               {entry.stat.first && (
-                <p className={`${styles.statFirst} gray`}>{entry.stat.first}</p>
+                <p className={`${styles.statFirst} gray`}>
+                  {ColorText(entry.stat.first)}
+                </p>
               )}
               <h3 className={styles.statNumber}>
                 <AnimateNumber
