@@ -291,7 +291,7 @@ export const pages: PageData[] = [
         src: "/img/flooded-v-not.jpeg",
         alt: "GPS located photo of AWD vs Flooded rice paddies.",
         caption:
-          "A GPS mapped photo of AWD vs Flooded rice paddies used for ground truthing our remote sensing.",
+          "Remote sensing is ground-truthed AWD and flooded rice paddies.",
       },
     },
   },
