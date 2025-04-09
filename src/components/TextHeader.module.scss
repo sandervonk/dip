@@ -56,7 +56,8 @@
     margin-bottom: calc(60px + 50dvh);
   }
   @media (max-width: 750px), (max-height: 350px) {
+    --space: 0;
     margin-top: 60;
-    margin-bottom: calc(30px + 50dvh);
+    margin-bottom: 30px;
   }
 }

@@ -1,6 +1,6 @@
 import styles from "./TextHeader.module.scss";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ColorText, PageParts } from "@/app/constants";
+import { ColorText, PageParts, useMediaQuery } from "@/app/constants";
 import { useRef } from "react";
 export interface TextHeaderProps extends PageParts {
   data: {
@@ -33,14 +33,26 @@ export function TextHeader(props: TextHeaderProps) {
 
 export default function WrappedTextHeader(props: TextHeaderProps) {
   const content = useRef(null);
+  const isMobile = useMediaQuery("(max-width: 750px)");
+
   const { scrollYProgress } = useScroll({
     target: content,
     offset: ["center 55%", "end 50px"],
   });
-  const y = useTransform(scrollYProgress, [0, 0.75], ["0%", "50dvh"]);
+  const stickyOffset = useTransform(
+    scrollYProgress,
+    [0, 0.75],
+    ["0%", "50dvh"]
+  );
 
   return (
-    <motion.div className={styles.wrapper} ref={content} style={{ y }}>
+    <motion.div
+      className={styles.wrapper}
+      ref={content}
+      style={{
+        y: isMobile ? undefined : stickyOffset,
+      }}
+    >
       <TextHeader data={props.data} />
     </motion.div>
   );
