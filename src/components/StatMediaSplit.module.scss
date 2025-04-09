@@ -12,6 +12,15 @@
   flex-flow: column nowrap;
   align-items: stretch;
   width: 100%;
+
+  margin-bottom: 90px;
+  @media (max-width: 1000px), (max-height: 600px) {
+    margin-bottom: 60px;
+  }
+  @media (max-width: 750px), (max-height: 350px) {
+    margin-bottom: 30px;
+  }
+
   .title {
     font-size: 42px;
     text-align: center;
@@ -101,16 +110,29 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+
       .caption {
         text-align: center;
         font-size: 17px;
         color: $grey;
         line-height: 112%;
         font-weight: 400;
+        @media (max-width: 1000px), (max-height: 600px) {
+          font-size: 15px;
+        }
+        @media (max-width: 750px), (max-height: 350px) {
+          font-size: 13px;
+        }
       }
       img,
       video {
-        flex: 1 1 100px;
+        flex: 0 0 auto;
+        height: auto;
+
+        @media (min-width: 610px) and (max-width: $break-width) {
+          flex: 1 1 100px;
+          height: unset;
+        }
         width: 100%;
         max-width: 100%;
         min-width: unset;
@@ -124,9 +146,6 @@
 
       @media (max-width: 750px) {
         padding: 20px 30px;
-        .caption {
-          font-size: 15px;
-        }
       }
     }
   }

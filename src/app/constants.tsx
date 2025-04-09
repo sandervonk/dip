@@ -152,8 +152,8 @@ export const pages: PageData[] = [
         {
           stat: {
             first: "Over ",
-            number: 10,
-            after: "%",
+            number: 10 / 100,
+            format: { style: "percent" },
           },
           text: "of *global anthropogenic methane emissions* come from *rice farming.*",
         },
@@ -168,8 +168,8 @@ export const pages: PageData[] = [
         {
           stat: {
             first: "More than",
-            number: 70,
-            after: "%",
+            number: 70 / 100,
+            format: { style: "percent" },
           },
           text: "of the **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
         },
@@ -219,7 +219,7 @@ export const pages: PageData[] = [
   {
     component: StatMediaSplit,
     data: {
-      statsTitle: "A Letter to the Future...",
+      statsTitle: "A Letter to the Future",
       stats: [
         {
           stat: {
@@ -248,7 +248,49 @@ export const pages: PageData[] = [
         type: "img",
         src: "/img/plaque.png",
         alt: "Project plaque",
-        caption: "Each particpating subak will display the project plaque.",
+        caption: "Each particpating subak will display our project plaque.",
+      },
+    },
+  },
+  {
+    component: StatMediaSplit,
+    data: {
+      statsTitle: "Next Steps",
+      stats: [
+        {
+          stat: {
+            first: "Explore ",
+            number: 10,
+            format: { useGrouping: false },
+          },
+          text: "of our **research and background resources** behind some parts of the project.",
+        },
+        {
+          stat: {
+            first: "For ",
+            number: 25,
+            format: {
+              style: "currency",
+              currency: "USD",
+              maximumFractionDigits: 0,
+            },
+          },
+          text: "you can *support the project* by purchasing carbon offsets, each of which **eliminates one tonne of CO2e from the atmosphere** *while also* **supporting the indigenous land stewards who make this possible.**",
+        },
+        {
+          stat: {
+            first: "See the ",
+            number: 15,
+          },
+          text: "*people and organizations* that form the **team behind this project**",
+        },
+      ],
+      media: {
+        type: "img",
+        src: "/img/flooded-v-not.jpeg",
+        alt: "GPS located photo of AWD vs Flooded rice paddies.",
+        caption:
+          "A GPS mapped photo of AWD vs Flooded rice paddies used for ground truthing our remote sensing.",
       },
     },
   },
