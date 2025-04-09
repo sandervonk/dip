@@ -1,11 +1,11 @@
 import { ColorText, PageParts } from "@/app/constants";
-import styles from "./StatMediaSplit.module.scss";
+import styles from "./StatMedia.module.scss";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { AnimateNumber } from "motion-plus/react";
 import { useState } from "react";
 
-export interface StatMediaSplitProps extends PageParts {
+export interface StatMediaProps extends PageParts {
   data: {
     /** If the content direction should be reversed */
     reverse?: boolean;
@@ -58,13 +58,13 @@ export interface StatMediaSplitProps extends PageParts {
 }
 
 /**
- * StatMediaSplit component, renders a title, a set of stats with various
+ * StatMedia component, renders a title, a set of stats with various
  * text formatting options, and a media element (image or video) with a caption.
  *
- * @param {StatMediaSplitProps} props - The props for the StatMediaSplit component (props.data).
- * @returns {JSX.Element} - The StatMediaSplit component.
+ * @param {StatMediaProps} props - The props for the StatMedia component (props.data).
+ * @returns {JSX.Element} - The StatMedia component.
  */
-export default function StatMediaSplit(props: StatMediaSplitProps) {
+export default function StatMedia(props: StatMediaProps) {
   const { data } = props;
 
   const counts = data.stats.map((entry) => {

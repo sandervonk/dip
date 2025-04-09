@@ -3,11 +3,7 @@ import TitleSplash, { TitleSplashProps } from "@/components/TitleSplash";
 import WrappedTextHeader, { TextHeaderProps } from "@/components/TextHeader";
 import CenterImage, { CenterImageProps } from "@/components/CenterImage";
 import EarthText, { EarthTextProps } from "@/components/EarthText";
-import StatMediaSplit, {
-  StatMediaSplitProps,
-} from "@/components/StatMediaSplit";
-// import ImageToContact from "@/components/ImageToContact";
-const ImageToContact = null;
+import StatMedia, { StatMediaProps } from "@/components/StatMedia";
 
 //* Import images for pages
 import PaddiesImage from "@/../public/img/paddies.webp";
@@ -145,7 +141,7 @@ export const pages: PageData[] = [
     },
   },
   {
-    component: StatMediaSplit,
+    component: StatMedia,
     data: {
       statsTitle: "Rice and the Global Commons",
       stats: [
@@ -217,7 +213,7 @@ export const pages: PageData[] = [
     },
   },
   {
-    component: StatMediaSplit,
+    component: StatMedia,
     data: {
       statsTitle: "A Letter to the Future",
       stats: [
@@ -253,7 +249,15 @@ export const pages: PageData[] = [
     },
   },
   {
-    component: StatMediaSplit,
+    component: WrappedTextHeader,
+    data: {
+      section: "Next steps",
+      header: "Participating in W-x-C and the Bali Project",
+      text: "If you want to learn more about our science and the Bali project, see our **resources**.  If you want to increase WINs, you can purchase some of our carbon offsets that eliminate atmospheric methane emissions while also supporting the indigenous land stewards that make this possible.  You can also learn about the team behind W-x-C and the Bali Project.  Feel free to contact us with any questions or comments.",
+    },
+  },
+  {
+    component: StatMedia,
     data: {
       reverse: true,
       statsTitle: "Next Steps",
@@ -293,27 +297,6 @@ export const pages: PageData[] = [
         caption:
           "Remote sensing is ground-truthed AWD and flooded rice paddies.",
       },
-    },
-  },
-  {
-    component: ImageToContact,
-    data: {
-      src: "../path/to/plaque",
-      alt: "Plaque alt descriptor text",
-      people: [
-        {
-          position: [],
-          name: "First Last",
-          text: "Personal Text",
-          contact: "Contact Info",
-        },
-        {
-          position: [],
-          name: "First Last",
-          text: "Personal Text",
-          contact: "Contact Info",
-        },
-      ],
     },
   },
 ];
@@ -381,8 +364,8 @@ export type PageData =
       data: EarthTextProps["data"];
     }
   | {
-      component: React.ComponentType<StatMediaSplitProps>;
-      data: StatMediaSplitProps["data"];
+      component: React.ComponentType<StatMediaProps>;
+      data: StatMediaProps["data"];
     }
   | {
       component: null;
