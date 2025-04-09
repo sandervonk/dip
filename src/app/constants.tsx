@@ -275,7 +275,6 @@ export const pages: PageData[] = [
             first: "By adopting AWD on Bali,",
             number: 2.4,
             after: "million",
-            },
           },
           text: "**tonnes of CO2e could be eliminated** from the atmosphere each year.",
         },
