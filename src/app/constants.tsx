@@ -253,6 +253,42 @@ export const pages: PageData[] = [
     },
   },
   {
+    component: StatMediaSplit,
+    data: {
+      statsTitle: "A Letter to the Future...",
+      stats: [
+        {
+          stat: {
+            first: "In ",
+            number: 2012,
+            format: { useGrouping: false },
+          },
+          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  Somya Pertiwi provided assistance on the Ministry's proposal.",
+        },
+        {
+          stat: {
+            first: "All of the ",
+            number: 19,
+          },
+          text: "**subaks that form the core of the UNESCO site** are part of our *pilot project.*",
+        },
+        {
+          stat: {
+            first: "There are ",
+            number: 3,
+          },
+          text: "sources of happiness embraced by the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
+        },
+      ],
+      media: {
+        type: "img",
+        src: "/img/plaque.png",
+        alt: "Project plaque",
+        caption: "Each particpating subak will display our project plaque.",
+      },
+    },
+  },
+  {
     component: ImageToContact,
     data: {
       src: "../path/to/plaque",
