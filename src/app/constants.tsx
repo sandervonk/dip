@@ -251,43 +251,41 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "Next steps",
-      header: "Participating in W-x-C and the Bali Project",
-      text: "If you want to learn more about our science and the Bali project, see our **resources**.  If you want to increase WINs, you can purchase some of our carbon offsets that eliminate atmospheric methane emissions while also supporting the indigenous land stewards that make this possible.  You can also learn about the team behind W-x-C and the Bali Project.  Feel free to contact us with any questions or comments.",
+      section: "Consider the following",
+      header: "Next Steps",
+      text: "There are many ways you can participate in World-x-Change and our Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources*. If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** The *team of people and organizations* behind World-x-Change is driven by the notion that the **sensible application of quality science can improve the planet** by linking patrons to stewards.  Feel free to *contact us* with any questions or comments.",
     },
   },
   {
     component: StatMedia,
     data: {
       reverse: true,
-      statsTitle: "Next Steps",
+      statsTitle: "Bali and Beyond",
       stats: [
         {
           stat: {
-            first: "Explore",
-            number: 10,
+            first: "Around ",
+            number: 80000,
             format: { useGrouping: false },
           },
-          text: "of our **research and background resources** behind some parts of the project.",
+          text: "hectares are *devoted to rice farming on Bali*.",
         },
         {
           stat: {
-            first: "With",
-            number: 25,
-            format: {
-              style: "currency",
-              currency: "USD",
-              maximumFractionDigits: 0,
+            first: "By adopting AWD on Bali,",
+            number: 2.4,
+            after: "million",
             },
           },
-          text: "you can *support the project* by purchasing carbon offsets, each of which **eliminates one tonne of CO2e from the atmosphere** *while also* **supporting the indigenous land stewards who make this possible.**",
+          text: "**tonnes of CO2e could be eliminated** from the atmosphere each year.",
         },
         {
           stat: {
-            first: "Meet the",
-            number: 15,
+            first: "Bali rice production is only",
+            number: 1.2 / 100,
+            format: { style: "percent" },
           },
-          text: "*people and organizations* that form the **team behind this project**",
+          text: "of Indonesian rice production, and Indonesia is only 7% of global production.  **Bali is the pilot, scaling to Indonesia and beyond is the goal.**",
         },
       ],
       media: {
@@ -295,7 +293,7 @@ export const pages: PageData[] = [
         src: "/img/flooded-v-not.jpeg",
         alt: "GPS located photo of AWD vs Flooded rice paddies.",
         caption:
-          "Remote sensing is ground-truthed AWD and flooded rice paddies.",
+          "Geo-located photos are used to ground truth our remote sensing of AWD (left) and Flooded (right) fields.",
       },
     },
   },
