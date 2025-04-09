@@ -151,7 +151,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "Over ",
+            first: "Over",
             number: 10 / 100,
             format: { style: "percent" },
           },
@@ -159,7 +159,7 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "Methane has ",
+            first: "Methane has",
             number: 28,
             after: "x",
           },
@@ -223,7 +223,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "In ",
+            first: "In",
             number: 2012,
             format: { useGrouping: false },
           },
@@ -231,14 +231,14 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "All of the ",
+            first: "All of the",
             number: 19,
           },
           text: "**subaks that form the core of the UNESCO site** are part of our *pilot project.*",
         },
         {
           stat: {
-            first: "There are ",
+            first: "There are",
             number: 3,
           },
           text: "sources of happiness embraced by the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
@@ -255,11 +255,12 @@ export const pages: PageData[] = [
   {
     component: StatMediaSplit,
     data: {
+      reverse: true,
       statsTitle: "Next Steps",
       stats: [
         {
           stat: {
-            first: "Explore ",
+            first: "Explore",
             number: 10,
             format: { useGrouping: false },
           },
@@ -267,7 +268,7 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "For ",
+            first: "With",
             number: 25,
             format: {
               style: "currency",
@@ -279,7 +280,7 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "See the ",
+            first: "Meet the",
             number: 15,
           },
           text: "*people and organizations* that form the **team behind this project**",
