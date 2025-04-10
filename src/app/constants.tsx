@@ -251,7 +251,7 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "Consider the following",
+      section: "The Future",
       header: "Next Steps",
       text: "There are many ways you can participate in World-x-Change and our Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources*. If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** The *team of people and organizations* behind World-x-Change is driven by the notion that the **sensible application of quality science can improve the planet** by linking patrons to stewards.  Feel free to *contact us* with any questions or comments.",
     },
@@ -264,27 +264,34 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "Around ",
+            before: "~",
             number: 80000,
-            format: { useGrouping: false },
+            format: {
+              style: "unit",
+              unit: "hectare",
+            },
           },
-          text: "hectares are *devoted to rice farming on Bali*.",
+          text: "are *devoted to rice farming on Bali alone*.",
         },
         {
           stat: {
-            first: "By adopting AWD on Bali,",
-            number: 2.4,
-            after: "million",
+            number: 2_400_000 * 100,
+            format: {
+              style: "unit",
+              unit: "kilogram",
+              notation: "compact",
+              compactDisplay: "long",
+            },
           },
-          text: "**tonnes of CO2e could be eliminated** from the atmosphere each year.",
+          text: "**of CO2e could be eliminated** from the atmosphere each year by adopting AWD on Bali.",
         },
         {
           stat: {
-            first: "Bali rice production is only",
+            first: "Bali produces",
             number: 1.2 / 100,
-            format: { style: "percent" },
+            format: { style: "percent", maximumFractionDigits: 2 },
           },
-          text: "of Indonesian rice production, and Indonesia is only 7% of global production.  **Bali is the pilot, scaling to Indonesia and beyond is the goal.**",
+          text: "of Indonesian rice, and Indonesia is only 7% of global production.  **Bali is the pilot, scaling to Indonesia and beyond is the goal**.",
         },
       ],
       media: {
