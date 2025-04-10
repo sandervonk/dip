@@ -34,7 +34,7 @@ export const pages: PageData[] = [
     component: WrappedTextHeader,
     data: {
       section: "The idea",
-      header: "Realign individual incentives to reflect global impacts",
+      header: "Realign Individual Incentives to Reflect Global Impacts",
       text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
     },
   },
@@ -57,14 +57,14 @@ export const pages: PageData[] = [
           alt: "Methane Measurement",
           blurbs: [
             "*World class measurements* of **environmental impacts.**",
-            "A *new standard* for tracking and documenting **world-improving activities.**",
+            "Producing a *new standard* for tracking and documenting **world-improving activities.**",
           ],
         },
         {
           src: "/img/center/remote-sensing-before.png",
           alt: "Sensing Before",
           blurbs: [
-            "Remote sensing provides the *needed monitoring, verification, and reporting* of **successful stewardship.**",
+            "Remote sensing provides the *needed monitoring, verification, and reporting (MVR)* of **successful stewardship.**",
           ],
         },
         {
@@ -82,7 +82,7 @@ export const pages: PageData[] = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Remote sensing creates **trustworthy WINs** that translate the actions of the stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for the stewards** from global patrons and markets.",
+      text: "Remote sensing creates **trustworthy WINs** that translate the actions of stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for stewards** from global patrons and markets.",
     },
   },
   {
@@ -137,7 +137,7 @@ export const pages: PageData[] = [
       ],
       section: "Our pilot project",
       header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, the **farmers can mitigate methane emissions.**  Compensating the farmers for taking on the additional risk and effort needed to alter how they farm will allow the subaks to **embrace a new regime of globally sustainable agriculture.**",
+      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, **farmers can mitigate methane emissions.**  Compensating farmers for taking on the additional risk and effort needed to alter how they farm will allow Bali to **embrace a new regime of globally sustainable agriculture.**",
     },
   },
   {
@@ -167,7 +167,7 @@ export const pages: PageData[] = [
             number: 70 / 100,
             format: { style: "percent" },
           },
-          text: "of the **methane emissions can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that damages Bali's coral reefs.",
+          text: "of the **methane emissions from Balinese rice farming can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that *damages Bali's coral reefs.*",
         },
       ],
       media: {
@@ -175,7 +175,7 @@ export const pages: PageData[] = [
         src: "/media/video.mp4",
         placeholder: "/media/video-placeholder.png",
         alt: "Video discussing the results from our demonstration project on Bali.",
-        caption: "Results from our previous demonstration project on Bali",
+        caption: "Results from our earlier demonstration project on Bali",
       },
     },
   },
@@ -204,9 +204,9 @@ export const pages: PageData[] = [
           alt: "Somya Pertiwi",
           blurbs: [
             "The Balinese NGO **Somya Pertiwi (Kindness of the Earth Goddess)** leads the project.",
-            "Scientists from the *International Rice Research Institute* are also monitoring the project.",
-            "Somya Pertiwi is working within the **centuries-old system of communally-governed subaks** that coordinate the irrigation of the rice paddies.",
-            "Agricultural extension agents *monitor and consult* on the **new farming practices.**",
+            "Scientists from the *International Rice Research Institute* are also monitoring our activities.",
+            "**Somya Pertiwi** is working within the **centuries-old system of communally-governed subaks** that coordinate irrigation across the paddies.",
+            "Agricultural extension agents will *assist the farmers* with the adoption of the **new farming practices,** and *monitor the results.*",
           ],
         },
       ],
@@ -223,21 +223,21 @@ export const pages: PageData[] = [
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  Somya Pertiwi provided assistance on the Ministry's proposal.",
+          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  **Somya Pertiwi** provided assistance on the Ministry's proposal.",
         },
         {
           stat: {
             first: "All of the",
             number: 19,
           },
-          text: "**subaks that form the core of the UNESCO site** are part of our *pilot project.*",
+          text: "**subaks** *that form the core of the UNESCO site* are part of our **pilot project.**",
         },
         {
           stat: {
             first: "There are",
             number: 3,
           },
-          text: "sources of happiness embraced by the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
+          text: "sources of happiness embraced by the *Balinese philosophy* of **Tri Hita Karana: harmony among nature, humans, and the gods.**",
         },
       ],
       media: {
@@ -253,7 +253,7 @@ export const pages: PageData[] = [
     data: {
       section: "Engaging with World-x-Change",
       header: "Next Steps",
-      text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources.* If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Learn more about the *team of people and organizations* behind World-x-Change applying the **sensible application of quality science to improve the planet** while linking patrons to stewards.  If you have any questions or comments, please *reach out and connect.*",
+      text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources.* If you want to **increase WINs,** please sponsor some **Bali Project carbon offsets** that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Discover World-x-Change's **team of people, organizations, and supporters** working to **sensibly apply quality science to improve the planet** for both patrons and stewards.  If you have any questions or comments, please **reach out and connect.**",
     },
   },
   {
@@ -264,6 +264,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
+            first: "On Bali,",
             before: "~",
             number: 80000,
             format: {
@@ -271,10 +272,11 @@ export const pages: PageData[] = [
               unit: "hectare",
             },
           },
-          text: "are *devoted to rice farming on Bali*.",
+          text: "are *devoted to rice farming*.",
         },
         {
           stat: {
+            first: "Annual emissions of",
             before: "~",
             number: 2_400_000 * 1000,
             format: {
@@ -284,7 +286,7 @@ export const pages: PageData[] = [
               compactDisplay: "long",
             },
           },
-          text: "**(2.4 million tonnes) of CO2e could be eliminated** from the atmosphere each year *by adopting AWD across Bali.*",
+          text: "**(2.4 million tonnes) of CO2e will be avoided** if *AWD is adopted across Bali.*",
         },
         {
           stat: {
@@ -292,15 +294,15 @@ export const pages: PageData[] = [
             number: 1.2 / 100,
             format: { style: "percent", maximumFractionDigits: 2 },
           },
-          text: "of Indonesia's rice, and Indonesia is only 7% of global production.  **Bali is the start, scaling to Indonesia and beyond is the goal**.",
+          text: "of Indonesia's rice, and Indonesia is only 7% of global production.  *Bali is the start,* **scaling to the rest of Indonesia and beyond is the goal**.",
         },
       ],
       media: {
         type: "img",
         src: "/img/flooded-v-not.jpeg",
-        alt: "GPS located photo of AWD vs Flooded rice paddies.",
+        alt: "Time- and GPS-tagged photo of AWD vs Flooded rice paddies.",
         caption:
-          "Geo-located photos are used to ground truth our remote sensing of AWD (left) and Flooded (right) fields.",
+          "Time- and GPS-tagged photos are used to ground truth our remote sensing of AWD (left) and Flooded (right) rice fields.",
       },
     },
   },
