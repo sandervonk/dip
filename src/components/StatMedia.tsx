@@ -5,6 +5,12 @@ import { motion } from "motion/react";
 import { AnimateNumber } from "motion-plus/react";
 import { useState } from "react";
 
+type FormatOptions = Omit<Intl.NumberFormatOptions, "notation"> & {
+  notation?: Exclude<
+    Intl.NumberFormatOptions["notation"],
+    "scientific" | "engineering"
+  >;
+};
 export interface StatMediaProps extends PageParts {
   data: {
     /** If the content direction should be reversed */
@@ -24,12 +30,7 @@ export interface StatMediaProps extends PageParts {
         /** Symbols that suffix the number on the AnimateNumber line */
         after?: string;
         /** The formatting options for the number */
-        format?: Omit<Intl.NumberFormatOptions, "notation"> & {
-          notation?: Exclude<
-            Intl.NumberFormatOptions["notation"],
-            "scientific" | "engineering"
-          >;
-        };
+        format?: FormatOptions;
       };
       /** The main body text for the stat that renders below the number line */
       text: string;
@@ -97,7 +98,7 @@ export default function StatMedia(props: StatMediaProps) {
           <h3 className={styles.statNumber}>
             <AnimateNumber
               className={styles.number}
-              format={entry.stat.format || {}}
+              format={{ ...entry.stat.format, numberingSystem: "latn" }}
               prefix={entry.stat.before}
               suffix={entry.stat.after}
               transition={{
