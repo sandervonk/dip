@@ -251,9 +251,9 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "The Future",
+      section: "Engaging with World-x-Change",
       header: "Next Steps",
-      text: "There are many ways you can participate in World-x-Change and our Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources*. If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** The *team of people and organizations* behind World-x-Change is driven by the notion that the **sensible application of quality science can improve the planet** by linking patrons to stewards.  Feel free to *contact us* with any questions or comments.",
+      text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources*. If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Learn more about the *team of people and organizations* behind World-x-Change that is driven by the notion that the **sensible application of quality science can improve the planet** by linking patrons to stewards.  If you have any questions or comments, please *connect.*",
     },
   },
   {
@@ -271,11 +271,12 @@ export const pages: PageData[] = [
               unit: "hectare",
             },
           },
-          text: "are *devoted to rice farming on Bali alone*.",
+          text: "are *devoted to rice farming on Bali*.",
         },
         {
           stat: {
-            number: 2_400_000 * 100,
+            before: "~",
+            number: 2_400_000 * 1000,
             format: {
               style: "unit",
               unit: "kilogram",
@@ -283,7 +284,7 @@ export const pages: PageData[] = [
               compactDisplay: "long",
             },
           },
-          text: "**of CO2e could be eliminated** from the atmosphere each year by adopting AWD on Bali.",
+          text: "**of CO2e could be eliminated** from the atmosphere each year by adopting AWD across Bali.",
         },
         {
           stat: {
@@ -291,7 +292,7 @@ export const pages: PageData[] = [
             number: 1.2 / 100,
             format: { style: "percent", maximumFractionDigits: 2 },
           },
-          text: "of Indonesian rice, and Indonesia is only 7% of global production.  **Bali is the pilot, scaling to Indonesia and beyond is the goal**.",
+          text: "of Indonesia's rice, and Indonesia is only 7% of global production.  **Bali is the start, scaling to Indonesia and beyond is the goal**.",
         },
       ],
       media: {
