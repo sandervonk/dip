@@ -253,7 +253,7 @@ export const pages: PageData[] = [
     data: {
       section: "Engaging with World-x-Change",
       header: "Next Steps",
-      text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources*. If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Learn more about the *team of people and organizations* behind World-x-Change that is driven by the notion that the **sensible application of quality science can improve the planet** by linking patrons to stewards.  If you have any questions or comments, please *connect.*",
+      text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources.* If you want to *increase WINs,* please sponsor some Bali Project carbon offsets that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Learn more about the *team of people and organizations* behind World-x-Change applying the **sensible application of quality science to improve the planet** while linking patrons to stewards.  If you have any questions or comments, please *reach out and connect.*",
     },
   },
   {
@@ -284,7 +284,7 @@ export const pages: PageData[] = [
               compactDisplay: "long",
             },
           },
-          text: "**of CO2e could be eliminated** from the atmosphere each year by adopting AWD across Bali.",
+          text: "**(2.4 million tonnes) of CO2e could be eliminated** from the atmosphere each year *by adopting AWD across Bali.*",
         },
         {
           stat: {
