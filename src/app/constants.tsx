@@ -33,7 +33,7 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "The idea",
+      section: "The Idea",
       header: "Realign Individual Incentives to Reflect Global Impacts",
       text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
     },
@@ -147,7 +147,7 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "Over",
+            before: ">",
             number: 10 / 100,
             format: { style: "percent" },
           },
@@ -163,7 +163,7 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "More than",
+            before: ">",
             number: 70 / 100,
             format: { style: "percent" },
           },
@@ -219,11 +219,10 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "In",
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "*UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  **Somya Pertiwi** provided assistance on the Ministry's proposal.",
+          text: "was when *UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  **Somya Pertiwi** provided assistance on the Ministry's proposal.",
         },
         {
           stat: {
@@ -234,10 +233,9 @@ export const pages: PageData[] = [
         },
         {
           stat: {
-            first: "There are",
             number: 3,
           },
-          text: "sources of happiness embraced by the *Balinese philosophy* of **Tri Hita Karana: harmony among nature, humans, and the gods.**",
+          text: "sources of happiness form the *Balinese philosophy* of **Tri Hita Karana: harmony among nature, humans, and the gods.**",
         },
       ],
       media: {
@@ -251,8 +249,8 @@ export const pages: PageData[] = [
   {
     component: WrappedTextHeader,
     data: {
-      section: "Engaging with World-x-Change",
-      header: "Next Steps",
+      section: "Next Steps",
+      header: "Engaging with WxC",
       text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources.* If you want to **increase WINs,** please sponsor some **Bali Project carbon offsets** that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Discover World-x-Change's **team of people, organizations, and supporters** working to **sensibly apply quality science to improve the planet** for both patrons and stewards.  If you have any questions or comments, please **reach out and connect.**",
     },
   },

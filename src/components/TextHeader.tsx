@@ -39,11 +39,7 @@ export default function WrappedTextHeader(props: TextHeaderProps) {
     target: content,
     offset: ["center 55%", "end 50px"],
   });
-  const stickyOffset = useTransform(
-    scrollYProgress,
-    [0, 0.75],
-    ["0%", "50dvh"]
-  );
+  const stickyOffset = useTransform(scrollYProgress, [0, 0.75], ["0%", "50vh"]);
 
   return (
     <motion.div

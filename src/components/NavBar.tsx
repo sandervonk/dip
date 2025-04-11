@@ -68,7 +68,9 @@ export default function Nav() {
                         opacity: 1,
                         borderBottomColor: "var(--foreground)",
                       }
-                    : {}
+                    : {
+                        opacity: 1,
+                      }
                 }
               >
                 <Link href={page.path}>{page.name}</Link>

@@ -28,25 +28,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
-        <SmoothScrolling>
-          <Cursor
-            style={{
-              backgroundColor: "var(--cursor)",
-              backgroundImage: "url(/img/cursor.webp)",
-              backgroundSize: "110%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-            // add remove background on text varient with overwriting the rest of the style
-            variants={{
-              text: {
-                backgroundImage: "none",
-              },
-            }}
-          />
-          <Nav />
-          <main>{children}</main>
-        </SmoothScrolling>
+        {/* <SmoothScrolling> */}
+        <Cursor
+          style={{
+            backgroundColor: "var(--cursor)",
+            backgroundImage: "url(/img/cursor.webp)",
+            backgroundSize: "110%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+          // add remove background on text varient with overwriting the rest of the style
+          variants={{
+            text: {
+              backgroundImage: "none",
+            },
+          }}
+        />
+        <Nav />
+        <main>{children}</main>
+        {/* </SmoothScrolling> */}
       </body>
       <GoogleAnalytics gaId="G-R3W7N6X2MC" />
     </html>
