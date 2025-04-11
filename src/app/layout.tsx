@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import { Cursor } from "motion-plus/react";
-import SmoothScrolling from "@/components/SmoothScrolling";
+// import SmoothScrolling from "@/components/SmoothScrolling";
 import Nav from "@/components/NavBar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 export const dynamic = "error";
