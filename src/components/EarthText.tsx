@@ -36,7 +36,7 @@ import {
   useTransform,
 } from "motion/react";
 import { useRef } from "react";
-import { PageParts } from "@/app/constants";
+import { PageParts, useMediaQuery } from "@/app/constants";
 
 export interface EarthTextProps extends PageParts {
   data: {
@@ -53,6 +53,7 @@ export interface EarthTextProps extends PageParts {
  */
 export default function EarthText(props: EarthTextProps) {
   const { data } = props;
+  const isMobile = useMediaQuery("(max-width: 750px)");
   const textRef = useRef(null);
   const textCoverProgress = useScroll({
     target: textRef,
@@ -188,7 +189,7 @@ export default function EarthText(props: EarthTextProps) {
       </motion.div>
       <motion.div
         className={styles.earthWrapper}
-        style={{ opacity, pointerEvents }}
+        style={{ opacity, pointerEvents: isMobile ? "none" : pointerEvents }}
       >
         <Earth
           className={styles.earthContainer}

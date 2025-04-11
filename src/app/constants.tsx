@@ -286,7 +286,7 @@ export const pages: PageData[] = [
               compactDisplay: "long",
             },
           },
-          text: "**(2.4 million tonnes) of CO2e will be avoided** if *AWD is adopted across Bali.*",
+          text: "(2.4 million tonnes) **of CO2e will be avoided** if *AWD is adopted across Bali.*",
         },
         {
           stat: {
