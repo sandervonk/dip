@@ -413,7 +413,7 @@ const ThreeJSEarth = ({
     const textureLoader = new THREE.TextureLoader();
 
     // Determine texture quality based on device
-    const textureQuality = isMobile ? "low" : "low";
+    const textureQuality = isMobile ? "low" : "high";
     const textureAnisotropy = isMobile ? 1 : 8;
 
     // Load textures with quality consideration
@@ -703,7 +703,7 @@ const ThreeJSEarth = ({
           ) || window.innerWidth <= 768;
 
         if (newIsMobile !== isMobile) {
-          setIsMobile(newIsMobile);
+          setIsMobile(newIsMobile || true);
         }
       }, 250); // 250ms debounce
     };
