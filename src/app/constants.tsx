@@ -35,7 +35,7 @@ export const pages: PageData[] = [
     data: {
       section: "The Idea",
       header: "Realign Individual Incentives to Reflect Global Impacts",
-      text: "An automated system leverages remote sensing and international markets to enable **payments to indigenous stewards** who enhance the global commons.",
+      text: "An automated system leverages remote sensing and international markets to enable payments to indigenous stewards who enhance the global commons.",
     },
   },
   {
@@ -46,32 +46,32 @@ export const pages: PageData[] = [
           src: "/img/center/flowchart.png",
           alt: "Flowchart",
           blurbs: [
-            "*Frontier science* creates a **bottom-up solution** to the Tragedy of the Commons.",
+            "Frontier science creates a *bottom-up solution* to the Tragedy of the Commons.",
             "*Integrating ideas* from agriculture, anthropology, chemistry, complex systems, computer science, earth science, ecology, engineering, economics, and finance.",
-            "Driven by an *Information-Age infrastructure* that is **easy to scale up with wide applicability.**",
-            "Creates incentives for individuals to **enhance the global commons** *rather than destroy it.*",
+            "Driven by an *Information-Age infrastructure* that is easy to scale up with wide applicability.",
+            "Creates incentives for individuals to **enhance the global commons** rather than destroy it.",
           ],
         },
         {
           src: "/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
-            "*World class measurements* of **environmental impacts.**",
-            "Producing a *new standard* for tracking and documenting **world-improving activities.**",
+            "*World-class measurements* of environmental impacts.",
+            "Producing *a new standard* for tracking and documenting world-improving activities.",
           ],
         },
         {
           src: "/img/center/remote-sensing-before.png",
           alt: "Sensing Before",
           blurbs: [
-            "Remote sensing provides the *needed monitoring, verification, and reporting (MVR)* of **successful stewardship.**",
+            "Remote sensing provides the needed *monitoring, verification, and reporting (MVR)* of successful stewardship.",
           ],
         },
         {
           src: "/img/center/remote-sensing-after.png",
           alt: "Sensing After",
           blurbs: [
-            "Generating high-quality results that **can be trusted** by *patrons and markets.*",
+            "Generating high-quality *results that can be trusted* by patrons and markets.",
           ],
         },
       ],
@@ -82,7 +82,7 @@ export const pages: PageData[] = [
     data: {
       section: "World Improving Numbers",
       header: "WINS",
-      text: "Remote sensing creates **trustworthy WINs** that translate the actions of stewards into **measurable outcomes** such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality **WINS generate payments for stewards** from global patrons and markets.",
+      text: "Remote sensing creates **trustworthy WINs** that translate the actions of stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality WINS **generate payments** for stewards from global patrons and markets.",
     },
   },
   {
@@ -137,7 +137,7 @@ export const pages: PageData[] = [
       ],
       section: "Our pilot project",
       header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By altering their irrigation practices, **farmers can mitigate methane emissions.**  Compensating farmers for taking on the additional risk and effort needed to alter how they farm will allow Bali to **embrace a new regime of globally sustainable agriculture.**",
+      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By changing their irrigation practices to **Alternate Wetting and Drying (AWD)**, farmers can mitigate methane emissions from their fields.  Compensating farmers for taking on the additional risk and effort needed to adopt AWD will allow Bali to **embrace a new regime** of globally sustainable agriculture.",
     },
   },
   {
@@ -151,7 +151,7 @@ export const pages: PageData[] = [
             number: 10 / 100,
             format: { style: "percent" },
           },
-          text: "of *global anthropogenic methane emissions* come from *rice farming.*",
+          text: "*of anthropogenic global methane emissions come from rice farming.*",
         },
         {
           stat: {
@@ -159,7 +159,7 @@ export const pages: PageData[] = [
             number: 28,
             after: "x",
           },
-          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, such emmisions may *push the global system beyond critical tipping points.*",
+          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, such emmisions may push the global system *beyond critical tipping points.*",
         },
         {
           stat: {
@@ -167,7 +167,7 @@ export const pages: PageData[] = [
             number: 70 / 100,
             format: { style: "percent" },
           },
-          text: "of the **methane emissions from Balinese rice farming can be eliminated** by not flooding the rice paddies.  This also **reduces the runoff of fertilizer** that *damages Bali's coral reefs.*",
+          text: "of the *methane emissions from Balinese rice fields can be eliminated* by not flooding the rice paddies.  AWD also *reduces the runoff of fertilizer* that damages Bali's coral reefs.",
         },
       ],
       media: {
@@ -187,26 +187,26 @@ export const pages: PageData[] = [
           src: "/img/center/field-measurement.png",
           alt: "Piccarro",
           blurbs: [
-            "In-field gas analyzers *track emissions* over time from different irrigation practices.",
-            "These **world-class measurements provide critical insights** not available using the current standards of syringe sampling or national averages.",
+            "*In-field gas analyzers* track emissions over time from different irrigation practices.",
+            "Such *world-class measurements* provide critical insights not available using the current standards of syringe sampling or national averages.",
           ],
         },
         {
           src: "/img/center/subak-bena.png",
           alt: "Subak Bena",
           blurbs: [
-            "Our approach integrates a *deep understanding* of the **local people, culture, and institutions.**",
-            "Incorporating such insights **strengthens local traditions and organizations.**",
+            "Our approach integrates a *deep understanding* of the local people, culture, and institutions.",
+            "Incorporating such insights *strengthens local traditions and organizations.*",
           ],
         },
         {
           src: "/img/center/somya-pertiwi.png",
           alt: "Somya Pertiwi",
           blurbs: [
-            "The Balinese NGO **Somya Pertiwi (Kindness of the Earth Goddess)** leads the project.",
+            "The Balinese NGO *Somya Pertiwi (Kindness of the Earth Goddess)* leads the project.",
             "Scientists from the *International Rice Research Institute* are also monitoring our activities.",
-            "**Somya Pertiwi** is working within the **centuries-old system of communally-governed subaks** that coordinate irrigation across the paddies.",
-            "Agricultural extension agents will *assist the farmers* with the adoption of the **new farming practices,** and *monitor the results.*",
+            "*Somya Pertiwi* is working within the centuries-old system of *communally-governed subaks* that coordinate rice farming across the paddies.",
+            "Agricultural extension agents will *assist the farmers* with the adoption of **AWD**, and monitor the results.",
           ],
         },
       ],
@@ -222,20 +222,19 @@ export const pages: PageData[] = [
             number: 2012,
             format: { useGrouping: false },
           },
-          text: "was when *UNESCO* recognized the **long-term sustainability of the subak system** by establishing a *World Heritage site* on Bali.  **Somya Pertiwi** provided assistance on the Ministry's proposal.",
+          text: "was when the **sustainability of the subak system** was recongized as a *UNESCO World Heritage site.*  Somya Pertiwi provided assistance on the Ministry's proposal.",
         },
         {
           stat: {
-            first: "All of the",
             number: 19,
           },
-          text: "**subaks** *that form the core of the UNESCO site* are part of our **pilot project.**",
+          text: "**subaks** form the *core of the UNESCO site* and all are paricipating in the **pilot project.**",
         },
         {
           stat: {
             number: 3,
           },
-          text: "sources of happiness form the *Balinese philosophy* of **Tri Hita Karana: harmony among nature, humans, and the gods.**",
+          text: "sources of happiness form the *Balinese philosophy of Tri Hita Karana: harmony among nature, humans, and the gods.*",
         },
       ],
       media: {
@@ -251,7 +250,7 @@ export const pages: PageData[] = [
     data: {
       section: "Next Steps",
       header: "Engaging with WxC",
-      text: "There are many ways you can learn more about World-x-Change and particpate in the Bali Project.  If you want to know more about the **underlying science and ideas** driving World-x-Change, you can explore some of our *research papers and background resources.* If you want to **increase WINs,** please sponsor some **Bali Project carbon offsets** that will **eliminate tonnes of CO2e** from the atmosphere while also **helping the indigenous land stewards who make this possible.** Discover World-x-Change's **team of people, organizations, and supporters** working to **sensibly apply quality science to improve the planet** for both patrons and stewards.  If you have any questions or comments, please **reach out and connect.**",
+      text: "There are many ways you can learn more about World-x-Change and **participate in the Bali Project.**  If you want to know more about the underlying **science and ideas** driving World-x-Change, explore some of our *research papers and background resources.* If you want to **increase WINs,** please sponsor some **Bali Project carbon offsets** that will eliminate tonnes of CO2e from the atmosphere and support the indigenous land stewards who make this possible. Discover **World-x-Change's team** of people, organizations, and supporters working to apply **quality science to improve the planet** for both patrons and stewards.  If you have any questions or comments, please **connect with us.**",
     },
   },
   {
@@ -262,7 +261,6 @@ export const pages: PageData[] = [
       stats: [
         {
           stat: {
-            first: "On Bali,",
             before: "~",
             number: 80000,
             format: {
@@ -270,11 +268,10 @@ export const pages: PageData[] = [
               unit: "hectare",
             },
           },
-          text: "are *devoted to rice farming*.",
+          text: "*are devoted to rice farming on Bali*.",
         },
         {
           stat: {
-            first: "Annual emissions of",
             before: "~",
             number: 2_400_000 * 1000,
             format: {
@@ -284,15 +281,14 @@ export const pages: PageData[] = [
               compactDisplay: "long",
             },
           },
-          text: "(2.4 million tonnes) **of CO2e will be avoided** if *AWD is adopted across Bali.*",
+          text: "(2.4 million tonnes) of *annual CO2e emissions* could be avoided if **AWD** *was adopted across Bali.*",
         },
         {
           stat: {
-            first: "Bali produces",
             number: 1.2 / 100,
             format: { style: "percent", maximumFractionDigits: 2 },
           },
-          text: "of Indonesia's rice, and Indonesia is only 7% of global production.  *Bali is the start,* **scaling to the rest of Indonesia and beyond is the goal**.",
+          text: "*of Indonesia's rice is grown on Bali*, and Indonesia is only 7% of global production.  Bali is only the beginning, **scaling to the planet is the goal**.",
         },
       ],
       media: {
