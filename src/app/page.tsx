@@ -217,13 +217,13 @@ export default makePageStream([
           stat: {
             number: 19,
           },
-          text: "**subaks** form the *core of the UNESCO site* and all are paricipating in the **pilot project.**",
+          text: "**subaks** form the *core of the UNESCO site*, all of which are paricipating in the **pilot project.**",
         },
         {
           stat: {
             number: 3,
           },
-          text: "sources of happiness form the *Balinese philosophy of Tri Hita Karana: harmony among nature, humans, and the gods.*",
+          text: "sources of happiness form the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
         },
       ],
       media: {
