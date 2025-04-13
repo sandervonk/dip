@@ -12,7 +12,7 @@ export const nav: {
 };
 
 import React, { useLayoutEffect, useState } from "react";
-import styles from "@/app/TextStyles.module.scss";
+import styles from "@/styles/TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
 /** Format text to nested spans with the following markdown-like properties:
  * | parent -> <span className={styles.grey}>(</span>
