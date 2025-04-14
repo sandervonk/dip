@@ -16,7 +16,16 @@
       max-width: unset !important;
       flex: 1 0 200px;
       height: unset !important;
-      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      .statNumber {
+        width: 100%;
+        max-width: 340px;
+      }
+      .statText {
+        max-width: 340px;
+      }
     }
     padding: 0;
     gap: $border;
