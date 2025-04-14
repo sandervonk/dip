@@ -70,99 +70,59 @@ export default makePageStream([
       stats: [
         {
           stat: {
-            number: 16 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 16,
+            after: " tCO2e",
           },
           text: "of CO2e is produced by the **average American** *every year*",
         },
         {
           stat: {
-            number: 8 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 8,
+            after: " tCO2e",
           },
           text: "of CO2e is produced by the **average European** *every year*",
         },
         {
           stat: {
-            number: 2 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 2,
+            after: " tCO2e",
           },
           text: "is the *sustainable target* of yearly C02e emissions for an individual (IPCC)",
         },
         {
           stat: {
-            number: 4.5 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 4.5,
+            after: " tCO2e",
           },
           text: "is produced by driving a gasoline car **12,000 miles/year**",
         },
         {
           stat: {
-            number: 0.5 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 0.5,
+            after: " tCO2e",
           },
           text: "is produced by a one-way flight from NYC to LA in economy class",
         },
         {
           stat: {
-            number: 1.5 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 1.5,
+            after: " tCO2e",
           },
           text: "is saved by switching to a vegetarian diet",
         },
         {
           stat: {
-            number: 2.5 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 2.5,
+            after: " tCO2e",
           },
-          text: "is produced by home heating **(USA avg/person)**",
+          text: "is produced to heat a home **(USA avg/person)**",
         },
         {
           stat: {
-            number: 3.8 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              // notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 3.8,
+            after: " tCO2e",
           },
-          text: "is produced by home electricity **(USA avg/person)**",
+          text: "is produced by home electricity usage **(USA avg/person)**",
         },
       ],
     },
