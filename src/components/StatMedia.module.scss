@@ -1,7 +1,6 @@
 @import "@/styles/variables.scss";
 
 .wrapper {
-  $border: 1px;
   $media-base: 500px;
   $stats-base: 400px;
   $break-width: calc($border + $stats-base + $media-base);

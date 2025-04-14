@@ -1,6 +1,8 @@
 @import "@/styles/variables.scss";
 
 .container {
+  position: relative;
+  // margin-top: calc(-1 * $border);
   font-size: 14px;
   background-color: $footer;
   color: $footer-text;
@@ -17,16 +19,12 @@
     .link {
       color: $footer-text;
       text-decoration: none;
-      text-underline-offset: 2px;
-      &:hover {
-        text-decoration: underline;
-      }
     }
     .linkSeparator {
       display: inline-block;
       height: 1em;
-      width: 1px;
-      border-radius: 1px;
+      width: $border;
+      border-radius: $border;
       background-color: transparentize($footer-text, 0.3);
       align-self: center;
       margin: 0 10px;
@@ -39,6 +37,10 @@
 
   .link {
     color: $footer-link;
+    text-underline-offset: 2px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   @media (max-width: 750px) {
     flex-flow: column;

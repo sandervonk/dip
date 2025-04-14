@@ -2,6 +2,8 @@ $header-height: 50px;
 $header-width: 800px;
 $header-spacing: -$header-height;
 
+$border: 1px;
+
 // colors;
 $background: #000000;
 $foreground: #ffffff;
@@ -12,6 +14,10 @@ $highlight: #226726;
 $grey: #fff7; // #aaaaaacb
 $white: #ffffff;
 
-$footer: #f5f5f7;
-$footer-text: #000000bb;
-$footer-link: #0066cc;
+// $footer: #f5f5f7;
+// $footer-text: #000000bb;
+// $footer-link: #0066cc;
+
+$footer: lighten($background, 15);
+$footer-text: $foreground;
+$footer-link: #3586d7;
