@@ -41,8 +41,12 @@ body > main {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+  min-height: calc(100dvh - $header-height);
   z-index: 0;
   position: relative;
+  > div:has(.next-error-h1) {
+    height: calc(100dvh - $header-height) !important;
+  }
 }
 
 * {

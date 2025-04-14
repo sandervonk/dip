@@ -1,0 +1,47 @@
+@import "@/styles/variables.scss";
+
+.container {
+  font-size: 14px;
+  background-color: $footer;
+  color: $footer-text;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 20px 60px;
+  .alt {
+    color: transparentize($footer-text, 0.3);
+  }
+  .links {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    .link {
+      color: $footer-text;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .linkSeparator {
+      display: inline-block;
+      height: 1em;
+      width: 1px;
+      border-radius: 1px;
+      background-color: transparentize($footer-text, 0.3);
+      align-self: center;
+      margin: 0 10px;
+    }
+  }
+  ::selection {
+    background: transparentize($highlight, 0.8);
+    color: $highlight;
+  }
+
+  .link {
+    color: $footer-link;
+  }
+  @media (max-width: 750px) {
+    flex-flow: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

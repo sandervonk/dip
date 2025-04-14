@@ -54,7 +54,8 @@
       gap: 20px;
       .stat {
         max-width: 340px;
-        width: 100%;
+        width: 250px;
+        flex-basis: 250px;
         .statNumber {
           user-select: none;
           .number {

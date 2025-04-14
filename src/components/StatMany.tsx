@@ -1,13 +1,8 @@
 import { PageParts } from "@/app/constants";
 import styles from "./StatMany.module.scss";
 import Stats, { Stat } from "./Stats";
+import { motion } from "motion/react";
 
-type FormatOptions = Omit<Intl.NumberFormatOptions, "notation"> & {
-  notation?: Exclude<
-    Intl.NumberFormatOptions["notation"],
-    "scientific" | "engineering"
-  >;
-};
 export interface StatManyProps extends PageParts {
   data: {
     /** The title of the stats section */
@@ -30,9 +25,9 @@ export default function StatMedia(props: StatManyProps) {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{data.statsTitle}</h2>
-      <div className={styles.container}>
+      <motion.div className={styles.container}>
         <Stats stats={data.stats} styles={styles} />
-      </div>
+      </motion.div>
     </div>
   );
 }

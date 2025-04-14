@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
 import { Cursor } from "motion-plus/react";
 import SmoothScrolling from "@/components/SmoothScrolling";
-import Nav from "@/components/NavBar";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 export const dynamic = "error";
 
@@ -44,8 +45,9 @@ export default function RootLayout({
               },
             }}
           />
-          <Nav />
+          <NavBar />
           <main>{children}</main>
+          <Footer />
         </SmoothScrolling>
       </body>
       <GoogleAnalytics gaId="G-R3W7N6X2MC" />
