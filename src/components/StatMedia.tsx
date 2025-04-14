@@ -1,7 +1,6 @@
 import { PageParts } from "@/app/constants";
 import styles from "./StatMedia.module.scss";
 import Image from "next/image";
-import { useState } from "react";
 import Stats, { Stat } from "./Stats";
 
 export interface StatMediaProps extends PageParts {

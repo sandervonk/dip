@@ -17,6 +17,7 @@
     .link {
       color: $footer-text;
       text-decoration: none;
+      text-underline-offset: 2px;
       &:hover {
         text-decoration: underline;
       }

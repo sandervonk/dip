@@ -11,6 +11,12 @@ export const nav: {
   ],
 };
 
+export const footerLinks = {
+  "/": "Home",
+  "/contact": "Connect",
+  "/team": "People",
+};
+
 import React, { useLayoutEffect, useState } from "react";
 import styles from "@/styles/TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
