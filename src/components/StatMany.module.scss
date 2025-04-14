@@ -1,0 +1,35 @@
+@import "@/styles/variables.scss";
+@import "./StatMedia.module.scss";
+.wrapper {
+  $border: 1px;
+
+  .stats {
+    width: 100%;
+    padding: 0 !important;
+    align-items: center;
+    justify-content: space-evenly;
+    align-items: stretch !important;
+    display: flex;
+    flex-flow: row wrap !important;
+    gap: $border !important;
+    .stat {
+      max-width: unset !important;
+      flex: 1 0 200px;
+      height: unset !important;
+      width: 100%;
+    }
+    padding: 0;
+    gap: $border;
+    background-color: $alternate;
+    flex-flow: row nowrap;
+    .stat {
+      background-color: $background;
+      flex: 1 0 200px;
+      padding: 50px 20px;
+      height: 100%;
+      .statFirst {
+        margin-top: -1em !important;
+      }
+    }
+  }
+}

@@ -5,9 +5,9 @@ import { useRef } from "react";
 export interface TextHeaderProps extends PageParts {
   data: {
     /** The section (short 1-3 word summary of the title / text) */
-    section: string;
+    section?: string;
     /** The header (the title of the text) */
-    header: string;
+    header?: string;
     /** The text (the main body copy of the text) */
     text: string;
   };
@@ -20,13 +20,13 @@ export interface TextHeaderProps extends PageParts {
  * @returns {JSX.Element} - The TextHeader component.
  */
 export function TextHeader(props: TextHeaderProps) {
-  const { data } = props;
+  const { section, header, text } = props.data;
 
   return (
     <motion.div className={styles.container}>
-      <h1 className={styles.section}>{ColorText(data.section)}</h1>
-      <h2 className={styles.header}>{ColorText(data.header, false)}</h2>
-      <p className={styles.text}>{ColorText(data.text, false)}</p>
+      {section && <h1 className={styles.section}>{ColorText(section)}</h1>}
+      {header && <h2 className={styles.header}>{ColorText(header, false)}</h2>}
+      {text && <p className={styles.text}>{ColorText(text, false)}</p>}
     </motion.div>
   );
 }

@@ -59,6 +59,7 @@ import { TextHeaderProps } from "@/components/TextHeader";
 import { CenterImageProps } from "@/components/CenterImage";
 import { EarthTextProps } from "@/components/EarthText";
 import { StatMediaProps } from "@/components/StatMedia";
+import { StatManyProps } from "@/components/StatMany";
 
 export type PageParts = Readonly<{ data: object }>;
 export type PageData =
@@ -81,6 +82,10 @@ export type PageData =
   | {
       component: React.ComponentType<StatMediaProps>;
       data: StatMediaProps["data"];
+    }
+  | {
+      component: React.ComponentType<StatManyProps>;
+      data: StatManyProps["data"];
     }
   | {
       component: null;
