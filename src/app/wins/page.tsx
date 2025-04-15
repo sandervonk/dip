@@ -9,120 +9,144 @@ export default makePageStream([
   {
     component: WrappedTextHeader,
     data: {
-      section: "WxC WINs",
-      header: "Reducing Emissions with AWD in Bali",
-      text: "The WINs from the Bali project will eliminate the release of tonnes of CO2e into the atmosphere by helping indigenous rice farmers adopt Alternate Wetting and Drying (AWD) irrigation. Our previous scientific work, using frontier emissions measurements, found that flooded Balinese rice fields produce **at least 30 tonnes more of CO2e/ha/year** than fields using AWD.",
+      section: "Reducing methane emissions",
+      header: "WINs from Bali",
+      text: "The World Improving Numbers from the Bali Project capture the **elimination of dangerous Greenhouse Gase emissions** by helping the indigenous rice farmers adopt Alternate Wetting and Drying (AWD) irrigation. Our frontier emissions measurements found that **AWD eliminated more than 30 tonnes of CO2e/ha/year** while also reducing water use and avoiding the runoff of harmful nutrients.",
     },
   },
   {
     component: WrappedTextHeader,
     data: {
-      section: "Get Involved",
-      header: "How You Can Help",
-      text: "Our goal for the Balinese Pilot Project is to **maximize the payments we pass on to the indigenous farmers** from the sale of carbon offset WINs. We will monitor, verify, and report (MVR) the adoption of AWD in the fields using our remote sensing system. The project is actively minimizing our infrastructure costs—we rely on a wonderful group of volunteers, driven by the ideals of the project to use quality science and technology to support the indigenous land stewards whose efforts improve the planet.",
+      section: "Participate in the Bali Project",
+      header: "Carbon Offsets",
+      text: "To **support the farmers who adopt AWD** we are selling carbon offsets.  To ensure **high-quality** offsets, we will **monitor, verify, and report (MVR)** AWD adoption using our remote sensing and automated infrastructure.",
     },
   },
   {
     component: WrappedTextHeader,
     data: {
-      section: "Support",
+      section: "Project ideals",
+      header: "WxC's Mission",
+      text: "**The goal of WxC is to use quality science and technology to support the indigenous land stewards whose efforts improve the planet.**  Our team is composed of a group of people who embrace this mission and volunteer their time so that most of the revenue from offset sales can be passsed on to the farmers.  A minimal amount of revenue is used to sustain the scientific, monitoring, and administrative activities needed to operate, and scale, the system.",
+    },
+  },
+  {
+    component: WrappedTextHeader,
+    data: {
+      section: "Embrace our ideals",
       header: "Become a Patron",
-      text: "To embrace our ideals and participate in this project, please support us by **purchasing some WxC Bali Project carbon offsets!** Becoming a Patron is a meaningful way to improve the global commons, support indigenous agriculture (on Bali, rice fields are being replaced by resorts), and recognize your own impact on the planet.",
+      text: "To participate in our mission, please consider the purchase of some **Bali Project carbon offsets.**  Becoming a Patron is a **meaningful way** to improve the global commons, support indigenous farmers and globally sustainable agriculture (rice fields are being replaced by resorts on Bali), and **recognize one's impact on the planet.**",
     },
   },
   {
     component: WrappedTextHeader,
     data: {
-      section: "Transparency",
-      header: "Understanding the Carbon Offset Market",
-      text: 'As you may have read in a few newspaper exposés, the carbon offset market has occasionally suffered corruption at various levels. Some offset promises have been **specious**, "certification" agencies can have incentives to generate revenue through high certification fees (accessible only to enterprises prioritizing profits), and some corporate offset claims have engaged in **greenwashing**. This has resulted in market prices for offsets ranging from **under $1 to over $100 per tonne**, depending on quality and other conditions.',
+      section: "Carbon offset markets",
+      header: "Transparency",
+      text: 'Carbon offset markets have been subject to **occasional corruption.** Some offset promises have been specious, "certification" agencies have incentives to generate revenue through high certification fees (encouraging enterprises that prioritize profits) and the sale of "certified" credits, resulting in the potential for **greenwashing.** Market prices for offsets (presumably a homogenous good), can range at any given time from under $1 to over $100 per tonne of CO2e, depending on the state of the market and the perceived quality of the offset.',
     },
   },
   {
     component: WrappedTextHeader,
     data: {
-      section: "Our Offering",
-      header: "A Science-Driven Offset Price",
-      text: "Given the **world-class science** driving our system and the **unprecedented MVR** tied to our carbon offsets, we are currently seeking a price of **$25 per tCO2e** offset as we begin the project. If you, your friends, or your organization would like to become Patrons or have questions, please connect with us.",
+      section: "A science-driven offset price",
+      header: "Quality",
+      text: "The Bali Project relies on **world-class science and technology** to establish emission levels and monitor, verify, and report the WINs generated by our stewards.  Thus, the resulting offsets are of high quality.  Given the early state of the project, we are offering the initial tranche of **offsets at $25 per tCO2e.** While this price is likely modest, it will allow us to get the project moving quickly so we can start to help the farmers.",
     },
   },
   {
     component: WrappedTextHeader,
     data: {
-      section: "Externalities",
-      header: "Recognizing the True Cost of Our Actions",
-      text: "There are activities in our lives that impose costs or benefits on others we often fail to recognize—economists call these **externalities**. For example, dropping litter affects everyone who passes by, yet no one is incentivized to clean it up. Releasing CO2e into the atmosphere is **littering at a global scale**. WxC enables individuals to recognize and take responsibility for these hidden impacts by purchasing offsets that directly support sustainable practices.",
+      section: "Please join us as a Patron",
+      header: "The Ask",
+      text: "**If you, your friends, or your organization would like to become Patrons by purchasing some of our quality offsets, please connect with us.**",
     },
   },
   {
     component: WrappedTextHeader,
     data: {
-      section: "Why It Matters",
-      header: "Supporting Global Stewardship",
-      text: "WxC makes it possible to fund farmers who **take on the added cost** of adopting better practices—like AWD—by passing on the payments from offset purchases. The idea is simple. The hard part, until WxC, was making it **feasible**. By recognizing and taking responsibility for the tradeoffs embodied by our actions, Patrons can make **informed choices** about how they live.",
+      section: "Recognizing the costs of our actions",
+      header: "Externalities",
+      text: "There are activities in our lives that impose costs or benefits on others that we fail to recognize—such activities lead to unfortunate choices. For example, dropping litter saves you some time and effort, yet everyone who follows is harmed and, alas, none of these people want to expend the effort needed to clean it up, even thought it would benefit everyone in the future.  **Releasing CO2e into the atmosphere is littering at a global scale**.",
     },
+  },
+  {
+    component: WrappedTextHeader,
+    data: {
+      section: "An information-age solution",
+      header: "WxC",
+      text: "By purchasing offsets, **Patrons** can recognize the true impacts of their activities.  By receiving offset revenue, **Stewards** can recognize the benefits of taking on the added expense of changing their stewardship.  **The underlying idea behind this system is simple, the hard part was how to do it in a feasible way.** Given recent technological advances, **W-x-C is now able to realize this solution.**",
+      },
+  },    
+  {
+    component: WrappedTextHeader,
+    data: {
+      section: "A final word",
+      header: "Choices",
+      text: "Patrons and Stewards need to recognize their impacts, and ultimate reliance, on the **global atmospheric commons.**  Everyone should engage in whatever activities they most value while also **considering the full implications, both good and bad, of their choices.**  When doing so, they may want to change their choices.  **WxC just wants to ensure** that whatever choices are made, they are well-informed.",
+      },
   },
   //To give a sense of CO2e impact:\n\n- **Average American**: 16–20 tCO2e/year  \n- **Average European**: ~8 tCO2e/year  \n- **Sustainable target (IPCC)**: 2 tCO2e/year  \n\nSome specific examples:\n\n- Driving a gasoline car 12,000 miles/year: **4.5 tCO2e**  \n- NYC to LA one-way in economy: **0.5 tCO2e** (double in business class)  \n- Switching to vegetarian diet: **1.5 tCO2e savings**  \n- Home energy (USA avg/person): Heating: **2.5 tCO2e**, Electricity: **3.8 tCO2e**  \n\nMake the choices that matter to you—just make them **informed choices**.
   {
     component: StatMany,
     data: {
-      statsTitle: "Your Impact",
+      statsTitle: "Calibrating Your Global Impacts",
       stats: [
         {
           stat: {
             number: 16,
             after: " tCO2e",
           },
-          text: "of CO2e is produced by the **average American** *every year*",
+          text: "are released by the *average American* each year",
         },
         {
           stat: {
             number: 8,
             after: " tCO2e",
           },
-          text: "of CO2e is produced by the **average European** *every year*",
+          text: "are released by the *average European* each year",
         },
         {
           stat: {
             number: 2,
             after: " tCO2e",
           },
-          text: "is the *sustainable target* of yearly C02e emissions for an individual (IPCC)",
+          text: "is the *average individual* **sustainable target** each year (IPCC)",
         },
         {
           stat: {
             number: 4.5,
             after: " tCO2e",
           },
-          text: "is produced by driving a gasoline car **12,000 miles/year**",
+          text: "are released by *driving a gasoline car 12,000 miles (19,000 kilometers)*",
         },
         {
           stat: {
             number: 0.5,
             after: " tCO2e",
           },
-          text: "is produced by a one-way flight from NYC to LA in economy class",
+          text: "are released by *flying economy class 2,500 miles (4,000 kilometers),* such as a one-way flight from NYC to LA",
         },
         {
           stat: {
             number: 1.5,
             after: " tCO2e",
           },
-          text: "is saved by switching to a vegetarian diet",
+          text: "are avoided by **adopting a vegetarian over a meat-heavy diet** each year",
         },
         {
           stat: {
             number: 2.5,
             after: " tCO2e",
           },
-          text: "is produced to heat a home **(USA avg/person)**",
+          text: "are released from *heating a home (USA avg/person)* each year",
         },
         {
           stat: {
             number: 3.8,
             after: " tCO2e",
           },
-          text: "is produced by home electricity usage **(USA avg/person)**",
+          text: "are released from *home electric use (USA avg/person)* each year",
         },
       ],
     },
