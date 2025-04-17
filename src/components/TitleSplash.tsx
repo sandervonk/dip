@@ -4,7 +4,6 @@ import {
   easeIn,
   motion,
   MotionConfig,
-  useMotionTemplate,
   useScroll,
   useTransform,
 } from "motion/react";
