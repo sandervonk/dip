@@ -2,12 +2,10 @@ export const nav: {
   title: string;
   pages: { name: string; path: string; action?: boolean }[];
 } = {
-  title: "World x Change",
+  title: "DIP",
   pages: [
-    { name: "WINs", path: "/wins" },
-    { name: "Resources", path: "/resources" },
     { name: "Team", path: "/team" },
-    { name: "Connect", path: "/contact", action: false },
+    { name: "Connect", path: "/contact", action: true },
   ],
 };
 

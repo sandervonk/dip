@@ -17,8 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "World x Change",
-  description: "An Information-Age Solution to the Tragedy of the Commons",
+  title: "Dip: Let's Dip",
+  description:
+    "Make connecting and staying engaged in team bonding events convenient and rewarding for coworkers",
 };
 
 export default function RootLayout({
@@ -33,7 +34,7 @@ export default function RootLayout({
           <Cursor
             style={{
               backgroundColor: "var(--cursor)",
-              backgroundImage: "url(/img/cursor.webp)",
+              // backgroundImage: "url(/dip/img/cursor.webp)",
               backgroundSize: "110%",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",

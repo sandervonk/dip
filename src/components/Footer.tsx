@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <motion.footer className={styles.container}>
       <div className={styles.alt}>
-        <span>&copy; 2024-{year}. All rights reserved.</span>
+        <span>&copy; 2025-{year}. All rights reserved.</span>
       </div>
       <div className={styles.links}>
         {/* links with separators between */}

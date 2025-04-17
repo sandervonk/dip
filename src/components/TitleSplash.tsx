@@ -38,11 +38,6 @@ export default function TitleSplash(props: TitleSplashProps) {
     offset: ["center center", "start 50px"],
   });
   const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.75]);
-  const filter = useMotionTemplate`blur(${useTransform(
-    scrollYProgress,
-    [0, 0.5],
-    [0, 2]
-  )}px)`;
   return (
     <motion.div
       className={styles.container}
@@ -54,7 +49,6 @@ export default function TitleSplash(props: TitleSplashProps) {
         initial="initial"
         animate={loaded ? "show" : "initial"}
         variants={{ initial: { opacity: 0 }, show: { opacity: 1 } }}
-        style={{ filter }}
         transition={{ duration: 0.5 }}
       >
         <Image
@@ -84,10 +78,10 @@ export default function TitleSplash(props: TitleSplashProps) {
             <motion.span
               className={styles.titleWord}
               style={{ textAlign: "right" }}
-              initial={{ width: "1em", marginLeft: 0 }}
+              initial={{ width: "0.7em", marginLeft: "calc(1.59em - 0.7em)" }}
               animate={{
-                width: "2.9em",
-                marginLeft: "calc(3.7em - 2.9em)",
+                width: "1.59em",
+                marginLeft: 0,
               }}
             >
               {data.primary[0]}
@@ -102,8 +96,11 @@ export default function TitleSplash(props: TitleSplashProps) {
             <motion.span
               className={styles.titleWord}
               style={{ textAlign: "left" }}
-              initial={{ width: "0.75em", marginRight: "calc(1em - 0.75em)" }}
-              animate={{ width: "3.7em", marginRight: 0 }}
+              initial={{
+                width: "0.58em",
+                marginRight: "calc(4.22em - 0.58em)",
+              }}
+              animate={{ width: "4.22em", marginRight: 0 }}
             >
               {data.primary[2]}
             </motion.span>

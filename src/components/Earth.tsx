@@ -419,24 +419,24 @@ const ThreeJSEarth = ({
     // Load textures with quality consideration
     const dayTexture = textureLoader.load(
       textureQuality === "low"
-        ? "/img/texture/day_low.jpg"
-        : "/img/texture/day.jpg"
+        ? "/dip/img/texture/day_low.jpg"
+        : "/dip/img/texture/day.jpg"
     );
     dayTexture.colorSpace = THREE.SRGBColorSpace;
     dayTexture.anisotropy = textureAnisotropy;
 
     const nightTexture = textureLoader.load(
       textureQuality === "low"
-        ? "/img/texture/night_low.jpg"
-        : "/img/texture/night.jpg"
+        ? "/dip/img/texture/night_low.jpg"
+        : "/dip/img/texture/night.jpg"
     );
     nightTexture.colorSpace = THREE.SRGBColorSpace;
     nightTexture.anisotropy = textureAnisotropy;
 
     const bumpRoughnessCloudsTexture = textureLoader.load(
       textureQuality === "low"
-        ? "/img/texture/clouds_low.jpg"
-        : "/img/texture/clouds.jpg"
+        ? "/dip/img/texture/clouds_low.jpg"
+        : "/dip/img/texture/clouds.jpg"
     );
     bumpRoughnessCloudsTexture.anisotropy = textureAnisotropy;
 

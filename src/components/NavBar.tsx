@@ -31,13 +31,16 @@ export default function Nav() {
       animate={scrolled ? "scrolled" : "animate"}
       variants={{
         initial: {
-          background: "#33333300",
+          background: "#1E212B00",
+          color: "#1E212B",
         },
         animate: {
-          background: "#33333300",
+          background: "#1E212B00",
+          color: "#1E212B",
         },
         scrolled: {
-          background: "#33333355",
+          background: "#1E212B",
+          color: "#fff",
           backdropFilter: "blur(10px)",
         },
       }}
@@ -61,7 +64,9 @@ export default function Nav() {
             {nav.pages.map((page) => (
               <motion.li
                 key={page.path}
-                className={page.path == pathname ? styles.active : undefined}
+                className={`${
+                  page.path == pathname ? styles.active : undefined
+                } ${page.action ? styles.action : undefined}`}
                 animate={
                   page.path == pathname
                     ? {
@@ -84,16 +89,16 @@ export default function Nav() {
           variants={{
             initial: {
               width: 0,
-              background: "#fff",
+              background: "#1E212B",
             },
             animate: {
               width: "min(calc(100vw - 2 * 20px), 800px)",
-              background: "#fff",
+              background: "#1E212B",
             },
             scrolled: {
               width: "100vw",
               opacity: 0.5,
-              background: "#aaa",
+              background: "#1E212B",
             },
           }}
         ></motion.hr>

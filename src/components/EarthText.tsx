@@ -135,7 +135,7 @@ export default function EarthText(props: EarthTextProps) {
     }
   );
 
-  const textShadow = useMotionTemplate`0px 0px 10px rgba(0, 0, 0, ${textAltProgress})`;
+  const textShadow = useMotionTemplate`0px 0px 10px rgba(255, 255, 255, ${textAltProgress})`;
 
   return (
     <div className={styles.container}>
@@ -155,7 +155,7 @@ export default function EarthText(props: EarthTextProps) {
               cy="calc(28.75px + 16px + 81px/2)"
               r="12px"
               fill="none"
-              stroke="white"
+              stroke="#1e212b"
               strokeWidth="2"
             />
             <motion.circle
@@ -163,7 +163,7 @@ export default function EarthText(props: EarthTextProps) {
               cx="50%"
               cy="calc(28.75px + 16px + 81px/2)"
               r="6px"
-              fill="white"
+              fill="#1e212b"
             />
             <motion.line
               style={{
@@ -174,7 +174,7 @@ export default function EarthText(props: EarthTextProps) {
               y1="calc(28.75px + 16px + 81px/2)"
               x2="50%"
               y2="min(max(calc(60vh - 15vw), 35vw - 20vh), calc(70vh - 5vw))"
-              stroke="white"
+              stroke="#1e212b"
               strokeWidth="2"
             />
           </motion.svg>

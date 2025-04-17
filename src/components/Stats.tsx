@@ -96,7 +96,7 @@ export default function Stats(props: {
           </motion.p>
         </motion.div>
       ))}
-      <style>{`.number-section-pre, .number-section-post {font-size: var(--decor-size); color: var(--foreground); align-items: center;}`}</style>
+      <style>{`.number-section-pre, .number-section-post {font-size: var(--decor-size); color: var(--num-label); align-items: center;}`}</style>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { makePageStream, nav } from "@/app/constants";
+import { makePageStream } from "@/app/constants";
 
 import TitleSplash from "@/components/TitleSplash";
 import WrappedTextHeader from "@/components/TextHeader";
@@ -8,14 +8,15 @@ import CenterImage from "@/components/CenterImage";
 import EarthText from "@/components/EarthText";
 import StatMedia from "@/components/StatMedia";
 
-import PaddiesImage from "@/../public/img/paddies.webp";
+import PaddiesImage from "@/../public/img/background.png";
 
 export default makePageStream([
   {
     component: TitleSplash,
     data: {
-      primary: nav.title.split(" "),
-      secondary: "An Information-Age Solution to the Tragedy of the Commons",
+      primary: ["DIP", ":", "Let's Dip"],
+      secondary:
+        "Make connecting and staying engaged in team bonding events convenient and rewarding for coworkers",
       image: PaddiesImage,
     },
   },
@@ -32,7 +33,7 @@ export default makePageStream([
     data: {
       images: [
         {
-          src: "/img/center/flowchart.png",
+          src: "/dip/img/center/flowchart.png",
           alt: "Flowchart",
           blurbs: [
             "Frontier science creates a *bottom-up solution* to the Tragedy of the Commons.",
@@ -42,7 +43,7 @@ export default makePageStream([
           ],
         },
         {
-          src: "/img/center/cylinder.png",
+          src: "/dip/img/center/cylinder.png",
           alt: "Methane Measurement",
           blurbs: [
             "*World-class measurements* of environmental impacts.",
@@ -50,14 +51,14 @@ export default makePageStream([
           ],
         },
         {
-          src: "/img/center/remote-sensing-before.png",
+          src: "/dip/img/center/remote-sensing-before.png",
           alt: "Sensing Before",
           blurbs: [
             "Remote sensing provides the needed *monitoring, verification, and reporting (MVR)* of successful stewardship.",
           ],
         },
         {
-          src: "/img/center/remote-sensing-after.png",
+          src: "/dip/img/center/remote-sensing-after.png",
           alt: "Sensing After",
           blurbs: [
             "Generating high-quality *results that can be trusted* by patrons and markets.",
@@ -161,8 +162,8 @@ export default makePageStream([
       ],
       media: {
         type: "video",
-        src: "/media/video.mp4",
-        placeholder: "/media/video-placeholder.png",
+        src: "/dip/media/video.mp4",
+        placeholder: "/dip/media/video-placeholder.png",
         alt: "Video discussing the results from our demonstration project on Bali.",
         caption: "Results from our earlier demonstration project on Bali",
       },
@@ -173,7 +174,7 @@ export default makePageStream([
     data: {
       images: [
         {
-          src: "/img/center/field-measurement.png",
+          src: "/dip/img/center/field-measurement.png",
           alt: "Piccarro",
           blurbs: [
             "*In-field gas analyzers* track emissions over time from different irrigation practices.",
@@ -181,7 +182,7 @@ export default makePageStream([
           ],
         },
         {
-          src: "/img/center/subak-bena.png",
+          src: "/dip/img/center/subak-bena.png",
           alt: "Subak Bena",
           blurbs: [
             "Our approach integrates a *deep understanding* of the local people, culture, and institutions.",
@@ -189,7 +190,7 @@ export default makePageStream([
           ],
         },
         {
-          src: "/img/center/somya-pertiwi.png",
+          src: "/dip/img/center/somya-pertiwi.png",
           alt: "Somya Pertiwi",
           blurbs: [
             "The Balinese NGO *Somya Pertiwi (Kindness of the Earth Goddess)* leads the project.",
@@ -228,7 +229,7 @@ export default makePageStream([
       ],
       media: {
         type: "img",
-        src: "/img/plaque.png",
+        src: "/dip/img/plaque.png",
         alt: "Project plaque",
         caption: "Each particpating subak will display our project plaque.",
       },
@@ -282,7 +283,7 @@ export default makePageStream([
       ],
       media: {
         type: "img",
-        src: "/img/flooded-v-not.jpeg",
+        src: "/dip/img/flooded-v-not.jpeg",
         alt: "Time- and GPS-tagged photo of AWD vs Flooded rice paddies.",
         caption:
           "Time- and GPS-tagged photos are used to ground truth our remote sensing of AWD (left) and Flooded (right) rice fields.",
