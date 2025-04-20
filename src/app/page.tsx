@@ -4,77 +4,32 @@ import { makePageStream } from "@/app/constants";
 
 import TitleSplash from "@/components/TitleSplash";
 import WrappedTextHeader from "@/components/TextHeader";
-import CenterImage from "@/components/CenterImage";
-import EarthText from "@/components/EarthText";
+import CenterImage from "@/components/CenterImage"; // Re-importing CenterImage
+import EarthText from "@/components/EarthText"; // Re-importing EarthText
 import StatMedia from "@/components/StatMedia";
-
-import PaddiesImage from "@/../public/img/background.png";
-
+import StatMany from "@/components/StatMany";
+import Hero from "@/../public/img/background.png";
 export default makePageStream([
+  // 1. Title Splash - Introduce DIP
   {
     component: TitleSplash,
     data: {
-      primary: ["DIP", ":", "Let's Dip"],
+      primary: ["Dip", ":", "Let's Dip"],
       secondary:
-        "Make connecting and staying engaged in team bonding events convenient and rewarding for coworkers",
-      image: PaddiesImage,
+        "Fostering genuine connections and engagement through shared activities, making team bonding convenient and rewarding.",
+      image: Hero,
     },
   },
+  // 2. The Problem - Why DIP is needed
   {
     component: WrappedTextHeader,
     data: {
-      section: "The Idea",
-      header: "Realign Individual Incentives to Reflect Global Impacts",
-      text: "An automated system leverages remote sensing and international markets to enable payments to indigenous stewards who enhance the global commons.",
+      section: "The Problem",
+      header: "Disconnected Teams, Missed Opportunities",
+      text: "Many employees, whether hybrid or in-person, feel **disconnected from colleagues** outside of direct work tasks. This social isolation negatively impacts workplace culture, productivity, and satisfaction. Factors like post-pandemic shifts, company size, departmental silos, and ineffective event communication contribute. While strong workplace connections are known to **boost business outcomes** like revenue and retention, current team-building efforts often feel **forced and ineffective**.",
     },
   },
-  {
-    component: CenterImage,
-    data: {
-      images: [
-        {
-          src: "/dip/img/center/flowchart.png",
-          alt: "Flowchart",
-          blurbs: [
-            "Frontier science creates a *bottom-up solution* to the Tragedy of the Commons.",
-            "*Integrating ideas* from agriculture, anthropology, chemistry, complex systems, computer science, earth science, ecology, engineering, economics, and finance.",
-            "Driven by an *Information-Age infrastructure* that is easy to scale up with wide applicability.",
-            "Creates incentives for individuals to **enhance the global commons** rather than destroy it.",
-          ],
-        },
-        {
-          src: "/dip/img/center/cylinder.png",
-          alt: "Methane Measurement",
-          blurbs: [
-            "*World-class measurements* of environmental impacts.",
-            "Producing *a new standard* for tracking and documenting world-improving activities.",
-          ],
-        },
-        {
-          src: "/dip/img/center/remote-sensing-before.png",
-          alt: "Sensing Before",
-          blurbs: [
-            "Remote sensing provides the needed *monitoring, verification, and reporting (MVR)* of successful stewardship.",
-          ],
-        },
-        {
-          src: "/dip/img/center/remote-sensing-after.png",
-          alt: "Sensing After",
-          blurbs: [
-            "Generating high-quality *results that can be trusted* by patrons and markets.",
-          ],
-        },
-      ],
-    },
-  },
-  {
-    component: WrappedTextHeader,
-    data: {
-      section: "World Improving Numbers",
-      header: "WINS",
-      text: "Remote sensing creates **trustworthy WINs** that translate the actions of stewards into measurable outcomes such as tonnes of CO2e avoided or the amount of forest preserved in a natural state. High quality WINS **generate payments** for stewards from global patrons and markets.",
-    },
-  },
+  // 3. EarthText - Contextualizing the Problem (US Focus)
   {
     component: EarthText,
     data: {
@@ -82,7 +37,7 @@ export default makePageStream([
         {
           pan: { x: 0, y: 6 },
           pos: { x: 0.5, y: 0, z: 20 },
-          rot: { x: -200, y: 160, z: 0 },
+          rot: { x: -1.75, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           pointerEvents: "none",
           opacity: 1,
@@ -91,7 +46,7 @@ export default makePageStream([
         {
           pan: { x: 0, y: 2 },
           pos: { x: 0.5, y: 0, z: 8 },
-          rot: { x: -100, y: 160, z: 0 },
+          rot: { x: -0.75, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           pointerEvents: "none",
           opacity: 1,
@@ -100,7 +55,7 @@ export default makePageStream([
         {
           pan: { x: 0, y: 1.2 },
           pos: { x: 0.5, y: 0, z: 3 },
-          rot: { x: -40, y: 160, z: 0 },
+          rot: { x: 0, y: 0, z: 0 },
           sun: { x: 2, y: 1, z: 1 },
           pointerEvents: "auto",
           opacity: 1,
@@ -109,7 +64,7 @@ export default makePageStream([
         {
           pan: { x: 0, y: 1.2 },
           pos: { x: 0.5, y: 0, z: 2.5 },
-          rot: { x: -40, y: 160, z: 0 },
+          rot: { x: 0, y: 0, z: 0 },
           sun: { x: 1, y: 2, z: 2 },
           pointerEvents: "auto",
           opacity: 1,
@@ -118,176 +73,235 @@ export default makePageStream([
         {
           pan: { x: 0, y: 0 },
           pos: { x: 0.5, y: 0, z: 12 },
-          rot: { x: 10, y: 160, z: 0 },
+          rot: { x: 0, y: 1, z: 0 },
           sun: { x: 0, y: 3, z: 2 },
           pointerEvents: "none",
           opacity: 0,
           transform: 0.95,
         },
       ],
-      section: "Our pilot project",
-      header: "Bali, Indonesia",
-      text: "Rice on Bali has been **sustainably farmed for over a millennium.**  Unfortunately, flooded paddies produce methane, a dangerous greenhouse gas.  By changing their irrigation practices to **Alternate Wetting and Drying (AWD)**, farmers can mitigate methane emissions from their fields.  Compensating farmers for taking on the additional risk and effort needed to adopt AWD will allow Bali to **embrace a new regime** of globally sustainable agriculture.",
+      section: "The Modern Workplace Challenge",
+      header: "Bridging the Connection Gap",
+      text: "Across the US, the shift towards hybrid and remote work models, while offering flexibility, has exacerbated feelings of **disconnection** for many employees. Our survey reflects this, with workers rating their connection to colleagues outside of tasks at a mere **2.8 out of 5**. Even for those in-office, large company structures and departmental silos often limit meaningful interaction. This isn't just a social issue; it impacts **morale, teamwork, and ultimately, retention**. DIP aims to address this widespread challenge by creating accessible opportunities for genuine connection.",
     },
   },
+  // 4. The Solution - Introducing the DIP Platform
   {
-    component: StatMedia,
+    component: WrappedTextHeader,
     data: {
-      statsTitle: "Rice and the Global Commons",
-      stats: [
-        {
-          stat: {
-            before: ">",
-            number: 10 / 100,
-            format: { style: "percent" },
-          },
-          text: "*of anthropogenic global methane emissions come from rice farming.*",
-        },
-        {
-          stat: {
-            first: "Methane has",
-            number: 28,
-            after: "x",
-          },
-          text: "the *Global Warming Potential of CO2.* While methane has a limited lifetime in the atmosphere, such emmisions may push the global system *beyond critical tipping points.*",
-        },
-        {
-          stat: {
-            before: ">",
-            number: 70 / 100,
-            format: { style: "percent" },
-          },
-          text: "of the *methane emissions from Balinese rice fields can be eliminated* by not flooding the rice paddies.  AWD also *reduces the runoff of fertilizer* that damages Bali's coral reefs.",
-        },
-      ],
-      media: {
-        type: "video",
-        src: "/dip/media/video.mp4",
-        placeholder: "/dip/media/video-placeholder.png",
-        alt: "Video discussing the results from our demonstration project on Bali.",
-        caption: "Results from our earlier demonstration project on Bali",
-      },
+      section: "Our Solution",
+      header: "Introducing DIP: Connect, Engage, Thrive",
+      text: "DIP tackles workplace disconnection head-on. Our platform suggests **weekly activities tailored to employee interests**, sparking genuine excitement about socializing. We partner with local businesses to offer **discounted activities**, making participation accessible while supporting the community. A key feature is **integrated photo-sharing**, creating a lasting digital album of shared memories to strengthen bonds. DIP aims to seamlessly integrate with existing workplace tools and provide subtle participation metrics, cultivating **authentic human connections** over forced interactions.",
     },
   },
+  // 5. CenterImage - Showcasing DIP Features
   {
     component: CenterImage,
     data: {
       images: [
         {
-          src: "/dip/img/center/field-measurement.png",
-          alt: "Piccarro",
+          src: "/dip/img/center/feature-suggestions.png",
+          alt: "DIP Activity Suggestions UI Mockup",
           blurbs: [
-            "*In-field gas analyzers* track emissions over time from different irrigation practices.",
-            "Such *world-class measurements* provide critical insights not available using the current standards of syringe sampling or national averages.",
+            "**Personalized activity suggestions** based on employee interests.",
+            "Discover new, exciting things to do *with* colleagues, not just *near* them.",
+            "Fosters **genuine enthusiasm** over mandatory fun.",
           ],
         },
         {
-          src: "/dip/img/center/subak-bena.png",
-          alt: "Subak Bena",
+          src: "/dip/img/center/feature-partnerships.png",
+          alt: "Graphic showing DIP local business partnerships",
           blurbs: [
-            "Our approach integrates a *deep understanding* of the local people, culture, and institutions.",
-            "Incorporating such insights *strengthens local traditions and organizations.*",
+            "Exclusive **discounts and deals** at local venues.",
+            "Supports the **local community** and businesses.",
+            "Makes participation **affordable and appealing** (a key motivator!).",
           ],
         },
         {
-          src: "/dip/img/center/somya-pertiwi.png",
-          alt: "Somya Pertiwi",
+          src: "/dip/img/center/feature-photos.png",
+          alt: "DIP Shared Photo Album UI Mockup",
           blurbs: [
-            "The Balinese NGO *Somya Pertiwi (Kindness of the Earth Goddess)* leads the project.",
-            "Scientists from the *International Rice Research Institute* are also monitoring our activities.",
-            "*Somya Pertiwi* is working within the centuries-old system of *communally-governed subaks* that coordinate rice farming across the paddies.",
-            "Agricultural extension agents will *assist the farmers* with the adoption of **AWD**, and monitor the results.",
+            "**Integrated photo-sharing** for events.",
+            "Create lasting **shared memories** together.",
+            "Builds a visual history of team bonding, strengthening connections *beyond* the event.",
+          ],
+        },
+        {
+          src: "/dip/img/center/feature-integration.png",
+          alt: "Icons representing workplace tool integration and subtle metrics",
+          blurbs: [
+            "Aims for **seamless integration** with existing workplace tools.",
+            "Provides **subtle participation insights** without feeling invasive.",
+            "Focuses on cultivating **authentic connections**, not just tracking attendance.",
           ],
         },
       ],
     },
   },
-  {
-    component: StatMedia,
-    data: {
-      statsTitle: "A Letter to the Future",
-      stats: [
-        {
-          stat: {
-            number: 2012,
-            format: { useGrouping: false },
-          },
-          text: "was when the **sustainability of the subak system** was recongized as a *UNESCO World Heritage site.*  Somya Pertiwi provided assistance on the Ministry's proposal.",
-        },
-        {
-          stat: {
-            number: 19,
-          },
-          text: "**subaks** form the *core of the UNESCO site*, all of which are paricipating in the **pilot project.**",
-        },
-        {
-          stat: {
-            number: 3,
-          },
-          text: "sources of happiness form the *Balinese philosophy of Tri Hita Karana:* **harmony among nature, humans, and the gods.**",
-        },
-      ],
-      media: {
-        type: "img",
-        src: "/dip/img/plaque.png",
-        alt: "Project plaque",
-        caption: "Each particpating subak will display our project plaque.",
-      },
-    },
-  },
+  // 6. Survey Intro - Setting context for stats
   {
     component: WrappedTextHeader,
     data: {
-      section: "Next Steps",
-      header: "Engaging with WxC",
-      text: "There are many ways you can learn more about World-x-Change and **participate in the Bali Project.**  If you want to know more about the underlying **science and ideas** driving World-x-Change, explore some of our *research papers and background resources.* If you want to **increase WINs,** please sponsor some **Bali Project carbon offsets** that will eliminate tonnes of CO2e from the atmosphere and support the indigenous land stewards who make this possible. Discover **World-x-Change's team** of people, organizations, and supporters working to apply **quality science to improve the planet** for both patrons and stewards.  If you have any questions or comments, please **connect with us.**",
+      section: "What Employees Think",
+      header: "Insights from Our Workforce (n=21)", // Kept sample size note
+      text: "We surveyed **21 employees** to understand their current connection levels, interest in a platform like DIP, and what motivates (or hinders) participation in social activities with coworkers. The results highlight a clear need and enthusiasm for a better way to connect.",
     },
   },
+  // 7. StatMedia - Combined: Connection, Interest, Impact, Work Env (Using percentages)
   {
     component: StatMedia,
     data: {
-      reverse: true,
-      statsTitle: "Bali and Beyond",
+      statsTitle: "Current State & Perceived Value",
       stats: [
         {
           stat: {
-            before: "~",
-            number: 80000,
-            format: {
-              style: "unit",
-              unit: "hectare",
-            },
+            number: 2.8,
+            after: "/ 5",
+            format: { maximumFractionDigits: 1 },
           },
-          text: "*are devoted to rice farming on Bali*.",
+          text: "Average rating of **connection to coworkers** outside of work tasks.",
         },
         {
           stat: {
-            before: "~",
-            number: 2_400_000 * 1000,
-            format: {
-              style: "unit",
-              unit: "kilogram",
-              notation: "compact",
-              compactDisplay: "long",
-            },
+            number: 67 / 100,
+            format: { style: "percent" },
           },
-          text: "(2.4 million tonnes) of *annual CO2e emissions* could be avoided if **AWD** *was adopted across Bali.*",
+          text: "of employees are **interested** in a platform like DIP.",
         },
         {
           stat: {
-            number: 1.2 / 100,
-            format: { style: "percent", maximumFractionDigits: 2 },
+            number: 71 / 100,
+            format: { style: "percent" },
           },
-          text: "*of Indonesia's rice is grown on Bali*, and Indonesia is only 7% of global production.  Bali is only the beginning, **scaling to the planet is the goal**.",
+          text: "believe socializing **improves teamwork/morale**.",
+        },
+        {
+          stat: {
+            number: 52 / 100,
+            format: { style: "percent" },
+          },
+          text: "believe it **improves work-life balance**.",
+        },
+        {
+          stat: {
+            number: 48 / 100,
+            format: { style: "percent" },
+          },
+          text: "Work **Hybrid**",
+        },
+        {
+          stat: {
+            number: 48 / 100,
+            format: { style: "percent" },
+          },
+          text: "Work **In-Person**",
         },
       ],
       media: {
         type: "img",
-        src: "/dip/img/flooded-v-not.jpeg",
-        alt: "Time- and GPS-tagged photo of AWD vs Flooded rice paddies.",
+        src: "/dip/img/stats-overview.png",
+        alt: "Graphic illustrating employee connection levels and interest in DIP",
         caption:
-          "Time- and GPS-tagged photos are used to ground truth our remote sensing of AWD (left) and Flooded (right) rice fields.",
+          "Employees see room for connection improvement and value the potential impact of socializing.",
       },
+    },
+  },
+  // 8. Conclusion / The Goal - Moved before the final stats section
+  {
+    component: WrappedTextHeader,
+    data: {
+      section: "The Goal",
+      header: "Cultivating Authentic Connections",
+      text: "By understanding what drives participation and addressing the barriers employees face, DIP aims to move beyond forced corporate fun. Our goal is to facilitate **genuine interactions and shared experiences** based on common interests, naturally leading to improved **teamwork, morale, and retention**. Let's DIP into a more connected workplace!",
+    },
+  },
+  // 9. StatMany - Combined: Motivations, Barriers, Interests (Using percentages)
+  {
+    component: StatMany,
+    data: {
+      statsTitle: "What Drives (and Hinders) Participation",
+      stats: [
+        // Motivations
+        {
+          stat: {
+            number: 67 / 100,
+            format: { style: "percent" },
+          },
+          text: "Motivated by **making new friends**.",
+        },
+        {
+          stat: {
+            number: 62 / 100,
+            format: { style: "percent" },
+          },
+          text: "Motivated by **free/discounted experiences**.",
+        },
+        {
+          stat: {
+            number: 52 / 100,
+            format: { style: "percent" },
+          },
+          text: "Motivated by **trying new things**.",
+        },
+        // Barriers
+        {
+          stat: {
+            number: 52 / 100,
+            format: { style: "percent" },
+          },
+          text: "Hindered by **lack of time**.",
+        },
+        {
+          stat: {
+            number: 52 / 100,
+            format: { style: "percent" },
+          },
+          text: "Hindered by **lack of interest in activities** offered.",
+        },
+        {
+          stat: {
+            number: 48 / 100,
+            format: { style: "percent" },
+          },
+          text: "Hindered by **not knowing anyone attending**.",
+        },
+        // Interests
+        {
+          stat: {
+            number: 67 / 100,
+            format: { style: "percent" },
+          },
+          text: "Interested in **Food experiences**.",
+        },
+        {
+          stat: {
+            number: 48 / 100,
+            format: { style: "percent" },
+          },
+          text: "Interested in **Creative workshops**.",
+        },
+        {
+          stat: {
+            number: 38 / 100,
+            format: { style: "percent" },
+          },
+          text: "Interested in **Volunteering**.",
+        },
+        {
+          stat: {
+            number: 33 / 100,
+            format: { style: "percent" },
+          },
+          text: "Interested in **Outdoor adventures**.",
+        },
+        {
+          stat: {
+            number: 33 / 100,
+            format: { style: "percent" },
+          },
+          text: "Interested in **Fitness activities**.",
+        },
+      ],
     },
   },
 ]);

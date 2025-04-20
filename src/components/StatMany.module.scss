@@ -13,6 +13,7 @@
     .stat {
       max-width: unset !important;
       flex: 1 0 200px;
+      width: min(max(250px, 17vw), 400px) !important;
       height: unset !important;
       display: flex;
       flex-flow: column nowrap;

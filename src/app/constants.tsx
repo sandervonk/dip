@@ -4,15 +4,15 @@ export const nav: {
 } = {
   title: "DIP",
   pages: [
-    { name: "Team", path: "/team" },
-    { name: "Connect", path: "/contact", action: true },
+    { name: "Resources", path: "/resources" },
+    { name: "Connect", path: "/team", action: true },
   ],
 };
 
 export const footerLinks = {
   "/": "Home",
-  "/contact": "Connect",
-  "/team": "People",
+  "/resources": "Resources",
+  "/team": "Connect",
 };
 
 import React, { useLayoutEffect, useState } from "react";
