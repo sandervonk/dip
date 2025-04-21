@@ -64,9 +64,9 @@ export default function Nav() {
             {nav.pages.map((page) => (
               <motion.li
                 key={page.path}
-                className={`${
-                  page.path == pathname ? styles.active : undefined
-                } ${page.action ? styles.action : undefined}`}
+                className={`${page.path == pathname ? styles.active : ""} ${
+                  page.action ? styles.action : ""
+                }`}
                 animate={
                   page.path == pathname
                     ? {

@@ -14,7 +14,7 @@ export default makePageStream([
   {
     component: TitleSplash,
     data: {
-      primary: ["Dip", ":", "Let's Dip"],
+      primary: ["DIP", ":", "Let's Dip"],
       secondary:
         "Fostering genuine connections and engagement through shared activities, making team bonding convenient and rewarding.",
       image: Hero,
@@ -181,20 +181,6 @@ export default makePageStream([
             format: { style: "percent" },
           },
           text: "believe it **improves work-life balance**.",
-        },
-        {
-          stat: {
-            number: 48 / 100,
-            format: { style: "percent" },
-          },
-          text: "Work **Hybrid**",
-        },
-        {
-          stat: {
-            number: 48 / 100,
-            format: { style: "percent" },
-          },
-          text: "Work **In-Person**",
         },
       ],
       media: {

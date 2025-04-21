@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
-import { Cursor } from "motion-plus/react";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -31,21 +30,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable}`}>
         <SmoothScrolling>
-          <Cursor
-            style={{
-              backgroundColor: "var(--cursor)",
-              // backgroundImage: "url(/dip/img/cursor.webp)",
-              backgroundSize: "110%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-            }}
-            // add remove background on text varient with overwriting the rest of the style
-            variants={{
-              text: {
-                backgroundImage: "none",
-              },
-            }}
-          />
           <NavBar />
           <main>{children}</main>
           <Footer />

@@ -5,6 +5,7 @@ export const nav: {
   title: "DIP",
   pages: [
     { name: "Resources", path: "/resources" },
+    { name: "Demo", path: "/demo" },
     { name: "Connect", path: "/team", action: true },
   ],
 };
@@ -12,6 +13,7 @@ export const nav: {
 export const footerLinks = {
   "/": "Home",
   "/resources": "Resources",
+  "/demo": "Demo",
   "/team": "Connect",
 };
 
@@ -96,6 +98,7 @@ import { CenterImageProps } from "@/components/CenterImage";
 import { EarthTextProps } from "@/components/EarthText";
 import { StatMediaProps } from "@/components/StatMedia";
 import { StatManyProps } from "@/components/StatMany";
+import { Cursor } from "motion-plus/react";
 
 export type PageParts = Readonly<{ data: object }>;
 export type PageData =
@@ -136,6 +139,17 @@ export function makePageStream(
   return function PageStream() {
     return (
       <div className={styles.pageStream} {...options}>
+        <Cursor
+          style={{
+            backgroundColor: "var(--cursor)",
+          }}
+          // add remove background on text varient with overwriting the rest of the style
+          variants={{
+            text: {
+              backgroundImage: "none",
+            },
+          }}
+        />
         {stream.map((part, i) => {
           // @ts-expect-error data content varies by page
           return part.component && <part.component key={i} data={part.data} />;
