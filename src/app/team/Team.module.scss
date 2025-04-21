@@ -1,0 +1,113 @@
+@import "@/styles/variables.scss";
+
+.pageContainer {
+  padding: 2rem 1rem;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.introHeader {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.introText {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+
+  strong {
+    color: var(--color-green);
+    font-weight: 600;
+  }
+}
+
+.teamListContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.teamMemberCard {
+  border: $border solid $accent;
+  padding: 1.5rem;
+  background-color: $white;
+  box-shadow: 0 0 0 $highlight;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translate(5px, -5px);
+    box-shadow: -5px 5px 0px $highlight;
+  }
+}
+
+.teamMemberImageWrapper {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+}
+
+.teamMemberImage {
+  object-fit: cover;
+}
+
+.teamMemberInfo {
+  h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  p {
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+    color: #555;
+    text-align: left;
+
+    strong {
+      color: #333;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 25px;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.5;
+
+    li {
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  a {
+    color: $button;
+    text-decoration: none;
+    word-break: break-all;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

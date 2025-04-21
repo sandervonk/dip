@@ -23,7 +23,7 @@ export default makePageStream(
       data: {
         section: "Core Document",
         header: "DIP Business Plan",
-        text: `Our comprehensive <a href="/dip/docs/plan.pdf" target="_blank" rel="noopener noreferrer" download="Business Plan.pdf">**business plan**</a> outlines the problem statement, proposed solution, market analysis, platform features, and strategic goals for the DIP platform.`,
+        text: `Our comprehensive <a href="/dip/docs/business.pdf" target="_blank" rel="noopener noreferrer" download="Business Plan.pdf">**business plan**</a> outlines the problem statement, proposed solution, market analysis, platform features, and strategic goals for the DIP platform.`,
       },
     },
 
