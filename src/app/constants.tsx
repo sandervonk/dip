@@ -15,30 +15,62 @@ export const footerLinks = {
   "/team": "Connect",
 };
 
-import React, { useLayoutEffect, useState } from "react";
+import React from "react";
 import styles from "@/styles/TextStyles.module.scss";
 import reactStringReplace from "react-string-replace";
-/** Format text to nested spans with the following markdown-like properties:
- * | parent -> <span className={styles.grey}>(</span>
+
+/**
+ * Format text to nested spans with markdown-like properties and optionally render as HTML.
+ * | parent -> <span className={styles.grey}>(</span> (if greyBase is true)
  * | **text** -> <span className={styles.green}>text</span>
  * | *text* -> <span className={styles.white}>text</span>
+ *
+ * @param text The input string, potentially containing markdown and/or HTML.
+ * @param greyBase If true, wraps the entire output in a span with the grey style. Defaults to true.
+ * @param innerHTML If true, processes markdown replacements and then renders the result as HTML using dangerouslySetInnerHTML. Defaults to false.
+ * @returns A React element (span) containing the formatted text.
  */
-export function ColorText(text: string, greyBase: boolean = true) {
-  const green = /\*\*([^*]+)\*\*/g;
-  const white = /\*([^*]+)\*/g;
-  let content = reactStringReplace(text, green, (match, i, o) => (
-    <span key={["green", i, o].join("-")} className={styles.green}>
-      {match}
-    </span>
-  ));
-  content = reactStringReplace(content, white, (match, i, o) => (
-    <span key={["white", i, o].join("-")} className={styles.white}>
-      {match}
-    </span>
-  ));
-  return <span className={greyBase ? styles.grey : undefined}>{content}</span>;
-}
+export function ColorText(
+  text: string,
+  greyBase: boolean = true,
+  innerHTML: boolean = false
+) {
+  const greenRegex = /\*\*([^*]+)\*\*/g; // Regex to find **bolded** text
+  const whiteRegex = /\*([^*]+)\*/g; // Regex to find *italic* text
 
+  if (innerHTML) {
+    let processedHtml = text.replace(
+      greenRegex,
+      `<span class="${styles.green}">$1</span>`
+    );
+    processedHtml = processedHtml.replace(
+      whiteRegex,
+      `<span class="${styles.white}">$1</span>`
+    );
+    return (
+      <span
+        className={greyBase ? styles.grey : undefined}
+        dangerouslySetInnerHTML={{ __html: processedHtml }}
+      />
+    );
+  } else {
+    let content = reactStringReplace(text, greenRegex, (match, i) => (
+      <span key={`green-${i}`} className={styles.green}>
+        {match}
+      </span>
+    ));
+    content = reactStringReplace(content, whiteRegex, (match, i) => (
+      <span key={`white-${i}`} className={styles.white}>
+        {match}
+      </span>
+    ));
+
+    return (
+      <span className={greyBase ? styles.grey : undefined}>{content}</span>
+    );
+  }
+}
+import { useLayoutEffect, useState } from "react";
 export function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
 
@@ -97,15 +129,18 @@ export type PageData =
       data: any;
     };
 
-export function makePageStream(stream: PageData[]) {
+export function makePageStream(
+  stream: PageData[],
+  options: React.HTMLProps<HTMLDivElement> = {}
+) {
   return function PageStream() {
     return (
-      <React.Fragment>
+      <div className={styles.pageStream} {...options}>
         {stream.map((part, i) => {
           // @ts-expect-error data content varies by page
           return part.component && <part.component key={i} data={part.data} />;
         })}
-      </React.Fragment>
+      </div>
     );
   };
 }

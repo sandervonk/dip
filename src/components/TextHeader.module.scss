@@ -34,6 +34,14 @@
       margin-bottom: 10px;
       line-height: 112%;
       font-weight: 600;
+      a {
+        span {
+          font-weight: 600;
+        }
+        &:hover span {
+          text-decoration: underline;
+        }
+      }
     }
 
     font-size: 32px;

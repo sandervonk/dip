@@ -71,7 +71,9 @@ export default function Nav() {
                   page.path == pathname
                     ? {
                         opacity: 1,
-                        borderBottomColor: "var(--foreground)",
+                        borderBottomColor: scrolled
+                          ? "var(--foreground)"
+                          : "var(--cursor)",
                       }
                     : {
                         opacity: 1,

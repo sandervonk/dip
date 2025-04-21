@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dip: Let's Dip",
+  title: "DIP: Let's Dip",
   description:
     "Make connecting and staying engaged in team bonding events convenient and rewarding for coworkers",
 };

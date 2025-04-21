@@ -30,10 +30,11 @@
         li {
           list-style-type: none;
           opacity: 0.6;
-          border-bottom: $border solid #ffffff00;
+          border-bottom: calc($border * 2) solid #ffffff00;
+          z-index: 2;
           a {
             display: inline-block;
-            line-height: calc($header-height - 1px);
+            line-height: calc($header-height - $border * 2);
             text-decoration: none;
             padding: 0 10px;
           }
@@ -42,7 +43,7 @@
             opacity: 1;
             margin-left: 10px;
             a {
-              margin: calc(($header-height - $border - 24px) / 2) 0;
+              margin: calc(($header-height - $border * 2 - 24px) / 2) 0;
               display: inline-flex;
               align-items: center;
               padding: 7px 10px;
