@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Team.module.scss";
 import { motion } from "motion/react";
+import { Cursor } from "motion-plus/react";
 
 interface TeamMember {
   name: string;
@@ -61,42 +62,14 @@ const teamMembers: TeamMember[] = [
   },
 ];
 
-const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
-  const imageSrc = member.img || "/dip/img/team/placeholder.png";
-
-  return (
-    <motion.div className={styles.teamMemberCard}>
-      <div className={styles.teamMemberImageWrapper}>
-        <Image
-          src={imageSrc}
-          alt={`Photo of ${member.name}`}
-          fill
-          className={styles.teamMemberImage}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={false}
-        />
-      </div>
-      <div className={styles.teamMemberInfo}>
-        <h3>{member.name}</h3>
-        <p>
-          <b>Role:</b> {member.role}
-        </p>
-        <p>
-          <b>Email:</b> <a href={`mailto:${member.email}`}>{member.email}</a>
-        </p>
-        <ul>
-          {member.accomplishments.map((accomplishment, index) => (
-            <li key={index}>{accomplishment}</li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  );
-};
-
 export default function TeamPage() {
   return (
     <main className={styles.pageContainer}>
+      <Cursor
+        style={{
+          backgroundColor: "var(--cursor)",
+        }}
+      />
       <h1 className={styles.introHeader}>Meet the DIP Team</h1>
       <p className={styles.introText}>
         The students who proposed the <b>DIP</b> platform, combining skills in
@@ -104,8 +77,44 @@ export default function TeamPage() {
         disconnection.
       </p>
       <div className={styles.teamListContainer}>
-        {teamMembers.map((member) => (
-          <TeamMemberCard key={member.email} member={member} />
+        {teamMembers.map((member, i) => (
+          <motion.div
+            className={styles.teamMemberCard}
+            key={i}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: i * 0.1,
+            }}
+            viewport={{ once: true }}
+          >
+            <div className={styles.teamMemberImageWrapper}>
+              <Image
+                src={member.img}
+                alt={`Photo of ${member.name}`}
+                fill
+                className={styles.teamMemberImage}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={false}
+              />
+            </div>
+            <div className={styles.teamMemberInfo}>
+              <h3>{member.name}</h3>
+              <p>
+                <b>Role:</b> {member.role}
+              </p>
+              <p>
+                <b>Email:</b>{" "}
+                <a href={`mailto:${member.email}`}>{member.email}</a>
+              </p>
+              <ul>
+                {member.accomplishments.map((accomplishment, index) => (
+                  <li key={index}>{accomplishment}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         ))}
       </div>
     </main>

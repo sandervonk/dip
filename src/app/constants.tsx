@@ -143,12 +143,6 @@ export function makePageStream(
           style={{
             backgroundColor: "var(--cursor)",
           }}
-          // add remove background on text varient with overwriting the rest of the style
-          variants={{
-            text: {
-              backgroundImage: "none",
-            },
-          }}
         />
         {stream.map((part, i) => {
           // @ts-expect-error data content varies by page
