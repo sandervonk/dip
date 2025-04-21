@@ -35,7 +35,7 @@ export default function RootLayout({
           <Footer />
         </SmoothScrolling>
       </body>
-      <GoogleAnalytics gaId="G-R3W7N6X2MC" />
+      <GoogleAnalytics gaId="G-Q2E2SG6NXS" />
     </html>
   );
 }
